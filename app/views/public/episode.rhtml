@@ -16,12 +16,18 @@
 </div>
 
 <% unless @episode.contents.empty? %>
-  <h2>Ecouter</h2>
+  <% if @episode.contents.many? %>
+    <h2>Ecouter</h2>
+  <% end %>
 
   <ul class="contents">
     <% for content in @episode.contents %>
       <li>
-        <%= link_to_content(h(content.name), content, :popup => true) %>
+        <%= link_to_content @episode.contents.many? ? h(content.name) : "Ecouter", content, :popup => true %>
+        <br/>
+        <% if content.has_duration? %>
+          <span class="info">durée: <%= content.duration %> minutes</span>
+        <% end %>
       </li>
     <% end %>
   </ul>

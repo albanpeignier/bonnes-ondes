@@ -1,21 +1,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
  <head>
-  <title>Bonnes Ondes</title>
+  <title><%= strip_tags(yield :title) %> - Bonnes Ondes</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <%= stylesheet_link_tag("public", :media => "screen") %>
   <%= javascript_include_tag(:defaults) %>
  </head>
 
- <body>
+ <% content_tag :body, :class => action_name do %>
   <% content_tag :div, :id => "all", :class => @page_type || "normal" do %>
     <div id="header">
       <div class="left border"></div>
       <div class="right border"></div>
       <h1><%= yield :title %></h1>
     </div>
-    <div id="content">
+    <div id="view">
       <div class="left border"></div>
       <div class="right border"></div>
 
@@ -40,5 +40,5 @@
       </p>
     </div>
   <% end %>
- </body>
+ <% end %>
 </html>

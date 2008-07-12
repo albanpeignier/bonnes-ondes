@@ -3,16 +3,16 @@
   <%= h @content.episode.title %>
 <% end %>
 
-<p>
-  <%= h @content.episode.show.name %>
-  -
-  <%= h @content.episode.title %>
-  <br/>
-  <%= h @content.name %>.
+<div class="description">
+  <p>
+    <%= truncate(strip_tags(textilize(@content.episode.description)),100) %>
+  </p>
+
+  <%= h @content.name %> -
   <% if @content.has_duration? %>
-    <%= @content.duration %> minutes
+    durée: <%= @content.duration %> minutes
   <% end %>
-</p>
+</div>
 
 <% if @content.support_format? :mp3 %>
   <embed src="/flash/mediaplayer.swf" type="application/x-shockwave-flash"
@@ -20,4 +20,9 @@
     flashvars="file=<%= @content.content_url(:format => :mp3) %>" />
   <br/>
 <% end %>
+
 <%= link_to_content("Ecouter sur votre ordinateur", @content, :playlist) %>
+
+<div id="links">
+  <%= link_to_function "Fermer", "window.close()" %>
+</div>
