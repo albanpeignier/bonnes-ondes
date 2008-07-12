@@ -9,34 +9,36 @@
  </head>
 
  <body>
-  <div id="header">
-    <div class="left border"></div>
-    <div class="right border"></div>
-    <h1><%= yield :title %></h1>
-  </div>
-  <div id="content">
-    <div class="left border"></div>
-    <div class="right border"></div>
+  <% content_tag :div, :id => "all", :class => @page_type || "normal" do %>
+    <div id="header">
+      <div class="left border"></div>
+      <div class="right border"></div>
+      <h1><%= yield :title %></h1>
+    </div>
+    <div id="content">
+      <div class="left border"></div>
+      <div class="right border"></div>
 
-    <div id="page">
-      <%= yield %>
-      <div id="copyright">
-        <%= yield :copyright %>
+      <div id="page">
+        <%= yield %>
+        <div id="copyright">
+          <%= yield :copyright %>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="footer">
-    <div class="left border"></div>
-    <div class="right border"></div>
+    <div id="footer">
+      <div class="left border"></div>
+      <div class="right border"></div>
 
-    <p>
-      <% if logged_in? %>
-        <%= link_to("Mon compte", :controller => "account", :action => "index") %>
-      <% else %>
-        <%= link_to("S'identifier", :controller => "account", :action => "login") %>
-      <% end %>
-      - hébergé par <a href="#">Bonnes Ondes</a>
-    </p>
-  </div>
+      <p>
+        <% if logged_in? %>
+          <%= link_to("Mon compte", :controller => "account", :action => "index") %>
+        <% else %>
+          <%= link_to("S'identifier", :controller => "account", :action => "login") %>
+        <% end %>
+        - hébergé par <a href="#">Bonnes Ondes</a>
+      </p>
+    </div>
+  <% end %>
  </body>
 </html>

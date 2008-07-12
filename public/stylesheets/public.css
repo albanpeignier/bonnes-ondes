@@ -1,5 +1,8 @@
-body { background-color:#D0D0D0; font-family:Verdana,Tahoma,Arial,Helvetica,sans-serif; font-size:13px;}
+body { background-color:#D0D0D0; font-family:Verdana,Tahoma,Arial,Helvetica,sans-serif; font-size:13px}
 div,p { margin: 0; padding: 0; }
+
+#all { margin: 0 auto; }
+#all.normal { width: 1024px;  }
 
 #header { background-image:url(../images/public/header_center.png); height:42px; margin: 20px 50px 0 50px; position:relative; }
 
@@ -15,7 +18,7 @@ h1, h1 a { font-size:16pt; color:white; text-decoration: none; }
 
 h2 { font-size: 1.1em; }
 
-#content { background-color:white; left:0px; margin-left:50px; margin-right:50px; padding:20px 34px; position:relative; top:0px; }
+#content { background-color:white; left:0px; margin-left:50px; margin-right:50px; padding:20px 34px; position:relative; top:0px; padding-left: 70px; padding-right: 70px; }
 
 #content .left { background-image:url(../images/public/content_left.png); }
 #content .right { background-image:url(../images/public/content_right.png); }
@@ -34,4 +37,4 @@ h2 { font-size: 1.1em; }
 #page .description img { float: right; margin: 0 10px 10px 10px; }
 #page p { margin: 6px 0; }
 
-#links { margin-top: 20px; text-align: right; }
+#links { clear: both; padding-top: 15px; text-align: right; }

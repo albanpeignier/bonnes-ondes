@@ -24,6 +24,7 @@ class PublicController < ApplicationController
 
   def content
     @content = find_content
+    @page_type = :condensed
     render :layout => "public_render"
   end
 

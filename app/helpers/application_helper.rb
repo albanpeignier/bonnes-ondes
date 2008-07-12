@@ -39,7 +39,7 @@ module ApplicationHelper
 
     html_options = {}
     if options[:popup]
-      html_options[:popup] = ["bonnes-ondes-#{content.id}", 'height=250,width=600']
+      html_options[:popup] = ["bonnes-ondes-#{content.id}", 'height=250,width=800']
     end
     link_to(name, url_for_content(content, options), html_options)
   end
