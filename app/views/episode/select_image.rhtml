@@ -1,0 +1,20 @@
+<%= error_messages_for(:episode) %>
+
+<h2>Choisir l'image de l'épisode</h2>
+<p>Episode: <%= @episode.title %></p>
+
+<% form_tag(:action => :select_image) do %>
+
+  <ul class="images">
+    <% for image in @episode.show.images %>
+      <li>
+        <%= radio_button_tag "episode[image_id]", image.id, @episode.image == image %>
+        <%= image_tag image.public_filename(:thumb) %>
+        <%= h image.title %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= submit_tag "Sélectionner" %>
+    ou <%= link_to("revenir", :action => "episode", :id => @episode) %>
+<% end %>

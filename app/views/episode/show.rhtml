@@ -1,0 +1,58 @@
+<h2><%= @episode.show.name %> - <%= @episode.title %></h2>
+<div class="description">
+<%= (image_tag @episode.image.public_filename(:thumb)) if @episode.image %>
+<%= textilize(@episode.description) %>
+</div>
+
+<p>créé <%= format_date(@episode.created_at) %>, modifié <%= format_date(@episode.updated_at) %></p>
+
+<div class="actions">
+<%= link_to("Voir", url_for_episode(@episode), :class => "view", :popup => true) %>
+<%= link_to("Modifier", { :action => "edit", :id => @episode }, :class => "edit") %>
+<%= link_to("Image", { :action => "select_image", :id => @episode }, :class => "edit") %>
+<%= link_to("Supprimer", { :action => "delete", :id => @episode }, :confirm => "Etes-vous sûr de vouloir définitivement supprimer cet épisode ?", :class => "destroy") %>
+</div>
+
+<h3>Contenu</h3>
+
+<% unless @episode.contents.empty? %>
+  <ul>
+    <% for content in @episode.contents %>
+      <li>
+        <h4><%= link_to(content.name, { :controller => "content", :action => "play", :id => content })%></h4>
+        <p>Durée
+          <% if content.has_duration? %>
+            <%= content.duration %> minutes
+          <% else %>
+            inconnue
+          <% end %>
+        </p>
+        <div class="details">
+          <span class="created_at">créé <%= format_date(content.created_at) %></span>
+        </div>
+        <div class="actions">
+          <%= link_to("Ecouter", { :controller => "content", :action => "play", :id => content }) %>
+          <%= link_to("Supprimer", { :controller => "content", :action => "delete", :id => content }, :confirm => "Etes-vous sûr de vouloir définitivement supprimer ce contenu ?", :class => "destroy") %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <p>
+    Vous pouvez ajouter plusieurs sons, par exemple, pour présenter des extraits.
+  </p>
+<% else %>
+<p>
+  Vous pouvez associer un ou plusieurs sons à cet épisode.
+</p>
+<% end %>
+
+<div class="actions">
+  <%=
+    link_to("Ajouter un document AudioBank",
+    { :controller => "content", :action => "create_audiobank", :episode_id => @episode})
+  %>
+  <%=
+    link_to("Ajouter un son sur le net",
+    { :controller => "content", :action => "create_net", :episode_id => @episode})
+  %>
+</div>

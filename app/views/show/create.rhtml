@@ -1,0 +1,21 @@
+<%= error_messages_for(:show) %>
+
+<h2>Renseigner une émission</h2>
+
+<% form_tag(:action => :create) do %>
+ <p><label for="show_name">Nom :</label><br/>
+ <%= text_field("show", "name") %></p>
+
+ <%= observe_field 'show_name', :url => { :action => :create_slug },
+  :with => 'name', :frequency => 2 %>
+
+ <p><label for="show_slug">Lien :</label><br/>
+ <%= text_field("show", "slug") %></p>
+
+ <p><label for="show_description">Description :</label><br/>
+ <%= textile_editor 'show', 'description', :rows => 10, :cols => 60 -%></p>
+
+ <%= submit_tag "Créer" %> ou <%= link_to("revenir", :controller => "account", :action => "index") %>
+
+ <%= textile_editor_initialize -%>
+<% end %>

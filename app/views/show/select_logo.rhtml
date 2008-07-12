@@ -1,0 +1,20 @@
+<%= error_messages_for(:show) %>
+
+<h2>Choisir le logo de l'émission</h2>
+<p>Emission: <%= @show.name %></p>
+
+<% form_tag(:action => :select_logo) do %>
+
+  <ul class="images">
+    <% for image in @show.images %>
+      <li>
+        <%= radio_button_tag "show[logo_id]", image.id, @show.logo == image %>
+        <%= image_tag image.public_filename(:thumb) %>
+        <%= h image.title %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= submit_tag "Sélectionner" %>
+    ou <%= link_to("revenir", :action => "show", :id => @show) %>
+<% end %>

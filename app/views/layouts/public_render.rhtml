@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+ <head>
+  <title>Bonnes Ondes</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <%= stylesheet_link_tag("public", :media => "screen") %>
+  <%= javascript_include_tag(:defaults) %>
+ </head>
+
+ <body>
+  <div id="header">
+    <div class="left border"></div>
+    <div class="right border"></div>
+    <h1><%= yield :title %></h1>
+  </div>
+  <div id="content">
+    <div class="left border"></div>
+    <div class="right border"></div>
+
+    <div id="page">
+      <%= yield %>
+      <div id="copyright">
+        <%= yield :copyright %>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="left border"></div>
+    <div class="right border"></div>
+
+    <p>
+      <% if logged_in? %>
+        <%= link_to("Mon compte", :controller => "account", :action => "index") %>
+      <% else %>
+        <%= link_to("S'identifier", :controller => "account", :action => "login") %>
+      <% end %>
+      - hébergé par <a href="#">Bonnes Ondes</a>
+    </p>
+  </div>
+ </body>
+</html>

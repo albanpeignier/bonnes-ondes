@@ -1,0 +1,22 @@
+<%= error_messages_for(:content) %>
+
+<h2>Ajouter un son sur le net</h2>
+<p>Episode: <%= @content.episode.title %></p>
+
+<% form_for :content, @content, :url => { :action => :create_net } do |f| %>
+ <p><label for="content_name">Nom :</label><br/>
+ <%= f.text_field :name %></p>
+
+ <p><label for="content_slug">Lien :</label><br/>
+ <%= f.text_field :slug %></p>
+
+ <p><label for="content_url">URL :</label><br/>
+ <%= f.text_field :url %></p>
+
+ <p><label for="content_duration">Durée :</label><br/>
+ <%= f.text_field :duration %></p>
+
+ <%= f.hidden_field :episode_id %>
+
+ <%= submit_tag "Créer" %> ou <%= link_to("revenir", :controller => "episode", :action => "show", :id => @content.episode ) %>
+<% end %>

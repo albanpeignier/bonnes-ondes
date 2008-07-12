@@ -1,0 +1,8 @@
+<% unless flash.empty? %>
+ <div id="messages">
+  <% if flash[:success] %><div id="flash" class="success"><%= flash[:success] %></div><% end %>
+  <% if flash[:failure] %><div id="flash" class="failure"><%= flash[:failure] %></div><% end %>
+  <% if flash[:warning] %><div id="flash" class="warning"><%= flash[:warning] %></div><% end %>
+  <% if flash[:notice] %><div id="flash"><%= flash[:notice] %></div><% end %>
+ </div>
+<% end %>

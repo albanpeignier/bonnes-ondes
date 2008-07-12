@@ -1,0 +1,26 @@
+<% content_for :title do %> <%= h @show.name %> <% end %>
+
+<div class="description">
+<%= (image_tag @show.logo.public_filename(:normal)) if @show.logo %>
+<%= textilize(@show.description) %>
+</div>
+
+<% unless @show.episodes.empty? %>
+  <% last_episode = @show.episodes.first %>
+  <h2>Dernier épisode : <%= h last_episode.title %></h2>
+
+  <div class="description">
+  <%= textilize(last_episode.description) %>
+  </div>
+
+  <h2>Tous les épisodes</h2>
+
+  <ul>
+  <% for episode in @show.episodes %>
+    <li><%= link_to_episode(episode) %></li>
+  <% end %>
+  </ul>
+
+<% else %>
+
+<% end %>

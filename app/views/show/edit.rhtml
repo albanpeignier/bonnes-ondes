@@ -1,0 +1,17 @@
+<%= error_messages_for(:show) %>
+
+<h2>Modifier une émission</h2>
+
+<% form_tag(:action => :edit) do %>
+ <p><label for="show_name">Nom :</label><br/>
+ <%= text_field("show", "name") %></p>
+
+ <p><label for="show_description">Description :</label><br/>
+
+ <%= textile_editor 'show', 'description', :rows => 10, :cols => 60 -%>
+ </p>
+
+ <%= submit_tag "Modifier" %> ou <%= link_to("revenir", :action => "show", :id => @show) %>
+
+ <%= textile_editor_initialize -%>
+<% end %>

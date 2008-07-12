@@ -1,0 +1,31 @@
+<% content_for :title do %>
+  <%= link_to_show @episode.show %>
+  -
+  <%= h @episode.title %>
+<% end %>
+
+<strong>Emission:</strong>
+<%= link_to_show @episode.show %>
+
+<div class="description">
+
+<% if @episode.image %>
+  <%= image_tag @episode.image.public_filename(:normal) %>
+<% elsif @episode.show.logo %>
+  <%= image_tag @episode.show.logo.public_filename(:normal) %>
+<% end %>
+
+<%= textilize(@episode.description) %>
+</div>
+
+<% unless @episode.contents.empty? %>
+  <h2>Ecouter</h2>
+
+  <ul class="contents">
+    <% for content in @episode.contents %>
+      <li>
+        <%= link_to_content(h(content.name), content, :popup => true) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

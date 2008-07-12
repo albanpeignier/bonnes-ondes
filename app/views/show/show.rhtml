@@ -1,0 +1,60 @@
+<h2><%= @show.name %></h2>
+<div class="description">
+<%= (image_tag @show.logo.public_filename(:thumb)) if @show.logo %>
+<%= textilize(@show.description) %>
+</div>
+
+<p>créée <%= format_date(@show.created_at) %>, modifiée <%= format_date(@show.updated_at) %></p>
+
+<div class="actions">
+<%= link_to("Voir", url_for_show(@show), :class => "view", :popup => true) %>
+<%= link_to("Modifier", { :action => "edit", :id => @show }, :class => "edit") %>
+<%= link_to("Logo", { :action => "select_logo", :id => @show }, :class => "edit") %>
+<%= link_to("Supprimer", { :action => "delete", :id => @show }, :confirm => "Etes-vous sûr de vouloir définitivement supprimer cette émission ?", :class => "destroy") %>
+</div>
+
+<h3>Episodes</h3>
+
+<% unless @show.episodes.empty? %>
+  <p>
+  <% if @show.episodes.size > 1 %>
+    <%= @show.episodes.size %> épisodes sont renseignés :
+  <% else %>
+    Un épisode est renseigné :
+  <% end %>
+  </p>
+
+  <ul>
+  <% for episode in @show.episodes %>
+    <li><%= link_to("#{episode.order} - #{episode.title}", :controller => "episode", :action => "show", :id => episode) %></li>
+  <% end %>
+  </ul>
+  <p>Ajouter <%= link_to("un nouvel épisode", :controller => "episode", :action => "create", :show => @show) %></p>
+<% else %>
+  <p>Renseigner <%= link_to("le premier épisode", :controller => "episode", :action => "create", :show => @show) %> de cette émission</p>
+<% end %>
+
+<h3>Images</h3>
+
+<p>Les dernières images ajoutées :</p>
+
+<% unless @show.images.empty? %>
+  <ul class="images">
+    <% for image in @show.images %>
+      <li>
+        <%= image_tag image.public_filename(:thumb) %>
+        <%= h image.title %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p>Ajouter <%= link_to("une nouvelle image", :controller => "image", :action => "create", :show => @show) %></p>
+
+<h3>Statistiques</h3>
+
+<% if @show.visit_count > 0 %>
+  <p>La page de votre émission a été visitée <%= @show.visit_count %> fois.</p>
+<% else %>
+  <p>La page de votre émission n'a pas encore été visitée.</p>
+<% end %>

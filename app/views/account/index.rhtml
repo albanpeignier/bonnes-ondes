@@ -1,0 +1,29 @@
+<h2>Vos émissions</h2>
+
+<% unless @user.shows.empty? %>
+  <ul>
+  <% for show in @user.shows %>
+    <li><%= link_to(show.name, :controller => "show", :action => "show", :id => show) %></li>
+  <% end %>
+  </ul>
+  <p>Ajouter <%= link_to("une nouvelle émission", :controller => "show", :action => "create") %></p>
+<% else %>
+  <p>Renseigner <%= link_to("votre première émission", :controller => "show", :action => "create") %></p>
+<% end %>
+
+<h2>Episodes</h2>
+
+<% unless @user.episodes.empty? %>
+<p>Vous avez renseigné <%= pluralize(@episodes_count, "épisode") %></p>
+
+<p>Les derniers épisodes renseignés :</p>
+<ul>
+<% for episode in @episodes_lasts %>
+  <li>
+    <%= link_to("#{episode.show.name} - #{episode.title}", 
+      {:controller => "episode", :action => "show", :id => episode}) %>
+  </li>
+<% end %>
+</ul>
+
+<% end %>

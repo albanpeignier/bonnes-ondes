@@ -1,0 +1,27 @@
+<%= error_messages_for(:episode) %>
+
+<h2>Renseigner un épisode</h2>
+<p>Emission: <%= @episode.show.name %></p>
+
+<% form_tag(:action => :create) do %>
+ <p><label for="episode_title">Titre :</label><br/>
+ <%= text_field("episode", "title") %></p>
+
+ <%= observe_field 'episode_title', :url => { :action => :create_slug },
+  :with => 'name', :frequency => 2 %>
+
+ <p><label for="episode_order">Numéro :</label><br/>
+ <%= text_field("episode", "order") %></p>
+
+ <p><label for="episode_slug">Lien :</label><br/>
+ <%= text_field("episode", "slug") %></p>
+
+ <p><label for="episode_description">Description :</label><br/>
+ <%= textile_editor 'episode', 'description', :rows => 10, :cols => 60 -%></p>
+
+ <%= hidden_field("episode", "show_id") %>
+
+ <%= submit_tag "Créer" %> ou <%= link_to("revenir", :controller => "show", :action => "show", :id => @episode.show ) %>
+
+ <%= textile_editor_initialize -%>
+<% end %>

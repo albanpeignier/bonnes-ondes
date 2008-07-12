@@ -1,0 +1,16 @@
+<%= error_messages_for(:image) %>
+
+<h2>Ajouter une image</h2>
+<p>Emission: <%= @image.show.name %></p>
+
+<% form_for :image, :url => { :action => :create, :show => @image.show }, :html => { :multipart => true } do |f| -%>
+ <p><label for="image_title">Titre :</label><br/>
+ <%= f.text_field :title %></p>
+
+ <p><label for="image_uploaded_data">Fichier :</label><br/>
+ <%= f.file_field :uploaded_data %></p>
+
+ <%= f.hidden_field :show_id %>
+
+ <%= submit_tag "Créer" %> ou <%= link_to("revenir", :controller => "image", :action => "list", :show => @image.show ) %>
+<% end %>

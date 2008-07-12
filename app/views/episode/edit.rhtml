@@ -1,0 +1,18 @@
+<%= error_messages_for(:episode) %>
+
+<h2>Modifier un épisode</h2>
+<p>Emission: <%= @episode.show.name %></p>
+
+<% form_tag(:action => :edit) do %>
+ <p><label for="episode_title">Titre :</label><br/>
+ <%= text_field("episode", "title") %></p>
+
+ <p><label for="episode_order">Numéro :</label><br/>
+ <%= text_field("episode", "order") %></p>
+
+ <p><label for="episode_description">Description :</label><br/>
+ <%= textile_editor 'episode', 'description', :rows => 10, :cols => 50 -%></p>
+
+ <%= submit_tag "Modifier" %> ou <%= link_to("revenir", :action => "show", :id => @episode ) %>
+ <%= textile_editor_initialize -%>
+<% end %>
