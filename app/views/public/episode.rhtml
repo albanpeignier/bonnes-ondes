@@ -4,9 +4,6 @@
   <%= h @episode.title %>
 <% end %>
 
-<strong>Emission:</strong>
-<%= link_to_show @episode.show %>
-
 <div class="description">
 
 <% if @episode.image %>
@@ -29,3 +26,7 @@
     <% end %>
   </ul>
 <% end %>
+
+<div id="links">
+  Retour à <%= link_to_show @episode.show %>
+</div>
