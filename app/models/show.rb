@@ -1,5 +1,9 @@
 class Show < ActiveRecord::Base
 
+  def after_initialize
+    self.visit_count ||= 0
+  end
+
   validates_presence_of :name, :message => "Pas de nom défini"
   validates_length_of :name, :within => 3..30, :too_short => "Le nom est trop court", :too_long => "Le nom est trop long"
 
