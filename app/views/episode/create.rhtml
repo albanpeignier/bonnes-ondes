@@ -5,7 +5,7 @@
 
 <% form_tag(:action => :create) do %>
  <p><label for="episode_title">Titre :</label><br/>
- <%= text_field("episode", "title") %></p>
+ <%= text_field "episode", "title", :size => 40 %></p>
 
  <%= observe_field 'episode_title', :url => { :action => :create_slug },
   :with => 'name', :frequency => 2 %>

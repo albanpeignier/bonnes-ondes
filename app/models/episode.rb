@@ -4,7 +4,7 @@ class Episode < ActiveRecord::Base
   validates_uniqueness_of :order, :scope => :show_id, :message => "Un épisode utilise déjà ce numéro"
 
   validates_presence_of :title, :message => "Pas de titre défini"
-  validates_length_of :title, :within => 3..30, :too_short => "Le titre est trop court", :too_long => "Le titre est trop long"
+  validates_length_of :title, :within => 3..40, :too_short => "Le titre est trop court (minimum %d caractères)", :too_long => "Le titre est trop long (maximum %d caractères)"
 
   validates_presence_of :description, :message => "Pas de description définie"
 
