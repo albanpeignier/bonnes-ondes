@@ -7,6 +7,10 @@ module ApplicationHelper
     url_for options
   end
 
+  def url_for_podcast(show)
+    url_for :controller => "public", :action => "feed", :show_slug => show.slug
+  end
+
   def url_for_episode(episode, options = {})
     options.update({ :controller => "public", :action => "episode",
       :show_slug => episode.show.slug,

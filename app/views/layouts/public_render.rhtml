@@ -9,7 +9,7 @@
     <%= tag(:link,
       :rel => "alternate", :type => "application/rss+xml",
       :title => "Le podcast : #{@show.name}",
-      :href => url_for(:action => 'feed', :show_slug => @show.slug))
+      :href => url_for_podcast(@show))
     %>
   <% end %>
 

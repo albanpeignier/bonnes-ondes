@@ -20,7 +20,10 @@
     <li><%= link_to_episode(episode) %></li>
   <% end %>
   </ul>
-
-<% else %>
-
 <% end %>
+
+<h2>Abonnez-vous</h2>
+
+<ul>
+<li>Podcast : <%= link_to "RSS", url_for_podcast(@show) %></li>
+</ul>
