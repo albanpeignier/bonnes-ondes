@@ -3,12 +3,13 @@ class PublicController < ApplicationController
   layout "public"
   skip_before_filter :login_required
 
+  before_filter :assigns_show
+
   def welcome
     @episodes_last =  Episode.find(:all, :order => "created_at DESC", :limit => 10)
   end
 
   def show
-    @show = find_show
     create_visit @show
     render :layout => "public_render"
   end
@@ -19,7 +20,6 @@ class PublicController < ApplicationController
   end
 
   def feed
-    @show = find_show
     render :content_type => "application/rss+xml", :layout => false
   end
 
@@ -35,7 +35,13 @@ class PublicController < ApplicationController
 
   private
 
+  def assigns_show
+    @show = find_show unless params[:show_slug].blank?
+  end
+
   def find_show
+    return @show unless @show.blank?
+
     show = Show.find_by_slug(params[:show_slug])
     raise ActiveRecord::RecordNotFound if show.nil?
     show
