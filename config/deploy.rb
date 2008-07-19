@@ -1,5 +1,5 @@
 set :application, "bonnes-ondes"
-set :repository, "svn+ssh://svn.tryphon.org/private/bonnes-ondes/trunk"
+set :repository, "svn+ssh://svn.tryphon.org/kolaka/bonnes-ondes/trunk"
 
 set :deploy_via, :copy
 set :copy_strategy, :export
