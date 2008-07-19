@@ -28,4 +28,8 @@ class Show < ActiveRecord::Base
     current + 1
   end
 
+  def last_update_at
+    (self.episodes + [ self ]).collect(&:updated_at).max
+  end
+
 end

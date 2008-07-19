@@ -18,6 +18,11 @@ class PublicController < ApplicationController
     render :layout => "public_render"
   end
 
+  def feed
+    @show = find_show
+    render :content_type => "application/rss+xml", :layout => false
+  end
+
   def playlist
     content_playlist find_content
   end

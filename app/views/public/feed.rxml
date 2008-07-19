@@ -1,0 +1,37 @@
+xml.rss :version => "2.0", 'xmlns:itunes' => "http://www.itunes.com/dtds/podcast-1.0.dtd" do
+	xml.channel do
+		xml.title @show.name
+		xml.description textilize_in_text(@show.description)
+		xml.link url_for_show(@show, :only_path => false)
+		xml.lastBuildDate @show.last_update_at.strftime("%a, %e %b %Y %T %Z")
+
+		xml.language "fr"
+
+		xml.itunes :summary, textilize_in_text(@show.description)
+		if @show.logo
+  		xml.itunes :image, :href => image_path(@show.logo.public_filename(:normal))
+		end
+
+		for episode in @show.episodes
+  	 content = episode.contents.first
+  	 next if content.nil?
+
+	   xml.item do
+	   	 xml.title episode.title
+
+	   	 # TODO add keywords here
+	   	 # xml.itunes :keywords, document.tags[0..11].join(",")
+
+	   	 xml.description textilize_in_text(episode.description)
+       xml.itunes :summary, textilize_in_text(episode.description)
+
+	   	 xml.itunes :duration, "#{content.duration}:00" if content.has_duration?
+
+       # TODO add content length
+    	 xml.enclosure :url => content.content_url(:format => :mp3), :type => "audio/mpeg"
+    	 xml.guid url_for_episode(episode, :only_path => false)
+    	 xml.pubDate episode.updated_at.strftime("%a, %e %b %Y %T %Z")
+	   end
+		end
+	end
+end
