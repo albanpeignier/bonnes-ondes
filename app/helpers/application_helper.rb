@@ -1,15 +1,18 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
-  def url_for_show(show)
-    url_for({ :controller => "public", :action => "show",
+  def url_for_show(show, options = {})
+    options.update({ :controller => "public", :action => "show",
       :show_slug => show.slug })
+    url_for options
   end
 
-  def url_for_episode(episode)
-    url_for({ :controller => "public", :action => "episode",
+  def url_for_episode(episode, options = {})
+    options.update({ :controller => "public", :action => "episode",
       :show_slug => episode.show.slug,
       :episode_slug => episode.slug })
+
+    url_for options
   end
 
   def url_for_content(content, options = {})
@@ -73,6 +76,10 @@ module ApplicationHelper
 
   def textile_editor(*args)
     (super *args) + '<br/><div class="textile_editor_help">Ajouter un lien: "Bonnes Ondes":http://bonnes-ondes.fr</div>'
+  end
+
+  def textilize_in_text(content)
+    strip_tags textilize(content)
   end
 
 end
