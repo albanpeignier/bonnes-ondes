@@ -5,7 +5,7 @@
 
 <div class="description">
   <p>
-    <%= truncate(strip_tags(textilize(@content.episode.description)),100) %>
+    <%= truncate textilize_in_text(@content.episode.description), 100  %>
   </p>
 
   <%= h @content.name %> -
