@@ -1,6 +1,8 @@
 xml.rss :version => "2.0", 'xmlns:itunes' => "http://www.itunes.com/dtds/podcast-1.0.dtd" do
 	xml.channel do
 		xml.title @show.name
+
+    xml.comment! @show.podcast_comment unless @show.podcast_comment.blank?
 		xml.description textilize_in_text(@show.description)
 		xml.link url_for_show(@show, :only_path => false)
 		xml.lastBuildDate @show.last_update_at.strftime("%a, %e %b %Y %T %Z")
