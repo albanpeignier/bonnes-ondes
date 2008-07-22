@@ -18,3 +18,4 @@ config.action_controller.perform_caching             = true
 # config.action_mailer.raise_delivery_errors = false
 
 ActionController::Base.asset_host = "www.bonnes-ondes.fr"
+ActionController::CgiRequest::DEFAULT_SESSION_OPTIONS.update(:session_domain => '.bonnes-ondes.fr')
