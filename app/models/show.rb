@@ -16,6 +16,7 @@ class Show < ActiveRecord::Base
   validates_format_of :slug, :with => /^[a-z0-9-]*$/, :message => "Le lien ne peut contenir que des minuscules, des chiffres et des tirets"
 
   validates_uniqueness_of :slug
+  validates_exclusion_of :slug, :in => %w(www ftp assets0 assets1 assets2 assets3), :message => "Ce lien '%s' n'est pas disponible"
 
   has_and_belongs_to_many :users
   has_many :episodes, :dependent => :destroy, :order => "`order` desc"
