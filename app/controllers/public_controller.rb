@@ -6,12 +6,19 @@ class PublicController < ApplicationController
   before_filter :assigns_show
 
   def welcome
-    @episodes_last =  Episode.find(:all, :order => "created_at DESC", :limit => 10)
+    if @show.blank?
+      if request.host =~ /((www.)bonnes-ondes.fr|localhost)/
+        @episodes_last =  Episode.find(:all, :order => "created_at DESC", :limit => 10)
+      else
+        raise ActiveRecord::RecordNotFound
+      end
+    else
+      render_show
+    end
   end
 
   def show
-    create_visit @show
-    render :layout => "public_render"
+    render_show
   end
 
   def episode
@@ -35,16 +42,27 @@ class PublicController < ApplicationController
 
   private
 
-  def assigns_show
-    @show = find_show unless params[:show_slug].blank?
+  def render_show
+    create_visit @show
+    render :layout => "public_render", :action => :show
   end
 
-  def find_show
-    return @show unless @show.blank?
+  def assigns_show
+    host = Host.find_by_name(request.host)
+    unless host.blank?
+      @show = host.show
+    end
 
-    show = Show.find_by_slug(params[:show_slug])
-    raise ActiveRecord::RecordNotFound if show.nil?
-    show
+    show_slug = ""
+    if request.host =~ /^(.*).bonnes-ondes.fr$/
+      show_slug = $1
+    end
+
+    @show = find_show(show_slug)
+  end
+
+  def find_show(slug = nil)
+    @show ||= Show.find_by_slug(slug)
   end
 
   def find_episode
