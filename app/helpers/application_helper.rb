@@ -1,19 +1,29 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  def show_hostname(show)
+    hostname = if show.host.nil?
+      "#{show.slug}.bonnes-ondes.fr"
+    else
+      show.host.name
+    end
+
+    hostname + request.port_string
+  end
+
   def url_for_show(show, options = {})
     options.update({ :controller => "public", :action => "show",
-      :show_slug => show.slug })
+      :host => show_hostname(show) })
     url_for options
   end
 
   def url_for_podcast(show)
-    url_for :controller => "public", :action => "feed", :show_slug => show.slug
+    url_for :controller => "public", :action => "feed", :host => show_hostname(show)
   end
 
   def url_for_episode(episode, options = {})
     options.update({ :controller => "public", :action => "episode",
-      :show_slug => episode.show.slug,
+      :host => show_hostname(episode.show),
       :episode_slug => episode.slug })
 
     url_for options
@@ -28,7 +38,7 @@ module ApplicationHelper
     end
 
     url_for(options.merge({ :controller => "public", :action => mode,
-      :show_slug => content.episode.show.slug,
+      :host => show_hostname(content.episode.show),
       :episode_slug => content.episode.slug, :content_slug => content.slug }))
   end
 
