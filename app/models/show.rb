@@ -1,5 +1,7 @@
 class Show < ActiveRecord::Base
 
+  has_one :host
+
   def after_initialize
     self.visit_count ||= 0
   end
