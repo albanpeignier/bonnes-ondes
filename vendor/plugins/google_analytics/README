@@ -1,0 +1,57 @@
+GoogleAnalytics
+===============
+
+This is a quick 'n' dirty module to easily enable Google Analytics support
+in your application.  By default it'll output the analytics code for every
+single page automatically, if it's configured correctly.  This is done by
+adding:
+
+    Rubaidh::GoogleAnalytics.tracker_id = 'UA-12345-67'
+
+to your `config/environment.rb`, inserting your own tracker id. This can be
+discovered by looking at the value assigned to +_uacct+ in the Javascript
+code.
+
+If you want to disable the code insertion for particular pages, add the following to controllers that don't want it:
+
+    skip_after_filter :add_google_analytics_code
+
+If you are running rails 2.1 or above add install this by adding:
+    
+    config.gem 'markcatley-google_analytics', :lib => 'rubaidh/google_analytics', :source => 'http://gems.github.com'
+    
+and run:
+
+    rake gems:install
+
+Simple. :-)
+
+
+NOTE
+
+This version of the plugin uses the new Google Analytics code (ga.js) by
+default.  To use the legacy tracking code add the following line to your
+`config/environment.rb`:
+
+    Rubaidh::GoogleAnalytics.legacy_mode = true
+
+TRACKING OUTBOUND LINKS
+
+Google Analytics only tracks intra-site links by default. To create an outbound link that is tracked use
+the link_to_tracked helper:
+
+link_to_tracked(name, track_path = "/", options = {}, html_options = {})
+
+You can use the track_path parameter to group your outbound links into logical folders inside of
+Google Analytics.
+
+The other forms of link_to are also supported:
+
+link_to_tracked_if(condition, name, track_path = "/", options = {}, html_options = {}, &block)
+link_to_tracked_unless(condition, name, track_path = "/", options = {}, html_options = {}, &block)
+link_to_tracked_unless_current(name, track_path = "/", options = {}, html_options = {}, &block)
+
+Tracked links respect the legacy_mode flag.
+
+Note: Link-tracking works by inserting onclick() code in the HTML. Because of this, it will overwrite
+any onclick that you insert in the html_options hash.
