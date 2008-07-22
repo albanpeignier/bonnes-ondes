@@ -18,7 +18,3 @@ config.action_controller.asset_host                  = "www.bonnes-ondes.fr"
 # config.action_mailer.raise_delivery_errors = false
 
 ActionController::CgiRequest::DEFAULT_SESSION_OPTIONS.update :session_domain => '.bonnes-ondes.fr'
-
-Rubaidh::GoogleAnalytics.tracker_id = 'UA-1896598-5'
-Rubaidh::GoogleAnalytics.environments = ['production']
-Rubaidh::GoogleAnalytics.domain_name = 'bonnes-ondes.fr'
