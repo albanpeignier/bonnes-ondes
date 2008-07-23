@@ -3,6 +3,8 @@ class PublicController < ApplicationController
   layout "public"
   skip_before_filter :login_required
 
+  append_view_path "#{RAILS_ROOT}/templates"
+
   before_filter :assigns_show
 
   def welcome
@@ -23,7 +25,11 @@ class PublicController < ApplicationController
 
   def episode
     @episode = find_episode
-    render :layout => "public_render"
+    if @episode.show.template.nil?
+      render :layout => "public_render"
+    else
+      render_template @episode.show, :episode, @episode
+    end
   end
 
   def feed
@@ -36,15 +42,29 @@ class PublicController < ApplicationController
 
   def content
     @content = find_content
-    @page_type = :condensed
-    render :layout => "public_render"
+
+    logger.debug @content.episode.show.template.inspect
+    if @content.episode.show.template.nil?
+      @page_type = :condensed
+      render :layout => "public_render"
+    else
+      render_template @content.episode.show, :content, @content
+    end
   end
 
   private
 
   def render_show
     create_visit @show
-    render :layout => "public_render", :action => :show
+    if @show.template.nil?
+      render :layout => "public_render", :action => :show
+    else
+      render_template @show, :show, @show
+    end
+  end
+
+  def render_template(show, view, object)
+    render :layout => false, :template => "#{show.template.slug}/#{view}", :locals => { view.to_sym => object }
   end
 
   def assigns_show
