@@ -43,7 +43,6 @@ class PublicController < ApplicationController
   def content
     @content = find_content
 
-    logger.debug @content.episode.show.template.inspect
     if @content.episode.show.template.nil?
       @page_type = :condensed
       render :layout => "public_render"
@@ -64,7 +63,10 @@ class PublicController < ApplicationController
   end
 
   def render_template(show, view, object)
-    render :layout => false, :template => "#{show.template.slug}/#{view}", :locals => { view.to_sym => object }
+    template = show.template
+    @theme = template
+    render :layout => false, :template => "#{template.slug}/#{view}",
+      :locals => { view.to_sym => object }
   end
 
   def assigns_show
