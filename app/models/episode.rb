@@ -27,7 +27,7 @@ end
 class Episode::LiquidDropClass
 
   def url_for
-    @context.registers[:action_view].url_for_episode(@object)
+    view.url_for_episode(@object)
   end
 
 end

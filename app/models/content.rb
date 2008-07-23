@@ -2,7 +2,7 @@ require 'net/http'
 
 class Content < ActiveRecord::Base
 
-  liquid_methods :name, :episode, :duration
+  liquid_methods :name, :episode, :duration, :has_duration?
 
   validates_presence_of :name, :message => "Pas de nom défini"
   validates_length_of :name, :within => 3..30, :too_short => "Le nom est trop court", :too_long => "Le nom est trop long"
@@ -110,11 +110,15 @@ end
 class Content::LiquidDropClass
 
   def url_for
-    @context.registers[:action_view].url_for_content(@object)
+    view.url_for_content(@object)
+  end
+
+  def url_for_playlist
+    view.url_for_content(@object, :mode => :playlist)
   end
 
   def embedded_player
-    @context.registers[:action_view].tag(:embed,
+    view.tag(:embed,
       :src => "/flash/mediaplayer.swf", :type => "application/x-shockwave-flash",
       :pluginspage => "http://www.macromedia.com/go/getflashplayer", :height => "20", :width => "385",
       :flashvars => "file=#{@object.content_url(:format => :mp3)}")

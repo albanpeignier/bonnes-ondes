@@ -5,3 +5,13 @@ module TextFilter
 end
 
 Liquid::Template.register_filter(TextFilter)
+
+class Liquid::Drop
+
+  protected
+
+  def view
+    @context.registers[:action_view]
+  end
+
+end

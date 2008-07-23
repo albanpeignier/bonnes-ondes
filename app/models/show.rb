@@ -44,11 +44,11 @@ end
 class Show::LiquidDropClass
 
   def url_for
-    @context.registers[:action_view].url_for_show(@object)
+    view.url_for_show(@object)
   end
 
   def url_for_podcast
-    @context.registers[:action_view].url_for_podcast(@object)
+    view.url_for_podcast(@object)
   end
 
 end
