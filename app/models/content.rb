@@ -2,6 +2,8 @@ require 'net/http'
 
 class Content < ActiveRecord::Base
 
+  liquid_methods :name, :episode, :duration
+
   validates_presence_of :name, :message => "Pas de nom défini"
   validates_length_of :name, :within => 3..30, :too_short => "Le nom est trop court", :too_long => "Le nom est trop long"
 
@@ -100,6 +102,22 @@ class NetContent < Content
     unless validate_content_type %w{ audio/mpeg application/ogg }
       errors.add_to_base("Ce document n'est pas trouvable")
     end
+  end
+
+end
+
+# TODO move this f... code anywhere else
+class Content::LiquidDropClass
+
+  def url_for
+    @context.registers[:action_view].url_for_content(@object)
+  end
+
+  def embedded_player
+    @context.registers[:action_view].tag(:embed,
+      :src => "/flash/mediaplayer.swf", :type => "application/x-shockwave-flash",
+      :pluginspage => "http://www.macromedia.com/go/getflashplayer", :height => "20", :width => "385",
+      :flashvars => "file=#{@object.content_url(:format => :mp3)}")
   end
 
 end

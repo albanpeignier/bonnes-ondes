@@ -3,6 +3,8 @@ class Show < ActiveRecord::Base
   has_one :host
   belongs_to :template
 
+  liquid_methods :name, :description, :episodes
+
   def after_initialize
     self.visit_count ||= 0
   end
@@ -34,6 +36,19 @@ class Show < ActiveRecord::Base
 
   def last_update_at
     (self.episodes + [ self ]).collect(&:updated_at).max
+  end
+
+end
+
+# TODO move this f... code anywhere else
+class Show::LiquidDropClass
+
+  def url_for
+    @context.registers[:action_view].url_for_show(@object)
+  end
+
+  def url_for_podcast
+    @context.registers[:action_view].url_for_podcast(@object)
   end
 
 end

@@ -1,5 +1,7 @@
 class Episode < ActiveRecord::Base
 
+  liquid_methods :show, :title, :description, :image, :contents
+
   validates_presence_of :order, :message => "Pas de numéro défini"
   validates_uniqueness_of :order, :scope => :show_id, :message => "Un épisode utilise déjà ce numéro"
 
@@ -18,5 +20,14 @@ class Episode < ActiveRecord::Base
 
   has_many :contents, :dependent => :destroy
   belongs_to :image
+
+end
+
+# TODO move this f... code anywhere else
+class Episode::LiquidDropClass
+
+  def url_for
+    @context.registers[:action_view].url_for_episode(@object)
+  end
 
 end
