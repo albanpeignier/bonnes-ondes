@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <title>{{show.name}} - Bonnes Ondes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <h1>{{show.name}}</h1>
+
+    <p>
+      {{show.description | textilize}}
+    </p>
+
+    <ul>
+      {% for episode in show.episodes %}
+        <li><a href="{{episode.url_for}}">{{episode.title}}</a></li>
+      {% endfor %}
+    </ul>
+
+    <p>
+      Hébergé par <a href="http://www.bonnes-ondes.fr">Bonnes Ondes</a>
+    </p>
+ </body>
+</html>
