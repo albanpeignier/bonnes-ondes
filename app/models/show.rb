@@ -3,7 +3,7 @@ class Show < ActiveRecord::Base
   has_one :host
   belongs_to :template
 
-  liquid_methods :name, :description, :episodes
+  liquid_methods :name, :description, :episodes, :logo
 
   def after_initialize
     self.visit_count ||= 0
