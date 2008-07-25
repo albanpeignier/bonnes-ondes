@@ -39,14 +39,14 @@
    </div>
    <div id="content" class="hfeed">
     <div class="hentry entry" id="post-1">
-     <h3 class="entry-title">Demandez le programme, dimanche !</h3>
+     <h3 class="entry-title">{{episode.title}}</h3>
      <div class="post-info">
       <a href="#" class="published" rel="bookmark" title="{{episode.title}}">
-       &#8594; <!-- TODO --> 28 juillet 2008
+       &#8594; {{episode.broadcasted_at | prettydate }}
       </a>
      </div>
      <div class="entry-content">
-      <!-- TODO {{episode.image.tag}} -->
+      {{episode.image.tag}}
       {{episode.description | textilize}}
      </div>
     </div>

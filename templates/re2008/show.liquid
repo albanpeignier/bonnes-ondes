@@ -49,7 +49,7 @@
        <h3 class="entry-title">{{episode.title}}</h3>
        <div class="post-info">
         <a href="{{episode.url_for}}" class="published" rel="bookmark" title="{{episode.title}}">
-         &#8594; {{episode.broadcasted_at | date: 'le %d/%m/%Y à %Hh%M'}}, lire et écouter la suite &#8250;
+         &#8594; {{episode.broadcasted_at | prettydate }}, lire et écouter la suite &#8250;
         </a>
        </div>
        <div class="entry-content">
