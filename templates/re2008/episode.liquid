@@ -1,14 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="fr">
  <head>
-  <title>Esperanzah! 2008 - Demandez le programme, dimanche !</title>
+  <title>Esperanzah! 2008 - Radio - {{episode.title}}</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-  <link rel="stylesheet" type="text/css" href="css/screen.css" media="screen"/>
-  <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+  <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/screen.css" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/print.css" media="print"/>
  </head>
  <body>
   <div id="page">
-   <div id="header">
+   <div id="header" onclick="javascript:document.location = 'http://www.esperanzah.be';">
     <h1>Radio Esperanzah! 2008</h1>
     <form action="http://www.esperanzah.be/index.php?option=com_content&task=view&id=120" method="post">
      <input type="text" value="Votre email" name="AdresseEmail" size="20" />
@@ -25,7 +25,7 @@
       <a href="http://radio.esperanzah.be">Zita Swoon, interview en concert</a>
      </li>
     </ul>
-    <div id="podcast"><a href="http://radio.esperanzah.be" title="Radio Esperanzah! Podcast">Podcast</a></div>
+    <div id="podcast"><a href="http://feeds.feedburner.com/radio-esperanzah" title="Radio Esperanzah!, le Podcast">Podcast</a></div>
     <h2>Les radios partenaires</h2>
     <ul>
      <li><a href="http://radiocampus.ulb.ac.be/" title="Radio Campus Bruxelles">Radio Campus Bruxelles</a></li>
@@ -41,27 +41,27 @@
     <div class="hentry entry" id="post-1">
      <h3 class="entry-title">Demandez le programme, dimanche !</h3>
      <div class="post-info">
-      <a href="episode.html" class="published" rel="bookmark" title="Demandez le programme, dimanche!">
-       &#8594; 28 juillet 2008
+      <a href="#" class="published" rel="bookmark" title="{{episode.title}}">
+       &#8594; <!-- TODO --> 28 juillet 2008
       </a>
      </div>
      <div class="entry-content">
-      <p>Tout le programme du dimanche 3 août, premier jour de l'édition 2008 du Festival Esperanzah!. Présenté par Jean-Yves Laffineur, le programmateur (et directeur) du festival.</p>
+      <!-- TODO {{episode.image.tag}} -->
+      {{episode.description | textilize}}
      </div>
     </div>
     <div id="listen">
-	 <h3>Ecoutez</h3>
-	 <div class="audio" id="audio-1">
-	  <h4><a href="?popup=true" onclick="window.open('popup.html','bonnes-ondes-1','height=300,width=800');return false;">L'intégrale</a><h4>
-	  <p class="duration">60 minutes</p>  
-	 </div>
-	 <div class="audio" id="audio-1">
-	  <h4><a href="?popup=true" onclick="window.open('popup.html','bonnes-ondes-1','height=300,width=800');return false;">Moriarty</a><h4>
-	  <p class="duration">10 minutes</p>  
-	 </div>
-	</div>
+	   <h3>Ecoutez</h3>
+	   {% for content in episode.contents %}
+	     <div class="audio" id="audio-{{forloop.index}}">
+	      <h4><a href="{{content.url_for}}" onclick="window.open('{{content.url_for}}','bonnes-ondes-{{content.id}}','height=300,width=800');return false;">{{content.name}}</a><h4>
+	      {% if content.duration %}
+    	    <p class="duration">{{content.duration}} minutes</p>
+    	  {% endif %}
+	     </div>
+	   {% endfor %}
+	  </div>
    </div>
   </div>
  </body>
 </html>
-

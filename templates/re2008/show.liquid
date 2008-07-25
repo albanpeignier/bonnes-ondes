@@ -39,13 +39,13 @@
    </div>
    <div id="content" class="hfeed">
 
-    <!--
+    <!-- TODO
     {{show.logo.tag}}
     {{show.description | textilize}}
     -->
 
     {% for episode in show.episodes %}
-      <div class="hentry entry" id="post-1">
+      <div class="hentry entry" id="post-{{forloop.index}}">
        <h3 class="entry-title">{{episode.title}}</h3>
        <div class="post-info">
         <a href="{{episode.url_for}}" class="published" rel="bookmark" title="{{episode.title}}">
