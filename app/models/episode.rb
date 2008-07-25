@@ -1,6 +1,6 @@
 class Episode < ActiveRecord::Base
 
-  liquid_methods :show, :title, :description, :image, :contents
+  liquid_methods :show, :title, :description, :image, :contents, :broadcasted_at
 
   validates_presence_of :order, :message => "Pas de numéro défini"
   validates_uniqueness_of :order, :scope => :show_id, :message => "Un épisode utilise déjà ce numéro"

@@ -24,6 +24,10 @@
           {{episode.description | textilize}}
         </div>
 
+        <p>
+          Date de diffusion : {{episode.broadcasted_at | date: 'le %d/%m/%Y à %H:%M'}}
+        </p>
+
         {% if episode.contents != empty %}
           <h2>Ecouter</h2>
           <ul class="contents">
