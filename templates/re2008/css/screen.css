@@ -1,0 +1,21 @@
+@import 'reset.css';
+html,body {line-height:1.4em;font-family:Arial,sans-serif;background:#75122a url('../media/page.png') repeat-y center top;}
+a {color:#f4b600;text-decoration:none;}
+a:hover {color:#fff;}
+#page {position:relative;width:766px;margin:0 auto;}
+#header {background:url('../media/header.png');height:250px;}
+#header h1 {display:none;}
+#header form {position:absolute;top:184px;right:8px;font-size:.85em;}
+#sidebar {float:left;width:200px;padding:18px 1.8px 0 4px;color:#fff;}
+#sidebar h2 {font-size:1.125em;}
+#sidebar ul {margin:0 0 1.4em .25em;}
+#sidebar li {font-size:.9em;padding:.025em 0;}
+#sidebar #podcast a {display:block;width:200px;margin:1em 0;padding:4px 0 0 52px;height:32px;background:url('../media/podcast.png') 16px 0 no-repeat;color:#671322;font-weight:bold;font-size:1.4em;font-variant:small-caps;}
+#sidebar #podcast a:hover {color:#fff;background-image:url('../media/podcast-over.png');}
+#content {margin-left:200px;padding:18px;color:#fff;}
+#content .hentry {margin-bottom:1.4em;}
+#content h3 {font-size:1.125em;font-weight:normal;}
+#content .post-info {margin:-.5em 0 0 .8em;font-size:.8em;}
+#content .entry-content {font-size:.95em;}
+#content .audio {margin:.2em 0 1em 1em;}
+#content .duration {font-size:.80em;line-height:.85em;}
