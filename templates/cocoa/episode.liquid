@@ -20,6 +20,7 @@
 
       <div id="page">
         <div class="description">
+          {{episode.image.tag}}
           {{episode.description | textilize}}
         </div>
 
@@ -28,7 +29,7 @@
           <ul class="contents">
             {% for content in episode.contents %}
               <li>
-                <a href="{{content.url_for}}" onclick="window.open(this.href,'bonnes-ondes-ecouter','height=300,width=800');return false;">
+                <a href="{{content.url_for}}" onclick="window.open(this.href,'bonnes-ondes-ecouter','height=300,width=900');return false;">
                   {% if episode.contents.size == 1 %}
                     {{episode.title}}
                   {% else %}
