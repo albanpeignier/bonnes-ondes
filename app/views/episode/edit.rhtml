@@ -13,6 +13,9 @@
  <p><label for="episode_description">Description :</label><br/>
  <%= textile_editor 'episode', 'description', :rows => 10, :cols => 50 -%></p>
 
+ <p><label for="episode_broadcasted_at">Date de diffusion :</label><br/>
+ <%= datetime_select 'episode', 'broadcasted_at', :order => [ :day, :month, :year ], :minute_step => 15 -%></p>
+
  <%= submit_tag "Modifier" %> ou <%= link_to("revenir", :action => "show", :id => @episode ) %>
  <%= textile_editor_initialize -%>
 <% end %>
