@@ -15,24 +15,27 @@ xml.rss :version => "2.0", 'xmlns:itunes' => "http://www.itunes.com/dtds/podcast
 		end
 
 		for episode in @show.episodes
-  	 content = episode.contents.first
-  	 next if content.nil?
+  	 contents = episode.contents.principal
 
-	   xml.item do
-	   	 xml.title episode.title
+  	 for content in contents
+	     xml.item do
+         title = episode.title
+         title += " - #{content.name}" if contents.many?
+	     	 xml.title title
 
-	   	 # TODO add keywords here
-	   	 # xml.itunes :keywords, document.tags[0..11].join(",")
+	     	 # TODO add keywords here
+	     	 # xml.itunes :keywords, document.tags[0..11].join(",")
 
-	   	 xml.description textilize_in_text(episode.description)
-       xml.itunes :summary, textilize_in_text(episode.description)
+	     	 xml.description textilize_in_text(episode.description)
+         xml.itunes :summary, textilize_in_text(episode.description)
 
-	   	 xml.itunes :duration, "#{content.duration}:00" if content.has_duration?
+	     	 xml.itunes :duration, "#{content.duration}:00" if content.has_duration?
 
-       # TODO add content length
-    	 xml.enclosure :url => content.content_url(:format => :mp3), :type => "audio/mpeg"
-    	 xml.guid url_for_episode(episode, :only_path => false)
-    	 xml.pubDate episode.updated_at.strftime("%a, %e %b %Y %T %Z")
+         # TODO add content length
+      	 xml.enclosure :url => content.content_url(:format => :mp3), :type => "audio/mpeg"
+      	 xml.guid url_for_episode(episode, :only_path => false)
+      	 xml.pubDate episode.updated_at.strftime("%a, %e %b %Y %T %Z")
+	     end
 	   end
 		end
 	end
