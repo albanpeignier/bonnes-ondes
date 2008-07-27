@@ -31,8 +31,8 @@ class ContentController < ApplicationController
     @content.episode = episode
 
     if first_content
-      @content.name = "Intégrale"
-      @content.slug = Slug.slugify(@content.name)
+      @content.name ||= "Intégrale"
+      @content.slug ||= Slug.slugify(@content.name)
     end
 
     if request.post?
