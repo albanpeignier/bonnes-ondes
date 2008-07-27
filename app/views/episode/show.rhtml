@@ -10,6 +10,10 @@
   créé <%= format_date(@episode.created_at) %>, modifié <%= format_date(@episode.updated_at) %>
 </p>
 
+<div class="tags">
+  Etiquettes : <%= @episode.tag_list.join(', ') %>
+</div>
+
 <div class="actions">
 <%= link_to("Voir", url_for_episode(@episode), :class => "view", :popup => true) %>
 <%= link_to("Modifier", { :action => "edit", :id => @episode }, :class => "edit") %>
