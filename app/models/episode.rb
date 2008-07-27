@@ -1,4 +1,5 @@
 class Episode < ActiveRecord::Base
+  acts_as_taggable
 
   liquid_methods :show, :title, :description, :image, :contents, :broadcasted_at
 
