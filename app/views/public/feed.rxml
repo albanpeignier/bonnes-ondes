@@ -23,8 +23,12 @@ xml.rss :version => "2.0", 'xmlns:itunes' => "http://www.itunes.com/dtds/podcast
          title += " - #{content.name}" if contents.many?
 	     	 xml.title title
 
-	     	 # TODO add keywords here
-	     	 # xml.itunes :keywords, document.tags[0..11].join(",")
+         unless episode.tag_list.empty?
+	       	 xml.itunes :keywords, episode.tag_list.join(', ')
+	       	 episode.tag_list.each do |category|
+  	       	 xml.category category
+  	       end
+	       end
 
 	     	 xml.description textilize_in_text(episode.description)
          xml.itunes :summary, textilize_in_text(episode.description)
