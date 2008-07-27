@@ -24,7 +24,9 @@
     <% for content in @episode.contents %>
       <li>
         <h4><%= link_to(content.name, { :controller => "content", :action => "play", :id => content })%></h4>
-        <p>Durée
+        <p>
+          <% if content.principal? %>Principal -<% end %>
+          Durée
           <% if content.has_duration? %>
             <%= content.duration %> minutes
           <% else %>
