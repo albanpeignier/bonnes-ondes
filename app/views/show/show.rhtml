@@ -26,7 +26,10 @@
 
   <ul>
   <% for episode in @show.episodes %>
-    <li><%= link_to("#{episode.order} - #{episode.title}", :controller => "episode", :action => "show", :id => episode) %></li>
+    <li>
+      <%= link_to("#{episode.order} - #{episode.title}", :controller => "episode", :action => "show", :id => episode) %>
+      <% if episode.broadcasted_at %><br/>diffusé <%= format_date(episode.broadcasted_at) %><% end %>
+    </li>
   <% end %>
   </ul>
   <p>Ajouter <%= link_to("un nouvel épisode", :controller => "episode", :action => "create", :show => @show) %></p>

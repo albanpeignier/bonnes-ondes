@@ -4,7 +4,11 @@
 <%= textilize(@episode.description) %>
 </div>
 
-<p>créé <%= format_date(@episode.created_at) %>, modifié <%= format_date(@episode.updated_at) %></p>
+
+<p>
+  <% if @episode.broadcasted_at %>diffusé <%= format_date(@episode.broadcasted_at) %>,<br/><% end %>
+  créé <%= format_date(@episode.created_at) %>, modifié <%= format_date(@episode.updated_at) %>
+</p>
 
 <div class="actions">
 <%= link_to("Voir", url_for_episode(@episode), :class => "view", :popup => true) %>
