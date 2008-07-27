@@ -2,6 +2,8 @@ require 'net/http'
 
 class Content < ActiveRecord::Base
 
+  named_scope :principal, :conditions => { :principal => true }
+
   liquid_methods :name, :episode, :duration, :has_duration?, :id
 
   validates_presence_of :name, :message => "Pas de nom défini"

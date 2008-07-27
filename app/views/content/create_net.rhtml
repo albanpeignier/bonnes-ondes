@@ -13,8 +13,10 @@
  <p><label for="content_url">URL :</label><br/>
  <%= f.text_field :url %></p>
 
- <p><label for="content_duration">Durée :</label><br/>
+ <p><label for="content_duration">Durée (en minutes):</label><br/>
  <%= f.text_field :duration %></p>
+
+ <p><label for="content_principal">Contenu principal :</label><%= f.check_box :principal %></p>
 
  <%= f.hidden_field :episode_id %>
 

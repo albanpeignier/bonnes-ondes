@@ -33,6 +33,9 @@ class ContentController < ApplicationController
     if first_content
       @content.name ||= "Intégrale"
       @content.slug ||= Slug.slugify(@content.name)
+      @content.principal ||= true
+    else
+      @content.principal ||= false
     end
 
     if request.post?
