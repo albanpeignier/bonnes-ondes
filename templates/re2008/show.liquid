@@ -19,6 +19,7 @@
    <hr/>
    <div id="sidebar">
     <h2>Les dernières émissions</h2>
+
     <ul>
      <li>
       <a href=""></a>
@@ -44,7 +45,8 @@
     {{show.logo.tag}}
     {{show.description | textilize}}
     -->
-    {% for episode in show.episodes %}
+
+    {% for episode in show.broadcasted_episodes limit:5 %}
       <div class="hentry entry" id="post-{{forloop.index}}">
        <h3 class="entry-title">{{episode.title}}</h3>
        <div class="post-info">
