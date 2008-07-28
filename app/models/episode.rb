@@ -34,4 +34,8 @@ class Episode::LiquidDropClass
     view.url_for_episode(@object)
   end
 
+  def tags
+    @object.tag_list
+  end
+
 end

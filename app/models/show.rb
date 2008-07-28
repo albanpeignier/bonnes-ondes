@@ -51,12 +51,28 @@ class Show::LiquidDropClass
     @object.episodes.not_broadcasted
   end
 
+  def tags
+    @show_tags ||= ShowTags.new(@object)
+  end
+
   def url_for
     view.url_for_show(@object)
   end
 
   def url_for_podcast
     view.url_for_podcast(@object)
+  end
+
+end
+
+class ShowTags < Liquid::Drop
+
+  def initialize(show)
+    @show = show
+  end
+
+  def [](key)
+    @show.episodes.find_tagged_with(key)
   end
 
 end
