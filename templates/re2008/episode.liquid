@@ -18,24 +18,7 @@
    </div>
    <hr/>
    <div id="sidebar">
-    <h2>Les dernières émissions</h2>
-    <ul>
-     <li>
-      <a href=""></a>
-     </li>
-    </ul>
-    <div id="podcast"><a href="" title="Radio Esperanzah! Podcast">Podcast</a></div>
-    <div id="listen"><a href="" title="Radio Esperanzah! Direct">Ecoutez</a></div>
-    <h2>Les radios partenaires</h2>
-    <ul>
-     <li><a href="http://radiocampus.ulb.ac.be/" title="Radio Campus Bruxelles">Radio Campus Bruxelles</a></li>
-     <li><a href="http://www.48fm.ulg.ac.be/" title="48FM">48FM</a></li>
-     <li><a href="http://www.radiopanik.org/" title="Radio Panik">Radio Panik</a></li>
-     <li><a href="http://run.fundp.ac.be/" title="Radio Universitaire Namuroise">Radio Universitaire Namuroise</a></li>
-     <li><a href="http://www.100komma7.lu/" title="Radio 100.7 Luxembourg">Radio 100.7 Luxembourg</a></li>
-     <li><a href="http://www.radiochango.com/" title="Radio Chango">Radio Chango</a></li>
-     <li><a href="http://www.autres-mondes.org/" title="Autres (M) Ondes">Autres (M) Ondes</a></li>
-    </ul>
+    {% include 're2008/sidebar' %}
    </div>
    <hr/>
    <div id="content" class="hfeed">
@@ -66,25 +49,7 @@
     </div>
     <hr/>
     <div id="footer">
-     <h2>Le programme</h2>
-     <div class="day" id="friday">
-      <h3>Vendredi</h3>
-      <ul>
-       <li><a href=""></a></li>
-      </ul>
-     </div>
-     <div class="day" id="saturday">
-      <h3>Samedi</h3>
-      <ul>
-       <li><a href=""></a></li>
-      </ul>
-     </div>
-     <div class="day" id="sunday">
-      <h3>Dimanche</h3>
-      <ul>
-       <li><a href=""></a></li>
-      </ul>
-     </div>
+      {% include 're2008/programme' %}
     </div>
    </div>
    <script src="{{theme.url_for_assets}}/prototype.min.js" type="text/javascript"></script>
