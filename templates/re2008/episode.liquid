@@ -36,24 +36,29 @@
      </div>
     </div>
     <div id="listen">
-	 <h3>Ecoutez</h3>
-	 {% for content in episode.contents %}
-	  <div class="audio" id="audio-{{forloop.index}}">
-	   <h4><a href="{{content.url_for}}" onclick="window.open('{{content.url_for}}','bonnes-ondes-{{content.id}}','height=300,width=800');return false;">{{content.name}}</a><h4>
-	   {% if content.duration %}
-        <p class="duration">{{content.duration}} minutes</p>
-       {% endif %}
-	  </div>
-	  {% endfor %}
-	 </div>
-    </div>
+      {% unless episode.contents == empty %}
+ 	      <h3>Ecoutez</h3>
+   	    {% for content in episode.contents %}
+	        <div class="audio" id="audio-{{forloop.index}}">
+	         <h4><a href="{{content.url_for}}" onclick="window.open('{{content.url_for}}','bonnes-ondes-{{content.id}}','height=300,width=800');return false;">{{content.name}}</a><h4>
+	         {% if content.duration %}
+              <p class="duration">{{content.duration}} minutes</p>
+             {% endif %}
+	        </div>
+	        {% endfor %}
+	     {% else %}
+       <p>
+        Ecoutez en direct cette émission {{episode.broadcasted_at | prettydate }}
+       </p>
+       {% endunless %}
+      </div>
+     </div>
     <hr/>
     <div id="footer">
       {% include 're2008/programme' %}
     </div>
    </div>
-   <script src="{{theme.url_for_assets}}/prototype.min.js" type="text/javascript"></script>
-   <script src="{{theme.url_for_assets}}/effects.min.js" type="text/javascript"></script>
+   {% include 're2008/javascripts' %}
   </div>
  </body>
 </html>
