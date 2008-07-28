@@ -1,5 +1,5 @@
 @import 'reset.css';
-html,body {line-height:1.4em;font-family:Arial,sans-serif;background:#75122a url('../media/page.png') repeat-y center top;}
+html,body {line-height:1.4em;font-family:Arial,sans-serif;background:#75122a url('../media/page.png') repeat-y center top;font-size:16px;}
 html.popup, html.popup body {margin:1em 0;background:#ad2039;} 
 a {color:#f4b600;text-decoration:none;}
 a:hover {color:#fff;}
