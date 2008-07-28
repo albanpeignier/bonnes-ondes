@@ -1,6 +1,6 @@
 @import 'reset.css';
 html,body {line-height:1.4em;font-family:Arial,sans-serif;background:#75122a url('../media/page.png') repeat-y center top;font-size:16px;}
-html.popup, html.popup body {margin:1em 0;background:#ad2039;} 
+html.popup, html.popup body {margin:1em 0;background:#ad2039;}
 a {color:#f4b600;text-decoration:none;}
 a:hover {color:#fff;}
 h2 {font-size:1.125em;}
@@ -25,6 +25,8 @@ p {margin:0.2em 0;}
 #sidebar #radio a:hover {color:#671322;}
 #content {margin:38px 0 0 200px;padding:18px;}
 #content .program {position:absolute;top:302px;right:0.2em;font-size:.9em;}
+#content .introduction { padding-right: 15em; margin-bottom: 1em; }
+#content .introduction strong { font-weight: bold; }
 #content h2 {margin-bottom:.8em;}
 #content .hentry {margin-bottom:1.4em;}
 #content .post-info {margin:-.5em 0 0 .8em;font-size:.8em;}0
@@ -38,7 +40,7 @@ p {margin:0.2em 0;}
 #content .duration {font-size:.80em;line-height:.85em;}
 #page .player {margin:0.2em 0 1em 1em;}
 #page .player h4 {font-size:.95em;}
-#page .player img {float:left;margin-right:1em;border:1px solid #fff;} 
+#page .player img {float:left;margin-right:1em;border:1px solid #fff;}
 #footer {clear:both;overflow:auto;padding:.2em;}
 #footer h2 {margin:0 0 .4em .2em;}
 #footer h3 {font-size:1em;font-weight:bold;color:#93d121;}
@@ -46,4 +48,3 @@ p {margin:0.2em 0;}
 #footer ul {margin:0 .4em 1em;padding:0 0 0 .4em;border-left:1px solid #f4b600;}
 #footer li {font-size:.85em;margin:0.2em 0;}
 #footer li .dtstart {font-size:.85em;}
-
