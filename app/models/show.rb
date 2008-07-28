@@ -43,6 +43,14 @@ end
 # TODO move this f... code anywhere else
 class Show::LiquidDropClass
 
+  def broadcasted_episodes
+    @object.episodes.broadcasted
+  end
+
+  def not_broadcasted_episodes
+    @object.episodes.not_broadcasted
+  end
+
   def url_for
     view.url_for_show(@object)
   end

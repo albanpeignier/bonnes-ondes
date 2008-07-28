@@ -1,6 +1,9 @@
 class Episode < ActiveRecord::Base
   acts_as_taggable
 
+  named_scope :broadcasted, lambda { {:conditions => ["broadcasted_at < ?", Time.now] } }
+  named_scope :not_broadcasted, lambda { {:conditions => ["broadcasted_at > ?", Time.now] } }
+
   liquid_methods :show, :title, :description, :image, :contents, :broadcasted_at
 
   validates_presence_of :order, :message => "Pas de numéro défini"
