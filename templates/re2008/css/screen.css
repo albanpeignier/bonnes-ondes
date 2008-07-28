@@ -40,4 +40,5 @@ p {margin:0.2em 0;}
 #footer .day {float:left;width:31%;padding:.4em;}
 #footer ul {margin:0 .4em 1em;padding:0 0 0 .4em;border-left:1px solid #f4b600;}
 #footer li {font-size:.85em;margin:0.2em 0;}
+#footer li .dtstart {font-size:.85em;}
 
