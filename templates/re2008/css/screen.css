@@ -18,6 +18,8 @@ p {margin:0.2em 0;}
 #sidebar #podcast a:hover {color:#fff;background-image:url('../media/podcast-over.png');}
 #sidebar #listen a {display:block;width:200px;margin:1em 0;padding:4px 0 0 52px;height:32px;background:url('../media/listen.png') 16px 0 no-repeat;color:#671322;font-weight:bold;font-size:1.4em;font-variant:small-caps;}
 #sidebar #listen a:hover {color:#fff;background-image:url('../media/listen-over.png');}
+#sidebar #festival {margin-bottom:.8em;width:120px;height:60px;text-indent:-5000px;background:url('../media/back.png') no-repeat;}
+#sidebar #festival a {display:block;height:100%;width:100%;}
 #content {margin-left:200px;padding:18px;}
 #content .program {position:absolute;top:266px;right:0.2em;font-size:.9em;}
 #content h2 {margin-bottom:.8em;}
