@@ -20,7 +20,11 @@ class LiquidView
     end
     assigns.merge!(local_assigns)
 
+    # FIXME move this setting
+    Liquid::Template.file_system = Liquid::LocalFileSystem.new("#{RAILS_ROOT}/templates")
+
     liquid = Liquid::Template.parse(template)
+
     liquid.render(assigns, :filters => [@action_view.controller.master_helper_module], :registers => {:action_view => @action_view, :controller => @action_view.controller})
   end
 
