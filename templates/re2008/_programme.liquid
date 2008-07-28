@@ -3,7 +3,7 @@
  <h3>Vendredi</h3>
  <ul>
   {% for episode in show.tags.vendredi reversed %}
-    <li><a href="{{episode.url_for}}">{{episode.title}}</a></li>
+    <li><a href="{{episode.url_for}}">{{episode.title}}</a> <span class="dtstart">{{ episode.broadcasted_at|date:'%h:%M' }}</span></li>
   {% endfor %}
  </ul>
 </div>
@@ -11,7 +11,7 @@
  <h3>Samedi</h3>
  <ul>
   {% for episode in show.tags.samedi reversed %}
-    <li><a href="{{episode.url_for}}">{{episode.title}}</a></li>
+    <li><a href="{{episode.url_for}}">{{episode.title}}</a> <span class="dtstart">{{ episode.broadcasted_at|date:'%h:%M' }}</span></li>
   {% endfor %}
  </ul>
 </div>
@@ -19,7 +19,7 @@
  <h3>Dimanche</h3>
  <ul>
   {% for episode in show.tags.dimanche reversed %}
-    <li><a href="{{episode.url_for}}">{{episode.title}}</a></li>
+    <li><a href="{{episode.url_for}}">{{episode.title}}</a> <span class="dtstart">{{ episode.broadcasted_at|date:'%h:%M' }}</span></li>
   {% endfor %}
  </ul>
 </div>
