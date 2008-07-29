@@ -2,4 +2,4 @@ body{font:14px/16px Georgia, Verdana, sans-serif;background:none;margin:0;paddin
 ul{list-style-type:square;}
 a:link:after.url, a:visited:after.url, .vcard a:link:after, .vcard a:visited:after{content:" (" attr(href) ") ";font-size:90%;}
 a.url[href^=\/]:after, .vcard a[href^=\/]:after{content:" (http://radio.esperanzah.be" attr(href) ") ";}
-hr, #header form, #festival, #sidebar, #listen, #footer {display:none;}
+hr, .program, #header form, #festival, #sidebar, #listen, #footer {display:none;}
