@@ -1,6 +1,6 @@
 class AddShowSlug < ActiveRecord::Migration
   def self.up
-    add_column :shows, :slug, :string, :null => false
+    add_column :shows, :slug, :string, :null => false, :default => ""
   end
 
   def self.down
