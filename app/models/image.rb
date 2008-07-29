@@ -8,7 +8,6 @@ class Image < ActiveRecord::Base
 end
 
 class Image::LiquidDropClass
-
   def url_for
     view.image_path @object.public_filename(:normal)
   end
@@ -18,11 +17,10 @@ class Image::LiquidDropClass
   end
 
   def tag
-    view.image_tag @object.public_filename(:normal)
+    view.image_tag(@object.public_filename(:normal), :title => @object.title)
   end
 
   def tag_for_thumb
-    view.image_tag @object.public_filename(:thumb)
+    view.image_tag(@object.public_filename(:thumb), :title => @object.title)
   end
-
 end
