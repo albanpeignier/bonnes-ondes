@@ -11,6 +11,7 @@ p {margin:0.2em 0;}
 #header {background:url('../media/header.png');height:250px;}
 #header h1 {display:none;}
 #header form {position:absolute;top:184px;right:8px;font-size:.85em;}
+#header form p {margin:0;}
 #festival {position:absolute;left:205px;top:225px;margin-bottom:.8em;width:120px;height:60px;text-indent:-5000px;background:url('../media/back.png') no-repeat;}
 #festival a {display:block;height:100%;width:100%;}
 #sidebar {float:left;width:200px;padding:18px 1.8px 0 0.2em;color:#fff;}
