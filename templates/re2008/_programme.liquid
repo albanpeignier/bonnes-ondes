@@ -1,4 +1,12 @@
 <h2>Le programme</h2>
+<div class="day" id="thursday">
+ <h3>Jeudi</h3>
+ <ul>
+  {% for episode in show.tags.jeudi reversed %}
+    <li><a href="{{episode.url_for}}">{{episode.title}}</a> <span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span></li>
+  {% endfor %}
+ </ul>
+</div>
 <div class="day" id="friday">
  <h3>Vendredi</h3>
  <ul>
