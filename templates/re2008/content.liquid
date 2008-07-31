@@ -10,9 +10,9 @@
  <body>
   <div id="page">
     <h3>{{content.episode.title}}</h3>
-    {{content.episode.image.tag_for_thumb}}
     {{content.episode.description | textilize | truncate :400}}
     <div class="player" id="player-1">
+     {{content.episode.image.tag_for_thumb}}
      <h4>{{content.name}} &mdash; <span class="duration">{{content.duration}} minutes</span></h4>
      {{ content.embedded_player }}
      <p class="broadcast"><a href="{{content.url_for_playlist}}" title="Ecoutez avec votre lecteur audio préféré">Ecoutez avec votre lecteur audio préféré &#8594;</a></p>
