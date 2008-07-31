@@ -51,6 +51,12 @@ class PublicController < ApplicationController
     end
   end
 
+  def direct
+    unless @show.template.nil?
+      render_template @show, :stream, @show
+    end
+  end
+
   private
 
   def render_show
