@@ -1,0 +1,21 @@
+<h2><%= h @show.name %> - Episodes</h2>
+
+<% unless @episodes.empty? %>
+  <ul>
+  <% for episode in @episodes %>
+    <li>
+      <%= link_to("#{episode.order} - #{episode.title}", :controller => "episode", :action => "show", :id => episode) %>
+      <% if episode.broadcasted_at %><br/>diffusé <%= format_date(episode.broadcasted_at) %><% end %>
+    </li>
+  <% end %>
+  </ul>
+
+  <%= will_paginate(@episodes) %>
+  <div class="actions">
+    <%= link_to("Ajouter un nouvel épisode", :controller => "episode", :action => "create", :show => @show) %>
+  </div>
+<% else %>
+  <div class="actions">
+    <%= link_to("Renseigner le premier épisode", :controller => "episode", :action => "create", :show => @show) %>
+  </div>
+<% end %>

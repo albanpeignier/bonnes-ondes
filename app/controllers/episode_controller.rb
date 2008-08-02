@@ -37,6 +37,11 @@ class EpisodeController < ApplicationController
     end
   end
 
+  def list
+    @show = current_user.shows.find(params[:show])
+    @episodes = @show.episodes.paginate(:per_page => 10, :page => (params[:page] or 1))
+  end
+
   def delete
     episode = current_user.find_episode(params[:id])
     show = episode.show
@@ -44,7 +49,7 @@ class EpisodeController < ApplicationController
     redirect_to :controller => "show", :action => "show", :id => show
   end
 
-   def select_image
+  def select_image
     @episode = current_user.find_episode(params[:id])
     return unless request.post?
 
