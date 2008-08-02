@@ -17,18 +17,18 @@
 
 <% unless @show.episodes.empty? %>
   <p>
-  <% if @show.episodes.size > 1 %>
-    <%= @show.episodes.size %> épisodes sont renseignés :
+  <% if @show.episodes.many? %>
+    Les derniers épisodes modifiés :
   <% else %>
-    Un épisode est renseigné :
+    Votre premier épisode :
   <% end %>
   </p>
 
   <ul>
-  <% for episode in @show.episodes.first(5) %>
+  <% for episode in @show.episodes.find(:all, :order => 'updated_at desc', :limit => 5) %>
     <li>
       <%= link_to("#{episode.order} - #{episode.title}", :controller => "episode", :action => "show", :id => episode) %>
-      <% if episode.broadcasted_at %><br/>diffusé <%= format_date(episode.broadcasted_at) %><% end %>
+      <br/>modifié <%= format_date(episode.updated_at) %>
     </li>
   <% end %>
   </ul>
