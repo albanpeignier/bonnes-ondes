@@ -32,6 +32,7 @@ p {margin:0.2em 0;}
 #content .hentry {margin-bottom:1.4em;}
 #content .post-info {margin:-.5em 0 0 .8em;font-size:.8em;}
 #content .entry-content {font-size:.95em;}
+#content .entry-content p {text-align:justify;}
 #content .entry-content strong {font-weight:bold;}
 #content .entry-content em {font-style:italic;}
 #content .entry-content ul {margin-left:2.25em;}
