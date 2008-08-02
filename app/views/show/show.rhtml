@@ -45,20 +45,27 @@
 
 <h3>Images</h3>
 
-<p>Les dernières images ajoutées :</p>
 
 <% unless @show.images.empty? %>
+  <p>Les dernières images modifiées :</p>
+
   <ul class="images">
-    <% for image in @show.images %>
+    <% for image in @show.images.find(:all, :order => 'updated_at desc', :limit => 5) %>
       <li>
         <%= image_tag image.public_filename(:thumb) %>
-        <%= h image.title %>
+        <div>
+          <%= h image.title %>
+          <br/>modifiée <%= format_date(image.updated_at) %>
+        </div>
       </li>
     <% end %>
   </ul>
 <% end %>
 
-<p>Ajouter <%= link_to("une nouvelle image", :controller => "image", :action => "create", :show => @show) %></p>
+<div class="actions">
+  <%= link_to "Toutes les images", :controller => "image", :action => "list", :show => @show %>
+  <%= link_to("Ajouter une nouvelle image", :controller => "image", :action => "create", :show => @show) %>
+</div>
 
 <h3>Statistiques</h3>
 

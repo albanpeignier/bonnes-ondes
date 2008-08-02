@@ -1,7 +1,8 @@
 class ImageController < ApplicationController
 
   def list
-    @images = current_user.shows.find(params[:show]).images
+    @show = current_user.shows.find(params[:show])
+    @images = @show.images.paginate(:per_page => 10, :page => (params[:page] or 1), :order => 'created_at desc')
   end
 
   def create
