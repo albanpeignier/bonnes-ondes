@@ -24,6 +24,8 @@ p {margin:0.2em 0;}
 #sidebar #radio {margin-bottom:.8em;width:100px;height:74px;background:url('../media/radio.png') no-repeat;}
 #sidebar #radio a {display:block;height:100%;width:100%;color#fff;padding:32px 0 0 106px;font-weight:bold;font-size:1.4em;font-variant:small-caps;}
 #sidebar #radio a:hover {color:#671322;}
+#amparanoia {padding:.2em 0.4em;width:19em;background:#d70000;margin-bottom:0.6em;}
+#amparanoia a {font-weight:bold;color:#fff;}
 #content {margin:38px 0 0 200px;padding:18px;}
 #content .program {position:absolute;top:302px;right:0.2em;font-size:.9em;}
 #content .introduction { padding-right: 15em; margin-bottom: 1em; }
