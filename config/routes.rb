@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'ep/:episode_slug/ecoute/:content_slug', :controller => 'public', :action => 'content'
   map.connect 'ep/:episode_slug/ecouter/:content_slug', :controller => 'public', :action => 'playlist'
   map.connect 'feed', :controller => 'public', :action => 'feed'
+  map.connect 'robots.txt', :controller => 'public', :action => 'robots'
 
   # You can have the root of your site routed by hooking up ''
   # -- just remember to delete public/index.html.

@@ -57,6 +57,10 @@ class PublicController < ApplicationController
     end
   end
 
+  def robots
+    render :text => "Sitemap: #{url_for :controller => :sitemaps, :action => :show, :id => @show.slug, :only_path => false}"
+  end
+
   private
 
   def render_show
