@@ -37,7 +37,7 @@
         </a>
        </div>
        <div class="entry-content">
-        {{episode.description | textilize | truncate: 400}}
+        {{episode.description | textilize | strip_tags | truncate: 400}}
        </div>
       </div>
     {% endfor %}

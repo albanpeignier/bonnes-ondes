@@ -10,7 +10,7 @@
  <body>
   <div id="page">
     <h3>{{content.episode.title}}</h3>
-    {{content.episode.description | textilize | truncate :400}}
+    {{content.episode.description | textilize | strip_tags | truncate :400}}
     <div class="player" id="player-1">
      {{content.episode.image.tag_for_thumb}}
      <h4>{{content.name}} &mdash; <span class="duration">{{content.duration}} minutes</span></h4>
