@@ -1,7 +1,20 @@
+require 'html/document'
+
 module TextFilter
   def textilize(input)
     RedCloth.new(input).to_html
   end
+
+  def strip_tags(input)
+    full_sanitizer.sanitize input
+  end
+
+  private
+
+  def full_sanitizer
+    @full_sanitizer ||= HTML::FullSanitizer.new
+  end
+
 end
 
 Liquid::Template.register_filter(TextFilter)
