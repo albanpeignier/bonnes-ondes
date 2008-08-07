@@ -52,7 +52,13 @@
 	        {% endfor %}
 	     {% else %}
        <p>
-        Ecoutez en direct cette émission {{episode.broadcasted_at | prettydate }}
+        {% if episode.broadcasted_at > now %}
+          Ecoutez en direct cette émission {{episode.broadcasted_at | prettydate }}
+        {% else %}
+          {% unless episode.tags contains 'live' %}
+            Retrouvez prochainement le contenu de ce programme
+          {% endunless %}
+        {% endif %}
        </p>
        {% endunless %}
       </div>
