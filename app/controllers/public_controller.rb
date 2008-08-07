@@ -61,6 +61,13 @@ class PublicController < ApplicationController
     render :text => "Sitemap: #{url_for :controller => :sitemaps, :action => :show, :id => @show.slug, :only_path => false}"
   end
 
+  def tags
+    @search = params[:search]
+    @episodes = @show.episodes.find_tagged_with @search
+
+    render_template @show, :search, @search
+  end
+
   private
 
   def render_show

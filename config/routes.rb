@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'ep/:episode_slug', :controller => 'public', :action => 'episode'
   map.connect 'ep/:episode_slug/ecoute/:content_slug', :controller => 'public', :action => 'content'
   map.connect 'ep/:episode_slug/ecouter/:content_slug', :controller => 'public', :action => 'playlist'
+  map.connect 'tags/:search', :controller => 'public', :action => 'tags'
   map.connect 'feed', :controller => 'public', :action => 'feed'
   map.connect 'robots.txt', :controller => 'public', :action => 'robots'
 
