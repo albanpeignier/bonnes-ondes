@@ -38,8 +38,9 @@ class Show < ActiveRecord::Base
     (self.episodes + [ self ]).collect(&:updated_at).max
   end
 
+  alias :real_template :template
   def template
-    self.read_attribute(:template) or Show.default_template
+    real_template or Show.default_template
   end
 
   def self.default_template
