@@ -29,7 +29,16 @@
           Date de diffusion : {{episode.broadcasted_at | date: 'le %d/%m/%Y à %H:%M'}}
         </p>
 
-        {% if episode.contents != empty %}
+        {% unless episode.tags == empty %}
+         <div class="tags">
+          Mots-clés :
+           {% for tag in episode.tags %}
+            <a href="/tags/{{tag}}" rel="tag">{{tag}}</a>{% unless forloop.last %},{% endunless %}
+           {% endfor %}
+         </div>
+        {% endunless %}
+
+        {% unless episode.contents == empty %}
           <h2>Ecouter</h2>
           <ul class="contents">
             {% for content in episode.contents %}
@@ -50,7 +59,7 @@
               </li>
             {% endfor %}
           </ul>
-        {% endif %}
+        {% endunless %}
 
         <div id="links">
           Retour à <a href="{{episode.show.url_for}}">{{episode.show.name}}</a>
