@@ -46,6 +46,9 @@ p {margin:0.2em 0;}
 #content .audio a:hover {background-image:url('../media/play-over.png');}
 #content .audio p {position:absolute;left:38px;top:1.8em;}
 #content .duration {font-size:.80em;line-height:.85em;}
+#content .tags { font-size: .80em; margin-top: 0.3em; }
+#content .tags a { font-weight: bold; color: #fff; }
+display: inline; }
 #page .player {margin:0.2em 0 1em 1em;}
 #page .player h4 {font-size:.95em;}
 #page .player img {float:left;margin-right:1em;border:1px solid #fff;}

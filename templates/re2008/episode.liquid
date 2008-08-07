@@ -31,6 +31,16 @@
       {{episode.image.tag}}
       {{episode.description | textilize}}
      </div>
+
+     {% unless episode.tags == empty %}
+       <div class="tags">
+        Mots-clés :
+         {% for tag in episode.tags %}
+          <a href="/tags/{{tag}}" rel="tag">{{tag}}</a>{% unless forloop.last %},{% endunless %}
+         {% endfor %}
+       </div>
+     {% endunless %}
+
     </div>
     <div id="listen">
       {% unless episode.contents == empty %}
