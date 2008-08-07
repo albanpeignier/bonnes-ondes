@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <title>{{show.name}} - {{search}} - Bonnes Ondes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="{{theme.url_for_assets}}/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" title="Podcast de {{episode.show.name}}" href="{{episode.show.url_for_podcast}}"/>
+  </head>
+
+  <body class="show">
+    <div id="all" class="normal">
+    <div id="header">
+      <div class="left border"></div>
+      <div class="right border"></div>
+      <h1>{{show.name}} - {{search}}</h1>
+    </div>
+
+    <div id="view">
+      <div class="left border"></div>
+      <div class="right border"></div>
+
+      <div id="page">
+        <div class="description">
+          Les épisodes de {{show.name}} contenant le mot-clé <strong>{{search}}</strong> :
+        </div>
+
+        <ul>
+          {% for episode in episodes %}
+            <li>
+              <a href="{{episode.url_for}}">{{episode.title}}</a><br/>
+              {% if episode.broadcasted_at %}
+                diffusé {{episode.broadcasted_at | date: 'le %d/%m/%Y à %Hh%M'}}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div id="links">
+          Retour à <a href="{{show.url_for}}">{{show.name}}</a>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="left border"></div>
+      <div class="right border"></div>
+
+      <p>
+        {{theme.admin_link_tag}}
+      </p>
+    </div>
+  </div>
+ </body>
+</html>
