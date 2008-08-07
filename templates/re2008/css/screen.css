@@ -56,6 +56,7 @@ display: inline; }
 #footer h2 {margin:0 0 .4em .2em;}
 #footer h3 {font-size:1em;font-weight:bold;color:#93d121;}
 #footer .day {float:left;width:23%;padding:.4em;}
-#footer ul {margin:0 .4em 1em;padding:0 0 0 .4em;border-left:1px solid #f4b600;}
+#footer ul {margin:0 .4em 0;padding:0 0 0 .4em;border-left:1px solid #f4b600;}
 #footer li {font-size:.85em;margin:0.2em 0;}
 #footer li .dtstart {font-size:.85em;}
+#footer .day .listen {font-size:.8em;}

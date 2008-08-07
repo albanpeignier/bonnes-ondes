@@ -6,6 +6,9 @@
     <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title}}</a></li>
   {% endfor %}
  </ul>
+
+ <div class="listen"><a href="/tags/jeudi?format=m3u">Ecouter tout le jeudi</a></div>
+
 </div>
 <div class="day" id="friday">
  <h3>Vendredi</h3>
@@ -14,6 +17,8 @@
     <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title}}</a></li>
   {% endfor %}
  </ul>
+
+ <div class="listen"><a href="/tags/vendredi?format=m3u">Ecouter tout le vendredi</a></div>
 </div>
 <div class="day" id="saturday">
  <h3>Samedi</h3>
@@ -22,6 +27,8 @@
     <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title}}</a></li>
   {% endfor %}
  </ul>
+
+ <div class="listen"><a href="/tags/samedi?format=m3u">Ecouter tout le samedi</a></div>
 </div>
 <div class="day" id="sunday">
  <h3>Dimanche</h3>
@@ -30,4 +37,6 @@
     <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title}}</a></li>
   {% endfor %}
  </ul>
+
+ <div class="listen"><a href="/tags/dimanche?format=m3u">Ecouter tout le dimanche</a></div>
 </div>
