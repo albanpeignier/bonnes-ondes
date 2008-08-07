@@ -1,0 +1,15 @@
+#EXTM3U
+<%-
+  @episodes.each do |episode|
+    contents = episode.contents.principal
+    contents.each do |content|
+
+    content_title = "#{episode.show.name} - #{episode.title}"
+    content_title += " - #{content.name}" if contents.many?
+-%>
+#EXTINF:<%= content.has_duration? ? content.duration.minutes : 0 %>,<%= content_title %>
+<%= content.content_url %>
+<%-
+    end
+  end
+-%>

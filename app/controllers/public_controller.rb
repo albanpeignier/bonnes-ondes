@@ -53,7 +53,16 @@ class PublicController < ApplicationController
     @search = params[:search]
     @episodes = @show.episodes.find_tagged_with @search
 
-    render_template @show, :search, @search
+    respond_to do |format|
+      format.html {
+        render_template @show, :search, @search
+      }
+      format.m3u {
+        @principal_contents = @episodes.collect { |e| e.contents.principal }.flatten
+        render :layout => false
+        # render tags.m3u.erb
+      }
+    end
   end
 
   private
