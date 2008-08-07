@@ -42,6 +42,11 @@ module ApplicationHelper
       :episode_slug => content.episode.slug, :content_slug => content.slug }))
   end
 
+  def url_for_show_tag(show, tag, options = {})
+    url_for(options.merge({ :controller => "public", :action => "tags",
+      :host => show_hostname(show), :search => tag.name}))
+  end
+
   def link_to_show(show)
     link_to(h(show.name), url_for_show(show))
   end

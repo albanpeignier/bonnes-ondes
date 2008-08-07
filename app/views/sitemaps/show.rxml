@@ -3,7 +3,7 @@ xml.tag! 'urlset', "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   xml.tag! 'url' do
     xml.tag! 'loc', url_for_show(@show, :only_path => false)
     xml.tag! 'lastmod', @show.last_update_at.strftime("%Y-%m-%d")
-    xml.tag! 'changefreq', 'monthly'
+    xml.tag! 'changefreq', 'weekly'
     xml.tag! 'priority', '1'
   end
 
@@ -11,8 +11,18 @@ xml.tag! 'urlset', "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
     xml.tag! 'url' do
       xml.tag! 'loc', url_for_episode(episode, :only_path => false)
       xml.tag! 'lastmod', episode.updated_at.strftime("%Y-%m-%d")
-      xml.tag! 'changefreq', 'monthly'
+      xml.tag! 'changefreq', 'weekly'
       xml.tag! 'priority', '0.5'
+    end
+  end
+
+  for tag in @show.episodes.collect(&:tags).flatten.uniq do
+    xml.tag! 'url' do
+      xml.tag! 'loc', url_for_show_tag(@show, tag, :only_path => false)
+      last_episode = tag.taggings.collect(&:taggable).sort_by(&:updated_at).last
+      xml.tag! 'lastmod', last_episode.updated_at.strftime("%Y-%m-%d")
+      xml.tag! 'changefreq', 'weekly'
+      xml.tag! 'priority', '0.3'
     end
   end
 end
