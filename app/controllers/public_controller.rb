@@ -25,11 +25,7 @@ class PublicController < ApplicationController
 
   def episode
     @episode = find_episode
-    if @episode.show.template.nil?
-      render :layout => "public_render"
-    else
-      render_template @episode.show, :episode, @episode
-    end
+    render_template @episode.show, :episode, @episode
   end
 
   def feed
@@ -42,19 +38,11 @@ class PublicController < ApplicationController
 
   def content
     @content = find_content
-
-    if @content.episode.show.template.nil?
-      @page_type = :condensed
-      render :layout => "public_render"
-    else
-      render_template @content.episode.show, :content, @content
-    end
+    render_template @content.episode.show, :content, @content
   end
 
   def direct
-    unless @show.template.nil?
-      render_template @show, :stream, @show
-    end
+    render_template @show, :stream, @show
   end
 
   def robots
@@ -72,11 +60,7 @@ class PublicController < ApplicationController
 
   def render_show
     create_visit @show
-    if @show.template.nil?
-      render :layout => "public_render", :action => :show
-    else
-      render_template @show, :show, @show
-    end
+    render_template @show, :show, @show
   end
 
   def render_template(show, view, object)

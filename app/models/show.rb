@@ -38,6 +38,14 @@ class Show < ActiveRecord::Base
     (self.episodes + [ self ]).collect(&:updated_at).max
   end
 
+  def template
+    self.read_attribute(:template) or Show.default_template
+  end
+
+  def self.default_template
+    @@default_template ||= Template.find_by_slug('cocoa')
+  end
+
 end
 
 # TODO move this f... code anywhere else
