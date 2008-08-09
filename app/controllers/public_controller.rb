@@ -5,7 +5,7 @@ class PublicController < ApplicationController
 
   append_view_path "#{RAILS_ROOT}/templates"
 
-  before_filter :assigns_show
+  before_filter :assigns_show, :create_user_google_analytics_account
 
   def welcome
     if @show.blank?
@@ -90,6 +90,14 @@ class PublicController < ApplicationController
     end
 
     @show = find_show(show_slug)
+  end
+
+  def create_user_google_analytics_account
+    user_tracker_id = (@show.host and @show.host.google_analytics_tracker_id)
+
+    unless user_tracker_id.blank?
+      request.google_analytics_account = Rubaidh::GoogleAnalytics.new(user_tracker_id)
+    end
   end
 
   def find_show(slug = nil)
