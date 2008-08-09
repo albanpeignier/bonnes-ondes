@@ -58,7 +58,6 @@ class PublicController < ApplicationController
         render_template @show, :search, @search
       }
       format.m3u {
-        @principal_contents = @episodes.collect { |e| e.contents.principal }.flatten
         render :layout => false
         # render tags.m3u.erb
       }
