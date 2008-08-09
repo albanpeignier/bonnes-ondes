@@ -1,6 +1,6 @@
 #EXTM3U
 <%-
-  @episodes.each do |episode|
+  @episodes.reverse.each do |episode|
     contents = episode.contents.principal
     contents.each do |content|
 
