@@ -93,7 +93,7 @@ class PublicController < ApplicationController
   end
 
   def create_user_google_analytics_account
-    user_tracker_id = (@show.host and @show.host.google_analytics_tracker_id)
+    user_tracker_id = (@show and @show.host and @show.host.google_analytics_tracker_id)
 
     unless user_tracker_id.blank?
       request.google_analytics_account = Rubaidh::GoogleAnalytics.new(user_tracker_id)
