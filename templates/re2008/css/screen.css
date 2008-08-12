@@ -46,9 +46,10 @@ p {margin:0.2em 0;}
 #content .audio a:hover {background-image:url('../media/play-over.png');}
 #content .audio p {position:absolute;left:38px;top:1.8em;}
 #content .duration {font-size:.80em;line-height:.85em;}
-#content .tags { font-size: .80em; margin-top: 0.3em; }
+#content .tags, #content .vote { font-size: .80em; margin-top: 0.3em; }
 #content .tags a { font-weight: bold; color: #fff; }
-display: inline; }
+#content #star-rating-block li { display: inline; }
+#content #star-rating-block a.off { color: #fff }
 #page .player {margin:0.2em 0 1em 1em;}
 #page .player h4 {font-size:.95em;}
 #page .player img {float:left;margin-right:1em;border:1px solid #fff;}
@@ -60,3 +61,24 @@ display: inline; }
 #footer li {font-size:.85em;margin:0.2em 0;}
 #footer li .dtstart {font-size:.85em;}
 #footer .day .listen {font-size:.8em;}
+
+/*.rating { position: absolute; right: 14px !important; right: 22px; }*/
+.rating ul { position: relative; margin: 0px; padding: 0px; width: 80px; height: 16px; list-style: none; background: url("../media/stars-bg.png") no-repeat top right; }
+.rating ul.rate1 { background-position: -64px; }
+.rating ul.rate2 { background-position: -48px; }
+.rating ul.rate3 { background-position: -32px; }
+.rating ul.rate4 { background-position: -16px; }
+.rating ul.rate5 { background-position: 0; }
+.rating ul li { float: left; padding: 0px; margin: 0px; }
+.rating ul li a { position: absolute; display: block; width: 16px; height: 16px; padding: 0px; z-index: 16; text-indent: -9000px; }
+.rating ul li a:hover { z-index: 1; left: 0px; background: url("../media/star.png") repeat-x left bottom; }
+.rating a.one { left: 0px; }
+.rating a.one:hover { width: 16px; }
+.rating a.two { left: 16px; }
+.rating a.two:hover { width: 32px; }
+.rating a.three { left: 32px; }
+.rating a.three:hover { width: 48px; }
+.rating a.four { left: 48px; }
+.rating a.four:hover { width: 64px; }
+.rating a.five { left: 64px; }
+.rating a.five:hover { width: 80px; }
