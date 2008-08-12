@@ -10,6 +10,10 @@ class Template::LiquidDropClass
     "/templates/#{@object.slug}"
   end
 
+  def javascript_include_tag
+    view.javascript_include_tag(:defaults, :cache => false).to_s
+  end
+
   def admin_link_tag
     account_link = if view.logged_in?
       view.link_to("Mon compte", :controller => "account", :action => "index")
