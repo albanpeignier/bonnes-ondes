@@ -1,0 +1,1 @@
+page.replace_html "rating-episode-#{@episode.id}", rate_tag(@episode, false)

@@ -49,6 +49,19 @@ class PublicController < ApplicationController
     render :text => "Sitemap: #{url_for :controller => :sitemaps, :action => :show, :id => @show.slug, :only_path => false}"
   end
 
+  def vote
+    @episode = @show.episodes.find(params[:episode_id])
+
+    if request.post?
+      @episode.rate params[:rating].to_i
+    end
+
+    respond_to do |format|
+   	  format.html { redirect_to url_for_episode(@episode) }
+   	  format.js { render :layout => false }
+   	end
+  end
+
   def tags
     @search = params[:search]
     @episodes = @show.episodes.find_tagged_with @search
