@@ -119,3 +119,5 @@ p#cloud { margin-bottom: 8px; }
 * html #wrap, * html #content .vcard, * html #subscribers, * html #users, * html #members, * html #search { height: 1%; }
 
 .textile_editor_help { padding: 4px 0 10px 10px; font-size: 0.9em; font-style: italic; }
+
+#selection li { display: inline; }

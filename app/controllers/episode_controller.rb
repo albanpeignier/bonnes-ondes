@@ -39,7 +39,22 @@ class EpisodeController < ApplicationController
 
   def list
     @show = current_user.shows.find(params[:show])
-    @episodes = @show.episodes.paginate(:per_page => 10, :page => (params[:page] or 1))
+    @episodes = @show.episodes
+
+    @filter = params[:filter]
+    case @filter
+      when 'without_content'
+        @episodes = @episodes.find_all { |episode| episode.contents.empty? }
+    end
+
+    if params[:tag]
+      @tag = Tag.find(params[:tag])
+      @episodes = @episodes.find_all { |episode| episode.tags.include? @tag }
+    end
+
+    @episode_count = @episodes.size
+
+    @episodes = @episodes.paginate(:per_page => 10, :page => (params[:page] or 1))
   end
 
   def delete

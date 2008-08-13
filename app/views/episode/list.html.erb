@@ -1,5 +1,27 @@
 <h2><%= h @show.name %> - Episodes</h2>
 
+<div id="selection">
+  <p id="selection-filter">
+    <%= link_to "Tous", :show => @show %> |
+    Seulement :
+    <%= link_to "Sans contenu", :show => @show, :filter => :without_content, :tag => @tag %>
+  </p>
+
+  <p id="selection-tag">
+    <% for tag in @show.tags.first(10) %>
+      <%= link_to tag.name.gsub(' ','&nbsp;'), { :show => @show, :tag => tag, :filter => @filter }, :class => "rel-tag" %>
+    <% end %>
+  </p>
+
+  <p>
+    <%= @filter == 'without_content' ? "Sans contenu" : "Tous" %>
+    <%= "avec l'étiquette #{@tag.name}" if @tag %>
+    ›
+    <%= pluralize @episode_count, 'épisode trouvé', 'épisodes trouvés' %>
+  </p>
+</div>
+
+
 <% unless @episodes.empty? %>
   <ul>
   <% for episode in @episodes %>
