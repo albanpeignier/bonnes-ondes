@@ -1,12 +1,21 @@
 require 'html/document'
 
 module TextFilter
+
   def textilize(input)
     RedCloth.new(input).to_html
   end
 
   def strip_tags(input)
     full_sanitizer.sanitize input
+  end
+
+  def integer(input)
+    input.to_i
+  end
+
+  def pluralize(input, word)
+    ActionView::Helpers::TextHelper::pluralize(input, word)
   end
 
   private

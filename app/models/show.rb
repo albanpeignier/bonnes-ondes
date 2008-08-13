@@ -60,6 +60,10 @@ class Show::LiquidDropClass
     @object.episodes.not_broadcasted
   end
 
+  def popular_episodes
+    @object.episodes.find(:all, :order => 'rating_avg desc, rating_count desc')
+  end
+
   def tags
     @show_tags ||= ShowTags.new(@object)
   end

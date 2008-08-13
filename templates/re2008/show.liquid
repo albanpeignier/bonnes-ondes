@@ -25,7 +25,7 @@
     {{show.logo.tag}}
     -->
 
-    {% for episode in show.broadcasted_episodes limit:5 %}
+    {% for episode in show.popular_episodes limit:5 %}
       <div class="hentry entry" id="post-{{forloop.index}}">
        <h3 class="entry-title">{{episode.title}}</h3>
        <div class="post-info">
@@ -35,7 +35,9 @@
        </div>
        <div class="entry-content">
         {{episode.description | textilize | strip_tags | truncate: 400}}
+
        </div>
+       <div class="vote">Note des auditeurs : {{ episode.rating_avg | integer }} sur 5 - {{ episode.rating_count }} votes</div>
       </div>
     {% endfor %}
    </div>
