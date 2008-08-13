@@ -52,8 +52,9 @@ class PublicController < ApplicationController
   def vote
     @episode = @show.episodes.find(params[:episode_id])
 
-    if request.post?
+    if request.post? and user_session.can_rate_episode?(@episode)
       @episode.rate params[:rating].to_i
+      user_session.rate_episode(@episode)
     end
 
     respond_to do |format|
