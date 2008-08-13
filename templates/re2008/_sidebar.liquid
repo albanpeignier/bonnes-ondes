@@ -7,6 +7,22 @@
 <div id="listen"><a href="#" onclick="window.open('{{show.url_for}}direct','re2008-live','height=300,width=800');return false;" title="Radio Esperanzah! Direct">Ecoutez</a></div>
 -->
 
+<h2>Mots-clés</h2>
+
+<ul>
+  {% for tag in show.tags limit:15 %}
+    {% case tag.name %}
+    {% when 'jeudi' %}
+    {% when 'vendredi' %}
+    {% when 'samedi' %}
+    {% when 'dimanche' %}
+    {% when 'jean-yves laffineur' %}
+    {% else %}
+    <li><a href="/tags/{{tag.name}}">{{ tag.name }}</a></li>
+    {% endcase %}
+  {% endfor %}
+</ul>
+
 <h2>Les radios partenaires</h2>
 <ul>
  <li><a href="http://radiocampus.ulb.ac.be/" title="Radio Campus Bruxelles">Radio Campus Bruxelles</a></li>
