@@ -34,6 +34,15 @@ class Show < ActiveRecord::Base
     current + 1
   end
 
+  def tags
+    tag_counts = episodes.collect(&:tags).flatten.inject({}) do |counts, tag|
+      counts[tag] = (counts[tag] or 0) + 1
+      counts
+    end
+
+    tag_counts.sort { |a, b| b[1]<=>a[1] }.collect { |tag, count| tag }
+  end
+
   def last_update_at
     (self.episodes + [ self ]).collect(&:updated_at).max
   end
@@ -64,7 +73,7 @@ class Show::LiquidDropClass
     @object.episodes.find(:all, :order => 'rating_avg desc, rating_count desc')
   end
 
-  def tags
+  def tag
     @show_tags ||= ShowTags.new(@object)
   end
 
