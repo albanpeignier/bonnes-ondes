@@ -46,7 +46,9 @@ class PublicController < ApplicationController
   end
 
   def robots
-    render :text => "Sitemap: #{url_for :controller => :sitemaps, :action => :show, :id => @show.slug, :only_path => false}"
+    respond_to do |format|
+   	  format.txt { render :layout => false }
+    end
   end
 
   def vote
