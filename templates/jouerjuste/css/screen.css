@@ -17,7 +17,7 @@ a, a:hover { color:black; }
 
 #sidebar { float: right; width: 200px; padding-left: 20px; }
 #sidebar h3 { background-color:#DF016E; color:#FFE900; margin:6px 0; padding:3px; text-transform: uppercase; }
-#sidebar p { padding: 12px; }
+#sidebar p { padding: 12px; text-align: center; }
 #sidebar .subtitle { font-style: italic; }
 
 #content h2, h3 { color:#4A5C68; font-size:24px; font-weight:bold; }
