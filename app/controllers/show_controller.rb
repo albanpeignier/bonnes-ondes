@@ -3,7 +3,7 @@ class ShowController < ApplicationController
   def create
     if request.post?
       @show = current_user.shows.build(params[:show])
-      if @show.save
+      if @current_user.save
         flash[:notice] = "Votre émission est créé"
         redirect_to :action => "show", :id => @show
       else
