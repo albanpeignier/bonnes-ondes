@@ -101,7 +101,7 @@ class PublicController < ApplicationController
     end
 
     show_slug = ""
-    if request.host =~ /^(.*).bonnes-ondes.fr$/
+    if request.host =~ /^(.*).bonnes-ondes.(fr|local)$/
       show_slug = $1
     end
 

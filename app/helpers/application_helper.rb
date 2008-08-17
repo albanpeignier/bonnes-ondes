@@ -2,9 +2,13 @@
 module ApplicationHelper
   include RateHelper
 
+  def main_domain
+    RAILS_ENV == 'development' ? 'bonnes-ondes.local' : 'bonnes-ondes.fr'
+  end
+
   def show_hostname(show)
     hostname = if show.host.nil?
-      "#{show.slug}.bonnes-ondes.fr"
+      "#{show.slug}.#{main_domain}"
     else
       show.host.name
     end
