@@ -25,18 +25,9 @@ class ContentController < ApplicationController
   def create(type)
     episode_id = request.post? ? params[:content][:episode_id] : params[:episode_id]
     episode = current_user.find_episode(episode_id)
-    first_content = episode.contents.empty?
 
     @content = Content.create(type, params[:content])
     @content.episode = episode
-
-    if first_content
-      @content.name ||= "Intégrale"
-      @content.slug ||= Slug.slugify(@content.name)
-      @content.principal ||= true
-    else
-      @content.principal ||= false
-    end
 
     if request.post?
       if @content.save
@@ -44,6 +35,14 @@ class ContentController < ApplicationController
         redirect_to :controller => "episode", :action => "show", :id => episode
       else
         flash[:error] = "Impossible d'ajouter le contenu"
+      end
+    else
+      if episode.contents.empty?
+        @content.name = "Intégrale"
+        @content.slug = Slug.slugify(@content.name)
+        @content.principal = true
+      else
+        @content.principal = false
       end
     end
   end
