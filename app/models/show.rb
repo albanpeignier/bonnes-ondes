@@ -1,6 +1,6 @@
 class Show < ActiveRecord::Base
 
-  has_one :host
+  has_one :host, :dependent => :destroy
   belongs_to :template
 
   liquid_methods :name, :description, :episodes, :logo, :tags
