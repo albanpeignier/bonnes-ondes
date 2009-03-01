@@ -5,7 +5,7 @@ class Content < ActiveRecord::Base
 
   named_scope :principal, :conditions => { :principal => true }
 
-  liquid_methods :name, :episode, :duration, :has_duration?, :id
+  liquid_methods :name, :episode, :duration, :has_duration?, :id, :available?
 
   validates_presence_of :name, :message => "Pas de nom défini"
   validates_length_of :name, :within => 3..30, :too_short => "Le nom est trop court", :too_long => "Le nom est trop long"
