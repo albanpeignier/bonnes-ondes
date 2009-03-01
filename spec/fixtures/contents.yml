@@ -1,0 +1,6 @@
+first:
+  episode: first
+  name: First Content
+  slug: first
+  type: NetContent
+  principal: true

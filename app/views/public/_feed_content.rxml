@@ -1,0 +1,25 @@
+content = feed_content
+
+xml.item do
+  title = content.episode.title
+  title += " - #{content.name}" if content.episode.contents.many?
+  xml.title title
+
+  unless content.episode.tag_list.empty?
+    xml.itunes :keywords, content.episode.tag_list.join(', ')
+    content.episode.tag_list.each do |category|
+      xml.category category
+    end
+  end
+
+  xml.description textilize_in_text(content.episode.description)
+  xml.itunes :summary, textilize_in_text(content.episode.description)
+
+  xml.itunes :duration, "#{content.duration}:00" if content.has_duration?
+
+  # TODO add content length
+  xml.enclosure :url => content.content_url(:format => :mp3), :type => "audio/mpeg"
+
+  xml.guid url_for_episode(content.episode, :only_path => false)
+  xml.pubDate content.episode.updated_at.strftime("%a, %e %b %Y %T %Z")
+end

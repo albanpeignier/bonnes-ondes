@@ -1,0 +1,5 @@
+first:
+  name: Test
+  description: Just for test
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
