@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'net/http'
 
 class Content < ActiveRecord::Base
@@ -25,6 +26,9 @@ class Content < ActiveRecord::Base
     not duration.nil? and duration > 0
   end
 
+  def available?
+    available_end_at.nil? or available_end_at.future?
+  end
 
   def validate_content_type(content_types)
     content_types = [ content_types ] unless content_types === Array
