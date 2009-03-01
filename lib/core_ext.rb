@@ -5,3 +5,11 @@ class Array
   end
 
 end
+
+class Time
+
+  def future?
+    self > ::Time.current
+  end
+
+end
