@@ -1,0 +1,9 @@
+<div class="hentry entry" id="post-{{forloop.index}}">
+ <h3 class="entry-title"><a href="{{ episode.url_for }}">{{ episode.title }}</a></h3>
+ <div class="entry-content">
+  {{ episode.description|textilize|strip_tags|truncate:400 }}
+ </div>
+ <a href="{{ episode.url_for }}" class="published" rel="bookmark" title="{{episode.title}}">
+  Lire et écouter la suite &#8250;
+ </a>
+</div>

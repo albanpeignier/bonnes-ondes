@@ -1,0 +1,37 @@
+<h2>Le programme</h2>
+<div class="day" id="thursday">
+ <h3>Jeudi</h3>
+ <ul>
+  {% for episode in show.tag.jeudi reversed %}
+    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title}}</a></li>
+  {% endfor %}
+ </ul>
+ <div class="listen"><a href="/tags/jeudi?format=m3u">&#8594; Ecouter tout le jeudi</a></div>
+</div>
+<div class="day" id="friday">
+ <h3>Vendredi</h3>
+ <ul>
+  {% for episode in show.tag.vendredi reversed %}
+    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title}}</a></li>
+  {% endfor %}
+ </ul>
+ <div class="listen"><a href="/tags/vendredi?format=m3u">&#8594; Ecouter tout le vendredi</a></div>
+</div>
+<div class="day" id="saturday">
+ <h3>Samedi</h3>
+ <ul>
+  {% for episode in show.tag.samedi reversed %}
+    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title}}</a></li>
+  {% endfor %}
+ </ul>
+ <div class="listen"><a href="/tags/samedi?format=m3u">&#8594; Ecouter tout le samedi</a></div>
+</div>
+<div class="day" id="sunday">
+ <h3>Dimanche</h3>
+ <ul>
+  {% for episode in show.tag.dimanche reversed %}
+    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title}}</a></li>
+  {% endfor %}
+ </ul>
+ <div class="listen"><a href="/tags/dimanche?format=m3u">&#8594; Ecouter tout le dimanche</a></div>
+</div>

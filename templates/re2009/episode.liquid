@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+ <head>
+  <title>{{ episode.title }} - Esperanzah! 2009 - Radio</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/screen.css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="{{show.name}}" href="{{ show.url_for_podcast }}" />
+  {{ theme.javascript_include_tag }}
+ </head>
+ <body>
+  <div id="wrapper">
+   <a href="http://radio.esperanzah.be">
+    {% include 're2009/header' %}
+   </a>
+   <div id="page">
+    <p class="program"><a href="#program" onclick="Effect.ScrollTo('program'); return false;">Le programme &#8595;</a>
+    <div id="content">
+     <div class="hentry entry" id="post-1">
+      <h3 class="entry-title">{{ episode.title }}</h3>
+      <div class="post-info">
+       {{ episode.broadcasted_at|prettydate:"%d %B %Y - %Hh%M" }}
+       {% unless episode.tags == empty %} &mdash;
+        {% for tag in episode.tags %}
+         <a href="/tags/{{tag}}" rel="tag">{{tag}}</a>{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+       {% endunless %}
+      </div>
+      <div class="entry-content">
+       {{ episode.image.tag }}
+       {{ episode.description|textilize }}
+      </div>
+      <div class="vote">
+       {{ episode.vote_tag }}
+      </div>
+     </div>
+     <div id="listen">
+      {% unless episode.contents == empty %}
+ 	     <h3>Ecoutez</h3>
+   	   {% for content in episode.contents %}
+	      <div class="audio" id="audio-{{forloop.index}}">
+	       <h4><a href="{{content.url_for}}" onclick="window.open('{{content.url_for}}','bonnes-ondes-{{content.id}}','height=300,width=800');return false;">{{content.name}}</a></h4>
+	       {% if content.duration %}
+          <p class="duration">{{content.duration}} minutes</p>
+         {% endif %}
+	      </div>
+	     {% endfor %}
+	    {% else %}
+       <p>
+        {% if episode.broadcasted_at > now %}
+         Ecoutez en direct cette émission {{episode.broadcasted_at | prettydate }}
+        {% else %}
+         {% unless episode.tags contains 'live' %}
+          Retrouvez prochainement le contenu de ce programme
+         {% endunless %}
+        {% endif %}
+       </p>
+      {% endunless %}
+     </div>
+    </div>
+    <div id="sidebar">
+     {% include 're2009/sidebar' %}
+    </div>
+    <div id="program">
+     {% include 're2009/program' %}
+    </div>
+   </div>
+   <div id="footer"></div>
+  </div>
+  {% include 're2009/javascript' %}
+ </body>
+</html>
