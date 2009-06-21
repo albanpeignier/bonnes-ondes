@@ -1,4 +1,4 @@
-class CreateRe2009Template < ActiveRecord::Migration
+class CreateRmll2009Template < ActiveRecord::Migration
   def self.up
     Template.create :name => "Radio RMLL 2009", :slug => "rmll2009"
   end

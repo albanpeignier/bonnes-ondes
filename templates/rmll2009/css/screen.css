@@ -1,0 +1,637 @@
+@import 'reset.css';
+
+html, body {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	background: #f2f0e9 url('../media/background.png') top repeat-x;
+	font-size : 12px;
+}
+
+div {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	border: 0;
+	vertical-align : middle;
+}
+
+a {
+	text-decoration: none;
+	color: #6f9c1c;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #82b521;
+}
+
+a:visited {
+	color: #566a2e;
+}
+
+ul {
+	margin: 0;
+	padding-left: 10px;
+}
+
+h2 {
+	border-bottom: 1px solid #e8e5d4;
+	text-align: left;
+	font-size: 1.5em;
+	margin-left: -10px;
+}
+h3 {
+	font-size: 1.2em;
+	text-align: left;
+	margin: 0;
+	margin-bottom: 5px;
+	clear: right;
+}
+
+h4 {
+	font-size: 1.1em;
+	text-align: left;
+}
+
+pre {
+	background-color: #fdfaf0;
+	padding: 10px;
+}
+
+blockquote {
+	background-color: #fdfaf0;
+	padding: 10px;
+	margin: 5px 30px;
+}
+
+hr {
+	display: block;
+	height: 1px;
+	margin: 5px 20px;
+	border: 0;
+	border-top: 1px solid #ababab;
+}
+
+/*    S T R U C T U R E    */
+#page {
+	max-width: 901px;
+	background: url('../media/page.png') repeat-y;
+	text-align: justify;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+}
+
+
+#head {
+	max-width: 901px;
+	height: 254px;
+	background: url('../media/header.png') no-repeat;
+	padding-top: 1px;
+}
+
+#head h1 {
+  position: absolute;
+  top: 100px;
+  padding-left: 45px;
+  font-weight: bold;
+	font-size: 18px;
+	color: #fff;
+}
+
+#acces {
+	float: left;
+	padding-top: 1px;
+	padding-left: 5px;
+	color: #444;
+	font-size: 80%;
+	height: 15px;
+}
+
+#acces a {
+	color: #444;
+}
+
+#menu1, #menu2 {
+	display: block;
+	float: right;
+	padding: 0;
+	margin: 0;
+	color: #000;
+	list-style-type: none;
+	text-align: right;
+}
+
+#menu1 a, #menu2 a {
+	color: #000;
+}
+
+#menu1 {
+	padding-right: 55px;
+	margin-top: -1px;
+}
+
+#menu2 {
+	padding-right: 10px;
+	margin-top: 25px;
+	clear: both;
+	/*width: 420px;*/
+}
+
+#menu1 li, #menu2 li {
+	text-align: center;
+	display: block;
+	float: left;
+	padding: 0;
+	margin: 0;
+	clear: none;
+}
+
+#menu1 li a, #menu2 li a {
+	color: #000;
+	display: block;
+	padding: 2px 5px;
+	margin: 0;
+	text-decoration: none;
+}
+
+#menu2 li a {
+	height: 50px;
+	background-color: #eeeeee;
+	margin-right: 5px;
+	width: 90px;
+}
+
+
+#menu1 li a:hover, #menu1 li a.on, #menu2 li a.on, #menu2 li a.on:hover {
+	padding-top: 2px;
+	color: #fff;
+	background-color: #82b521;
+	border: 0;
+}
+#menu2 li a.on:hover {
+	height: 50px;
+}
+
+#menu2 li a:hover {
+	border-bottom: 3px solid #82b521;
+	height: 47px;
+}
+
+
+#location {
+	margin: 5px 1px 0 1px;
+	padding: 4px 15px;
+	border-top: 1px solid #e8e5d4;
+	border-bottom: 1px solid #e8e5d4;
+}
+
+#content {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#content .description {
+    overflow : auto;
+}
+
+.date {
+	margin-top: -15px;
+	color: #444;
+	font-size: 90%;
+	text-align: right;
+}
+
+.deuxcolonnes #content {
+	margin-left: 220px;
+	margin-right: 20px;
+}
+
+#barredroite {
+	clear: both;
+	text-align: left;
+	float: left;
+	width: 170px;
+	padding-left: 20px;
+	padding-right: 2px;
+	margin-top: 15px;
+	margin-left: 1px;
+	padding-top: -5px;
+	padding-bottom: 50px;
+	border-right: 1px dotted #e8e5d4;
+}
+
+#barredroite h2 {
+	border: 0;
+	font-size: 1.1em;
+	margin-bottom: 5px;
+}
+
+#barredroite ul {
+	padding-left: 5px;
+	list-style: disc outside;
+}
+#barredroite li {
+	margin: 0;
+	padding: 0;
+}
+
+
+#footer {
+	clear: both;
+	max-width: 901px;
+	height: 208px;
+	background: url('../media/footer.png') no-repeat;
+}
+
+#footer p {
+	padding-top: 50px;
+	color: #888;
+	text-align: right;
+	padding-right: 20px;
+	font-size: 80%;
+}
+#footer p a {
+	color: #888;
+	text-decoration: none;
+}
+#footer p a:hover {
+	text-decoration: underline;
+}
+
+#search {
+	float: left;
+	margin: 0;
+	padding: 0;
+	padding-left: 20px;
+	margin-bottom: 10px;
+	width: 40%;
+	margin-top: 50px;
+	clear: left;
+}
+
+#search .text {
+	border: 1px solid #82b521;
+	border-bottom: 3px solid #82b521;
+	width: 150px;
+	margin: 0;
+	color: #555;
+	background: #fff;
+	padding : 2px 0 2px 2px;
+	font-size: 1em;
+}
+
+#search .img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.menubarre {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menubarre li {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menubarre li a {
+	display: block;
+	padding: 3px 5px 2px 5px;
+	text-decoration: none;
+	border-bottom: 1px solid #e8e5d4;
+	margin: 0;
+	margin-left: 5px;
+	margin-right: 20px;
+}
+
+.menubarre li a:hover {
+	color: #000;
+	background-color: #fffefb;
+}
+
+
+.clear {
+	clear: both;
+}
+
+.imgrubrique {
+	float: right;
+	padding: 10px;
+}
+
+.gris {
+	color: #666;
+}
+
+#icons {
+	text-align: right;
+	padding-right: 20px;
+	margin-top: -5px;
+}
+#icons a {
+	margin-left: 3px;
+}
+
+#barredroite .modifs h2 {
+	color: #444;
+	font-size: 1.1em;
+}
+
+.modifs p {
+	text-align: right; padding-right: 5px;
+}
+
+.modifs {
+	margin-bottom: 30px;
+}
+
+#mainlink {
+	clear: both;
+	display: block;
+	width: 300px;
+	height: 75px;
+	margin: 0;
+	padding: 0;
+	margin-left: 20px;
+}
+
+form {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.sitemap ul li, .sitemap ul li ul {
+	margin : 0 0 0 20px;
+}
+
+form.newsletter {
+	margin : 15px;
+}
+
+form.newsletter .elem {
+	margin : 5px;
+	clear : both;
+}
+
+form.newsletter label {
+	width : 150px;
+	float : left;
+}
+
+
+#content ul {
+    margin-left : 10px;
+}
+
+#document_actif {
+    margin : 15px 0;
+    padding : 15px 0;
+    border-top : 2px solid #ececec;
+}
+
+#document_actif .titre {
+    font-weight : bold;
+}
+
+.rmll-evenements-brief {
+    margin : 10px 20px;
+    padding : 5px 10px;
+    background : #eeeeee;
+    border-left : 2px solid #808080;
+}
+
+.rmll-evenements-brief .info {
+    margin : 2px 0px;
+}
+
+.rmll-evenements-brief .info .expl {
+    padding-right : 5px;
+    color : #808080;
+    font-weight : bold;
+}
+
+.rmll-evenements-theme {
+    margin : 15px 0px 0px 5px;
+}
+
+.rmll-evenements-theme .description {
+    padding : 1px 8px 8px 8px;
+    background : #eeeeee;
+    border-left : 2px solid #808080;
+}
+
+.rmll-schedule-wrap {
+    overflow : auto;
+    padding : 3px;
+}
+
+.rmll-schedule td {
+    text-align : left;
+    vertical-align : top;
+}
+
+.rmll-schedule, .rmll-schedule th, .rmll-schedule td {
+    border : 1px solid #808080;
+    border-collapse : collapse;
+}
+
+.rmll-schedule th.conf {
+    text-align : center;
+    padding : 6px;
+}
+
+.rmll-schedule td.timeslot {
+    text-align : center;
+    padding : 3px;
+    width : 1%;
+    white-space : nowrap;
+}
+
+.rmll-schedule td.pause {
+    text-align : center;
+    padding : 3px;
+    background : #93b0c7;
+    font-weight : bold;
+}
+
+.rmll-schedule tr.odd td.timeslot {
+    background : #f2f0e9;
+}
+
+.rmll-schedule td.conf .infos {
+    min-width : 130px;
+    padding : 7px;
+    margin-bottom : 2px;
+}
+
+.rmll-schedule-all td.conf .infos {
+    padding : 0px;
+}
+
+.rmll-schedule-all td.conf .hider {
+    display : none;
+    padding : 4px;
+}
+
+.rmll-schedule td.conf .infos .time {
+    font-size : 0.8em;
+    margin-bottom : 4px;
+}
+
+.rmll-schedule td.conf .infos .time span {
+    text-decoration : underline;
+}
+
+.rmll-schedule-all td.conf .infos .time {
+    text-align : center;
+    text-decoration : none;
+}
+
+.rmll-schedule-all td.conf .infos .time a {
+    color : black;
+    text-decoration : underline;
+}
+
+.rmll-schedule td.conf .infos .title {
+    font-size : 0.9em;
+    margin-bottom : 4px;
+}
+
+.rmll-schedule td.conf .infos .title a {
+    color : black;
+    font-weight : bold;
+}
+
+.rmll-schedule td.conf .infos .nature {
+    font-size : 0.8em;
+    text-decoration : underline;
+}
+
+.rmll-schedule td.conf .infos .speaker {
+    font-size : 0.8em;
+    font-style : italic;
+}
+
+.rmll-schedule .conf-color-0 {
+    background : #9dff00;
+}
+
+.rmll-schedule .conf-color-1 {
+    background : #fa8072;
+}
+
+.rmll-schedule .conf-color-2 {
+    background : #a4adbe;
+}
+
+.rmll-schedule .conf-color-3 {
+    background : #f3eea0;
+}
+
+.rmll-schedule .conf-color-4 {
+    background : #6eb926;
+}
+
+.rmll-schedule .conf-color-5 {
+    background : #d18604;
+}
+
+.rmll-schedule .conf-color-6 {
+    background : #d2cd77;
+}
+
+.rmll-schedule .conf-color-7 {
+    background : #7abfa6;
+}
+
+.rmll-schedule .conf-color-8 {
+    background : #add8e6;
+}
+
+.rmll-schedule .conf-color-9 {
+    background : #f5d07f;
+}
+
+.rmll-schedule .conf-color-10 {
+    background : #ffb6c1;
+}
+
+.rmll-schedule .conf-color-11 {
+    background : #cc9d94;
+}
+
+.rmll-schedule .conf-color-12 {
+    background : #d295fa;
+}
+
+.rmll-schedule .conf-color-13 {
+    background : #ddddff;
+}
+
+.rmll-schedule .conf-color-14 {
+    background : #00fa9a;
+}
+
+.rmll-schedule .conf-color-15 {
+    background : #c77670;
+}
+
+.rmll-schedule .conf-color-16 {
+    background : #ffe100;
+}
+
+.rmll-schedule .conf-color-17 {
+    background : #cfb5b5;
+}
+
+.rmll-ical-wrap {
+    margin : 10px;
+}
+
+.rmll-pager-wrap {
+    overflow : auto;
+    margin : 10px 0px 5px 0px;
+}
+
+.rmll-pager-wrap .prev {
+    float : left;
+}
+
+.rmll-pager-wrap .next {
+    float : right;
+}
+
+.rmll-listdays-wrap {
+    margin : 20px;
+}
+
+.rmll-listdays-wrap .msg {
+    margin-bottom : 10px;
+    font-weight : bold;
+    font-size : 1.1em;
+}
+
+.rmll-schedule-theme-wrap {
+    margin : 10px 0;
+}
+
+p { margin: 5px 0; }
+h1, h2 { font-weight: bold; }
+#content h2 { margin-top: 10px; }
+#content ul li { list-style: circle; }
+#content strong { font-weight: bold; }

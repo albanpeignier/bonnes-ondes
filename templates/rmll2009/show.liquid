@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+ <head>
+  <title>Radio - 10es RMLL à Nantes du 7 au 11 juillet 2009</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/screen.css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="{{show.name}}" href="{{ show.url_for_podcast }}" />
+ </head>
+ <body>
+   <div id="page" class="deuxcolonnes">
+     <div id="head">
+       <a title="Nantes 2009 : Rendez-vous libres !" href="http://2009.rmll.info/" id="mainlink"> </a>       
+       <h1>La Radio des 10<sup>es</sup> Rencontres Mondiales du Logiciel Libre</h1>
+     </div>
+     <div id="icons">
+       
+       <a href="{{ show.url_for_podcast }}"><img alt="rss" src="{{theme.url_for_assets}}/media/rss.png"/> Le Podcast</a>
+     </div>
+
+     <div id="location">
+			 <a title="Nantes 2009 : Rendez-vous libres !" href="http://2009.rmll.info/">Accueil</a> - <a title="{{ show.name }}" href="{{ show.url_for }}">Radio RMLL</a>
+		 </div>
+     <div id="barredroite">
+       <h2>Radios partenaires</h2>
+
+       <ul>
+         <li><a href="http://www.canalb.fr">Canal B</a></li>
+         <li><a href="http://www.divergence-fm.org/">Divergence FM</a></li>
+         <li><a href="http://www.autres-mondes.org/">Autres(M)Ondes</a></li>
+       </ul>
+     </div>
+
+     <div id="content">
+       <h2>Radio RMLL du 7 au 11 juillet 2009</h2>
+       {{ show.description | textilize }}
+     </div>
+
+     <div id="footer">
+	     <p>2009, <a href="http://rmll.info">RMLL.info</a></p>
+     </div>
+   </div>
+ </body>
+</html>
