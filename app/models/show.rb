@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Show < ActiveRecord::Base
 
   has_one :host, :dependent => :destroy
@@ -44,7 +45,7 @@ class Show < ActiveRecord::Base
   end
 
   def last_update_at
-    (self.episodes + [ self ]).collect(&:updated_at).max
+    (self.episodes + [ self ]).compact.collect(&:updated_at).compact.max
   end
 
   alias :real_template :template
