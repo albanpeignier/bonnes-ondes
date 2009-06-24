@@ -1,15 +1,12 @@
 set :application, "bonnes-ondes"
-set :repository, "svn+ssh://svn.tryphon.org/kolaka/bonnes-ondes/trunk"
-
-set :deploy_via, :copy
-set :copy_strategy, :export
+set :scm, "git"
+set :repository, "git://github.com/albanpeignier/bonnes-ondes.git"
 
 set :deploy_to, "/var/www/bonnes-ondes"
 
 set :keep_releases, 5
 set :use_sudo, false
 
-ssh_options[:port] = 2722
 set :synchronous_connect, true
 
 role :app, "zigmun.tryphon.org"
