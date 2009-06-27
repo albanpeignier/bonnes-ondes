@@ -1,10 +1,16 @@
 <%= error_messages_for(:show) %>
 
-<h2>Choisir le logo de l'émission</h2>
-<p>Emission: <%= @show.name %></p>
+<h2>Choisir le logo de l'émission <%= @show.name %></h2>
 
+<p class="help">
+Le logo est utilisé dans la partie publique du site pour identifier votre émission.
+</p>
+
+<% unless @show.images.empty? %>
+<p>
+Sélectionnez le parmi les images de votre émission :
+</p>
 <% form_tag(:action => :select_logo) do %>
-
   <ul class="images">
     <% for image in @show.images %>
       <li>
@@ -17,4 +23,11 @@
 
   <%= submit_tag "Sélectionner" %>
     ou <%= link_to("revenir", :action => "show", :id => @show) %>
+<% end %>
+<% else %>
+<p class="empty">Vous n'avez pas encore ajouter d'image dans votre émission.</p>
+<div class="actions">
+  <%= link_to("Ajouter une nouvelle image", :controller => "image", :action => "create", :show => @show) %>
+</div>
+
 <% end %>

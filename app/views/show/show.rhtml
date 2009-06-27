@@ -9,7 +9,7 @@
 <div class="actions">
 <%= link_to("Voir", url_for_show(@show), :class => "view", :popup => true) %>
 <%= link_to("Modifier", { :action => "edit", :id => @show }, :class => "edit") %>
-<%= link_to("Logo", { :action => "select_logo", :id => @show }, :class => "edit") %>
+<%= link_to("Logo", { :action => "select_logo", :id => @show }, :class => "edit_show_logo") %>
 <%= link_to("Supprimer", { :action => "delete", :id => @show }, :confirm => "Etes-vous sûr de vouloir définitivement supprimer cette émission ?", :class => "destroy") %>
 </div>
 

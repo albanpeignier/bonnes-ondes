@@ -54,6 +54,7 @@ img { border: none; vertical-align: middle; }
 #frame .author { float: left; background: url("../images/author.png") no-repeat; }
 #frame .view { background: url("../images/view.png") no-repeat -2px 0px; }
 #frame .new_show { background:url(../images/show_add.png) no-repeat; padding: 0 0 0 23px; }
+#frame .edit_show_logo { background:url(../images/show_logo_edit.png) no-repeat; padding: 0 0 0 23px; }
 
 #content { float: right; width: 510px; margin: 0 0 0 40px; }
 #content h3, #content h3 a { text-decoration: none; color: #a559e4; margin-bottom: 6px; }
@@ -71,6 +72,9 @@ img { border: none; vertical-align: middle; }
 #content li.hreview blockquote.description { margin: 2px 0 6px 56px; padding: 0; line-height: 1.5em; }
 #content ul.images li img { float: left; margin-right: 15px; }
 #content ul.images li { clear: both; }
+#content ul.images li input {float:left; margin:15px 20px 10px 0;}
+#content ul.images:after { content: ".";  display: block; height: 0; clear: both; visibility: hidden; }
+
 #content #filter { float: right; margin: 0; }
 #content #filter p { margin: 0; }
 #content #filter input { padding: 1px 4px; font-size: 90%; color: #333; margin-top: 9px; }
@@ -84,6 +88,8 @@ ul#welcome { margin: 16px 100px 16px 14px; }
 #content .description li { padding: 0 0 0 2px; }
 
 #content p.dates { text-align: right; color: #999; font-size: 0.8em; }
+
+#content p.empty { margin-top: 10px; font-style: italic; }
 
 #welcome li { margin: 6px; color: #000; padding: 4px 4px 4px 28px; background: #fff url("../images/tick.png") no-repeat 4px 4px; }
 
