@@ -53,6 +53,7 @@ img { border: none; vertical-align: middle; }
 #frame .note { background: url("../images/note.png") no-repeat; }
 #frame .author { float: left; background: url("../images/author.png") no-repeat; }
 #frame .view { background: url("../images/view.png") no-repeat -2px 0px; }
+#frame .new_show { background:url(../images/show_add.png) no-repeat; padding: 0 0 0 23px; }
 
 #content { float: right; width: 510px; margin: 0 0 0 40px; }
 #content h3, #content h3 a { text-decoration: none; color: #a559e4; margin-bottom: 6px; }
@@ -77,8 +78,12 @@ img { border: none; vertical-align: middle; }
 #content a:hover.rel-tag { text-decoration: none; background: #efefef; }
 ul#welcome { margin: 16px 100px 16px 14px; }
 
-#content .description p { margin: 6px; }
+#content .description p, #content .description li { margin: 6px; }
 #content .description img { float: right; margin: 0 3px 10px 3px; }
+#content .description ul li { list-style: circle inside; }
+#content .description li { padding: 0 0 0 2px; }
+
+#content p.dates { text-align: right; color: #999; font-size: 0.8em; }
 
 #welcome li { margin: 6px; color: #000; padding: 4px 4px 4px 28px; background: #fff url("../images/tick.png") no-repeat 4px 4px; }
 
@@ -122,5 +127,3 @@ p#cloud { margin-bottom: 8px; }
 
 #selection li { display: inline; }
 
-div.actions a.new_show { background:url(../images/show_add.png) no-repeat; padding: 0 0 0 23px; }
-#content p.dates { text-align: right; color: #999; font-size: 0.8em; }
