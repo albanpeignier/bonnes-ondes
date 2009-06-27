@@ -1,11 +1,11 @@
 @import 'reset.css';
-body,html{font:13px Helvetica,Arial,FreeSans,sans-serif;margin:0;padding:0;background:#9E7A60;}
+body,html{font:14px Helvetica,Arial,FreeSans,sans-serif;margin:0;padding:0;background:#9E7A60;}
 a{color:#D16B22;text-decoration:none;}
 a:hover{color:#F07726;text-decoration:underline;}
 h1,h2,h3{font-weight:bold;color:#685038;margin:5px 0 4px;}
-h1{font-size:18px;}
-h2{font-size:16px;}
-h3{font-size:14px;}
+h1{font-size:20px;}
+h2{font-size:18px;}
+h3{font-size:16px;}
 #wrapper{width:797px;margin:0 auto;}
 #header{height:300px;}
 #page,#small{position:relative;overflow:auto;clear:both;padding:12px 62px 12px 52px;background:#fff url("../media/wrapper.png") repeat-y;}
@@ -17,6 +17,11 @@ h3{font-size:14px;}
 #content .entry-title a{color:#685038;}
 #content .post-info{margin:-2px 0 4px 2px;font-size:11px;color:#D16B22;}
 #content .entry-content img{float:right;margin:0px 12px;}
+#content {font-size: 14px;}
+#content strong{font-weight: bold;}
+#content p{margin: 5px 0;}
+#content ul{padding-left: 30px; }
+#content ul li {list-style: circle;}
 #listen .audio{margin:4px 0 12px 6px;padding-left:24px;background:url("../media/play.png") no-repeat 4px 0;}
 .vote{overflow:auto;clear:both;margin:12px 0;}
 .vote li{float:left;}
