@@ -123,3 +123,4 @@ p#cloud { margin-bottom: 8px; }
 #selection li { display: inline; }
 
 div.actions a.new_show { background:url(../images/show_add.png) no-repeat; padding: 0 0 0 23px; }
+#content p.dates { text-align: right; color: #999; font-size: 0.8em; }
