@@ -6,6 +6,10 @@ module Technoweenie # :nodoc:
       tmp_file.delete
       Dir.mkdir(tmp_directory, 0750)
 
+      Signal.trap("EXIT") do
+        FileUtils.rm_rf tmp_directory
+      end
+
       tmp_directory
     end
   end
