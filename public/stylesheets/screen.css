@@ -121,3 +121,5 @@ p#cloud { margin-bottom: 8px; }
 .textile_editor_help { padding: 4px 0 10px 10px; font-size: 0.9em; font-style: italic; }
 
 #selection li { display: inline; }
+
+div.actions a.new_show { background:url(../images/show_add.png) no-repeat; padding: 0 0 0 23px; }

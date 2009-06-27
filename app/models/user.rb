@@ -19,6 +19,12 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :shows
 
+  # doesn't work with has_and_belongs_to_many
+  # has_many :episodes, :through => :shows
+  def episodes
+    shows.collect { |show| show.episodes }.flatten
+  end
+
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
     user = find_by_login(login)
@@ -99,10 +105,6 @@ class User < ActiveRecord::Base
     content = Content.find(id)
     raise ActiveRecord::RecordNotFound unless shows.include?(content.episode.show)
     content
-  end
-
-  def episodes
-    shows.collect { |show| show.episodes }.flatten
   end
 
   protected

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class AccountController < ApplicationController
 
   skip_before_filter :login_required
@@ -10,6 +11,10 @@ class AccountController < ApplicationController
     end
 
     @user = self.current_user
+
+    @show_count = @user.shows.size
+    @show_lasts = @user.shows.find(:all, :order => "updated_at desc", :limit => 3)
+
     @episodes_count = @user.episodes.size
     @episodes_lasts = @user.episodes.sort_by { |e| e.created_at }.first(5).reverse
   end
