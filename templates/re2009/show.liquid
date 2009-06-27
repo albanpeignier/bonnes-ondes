@@ -12,7 +12,9 @@
     {% include 're2009/header' %}
    </a>
    <div id="page">
-    <p class="program"><a href="#program" onclick="Effect.ScrollTo('program'); return false;">Le programme &#8595;</a>
+     {% unless show.tag.jeudi == empty %}
+       <p class="program"><a href="#program" onclick="Effect.ScrollTo('program'); return false;">Le programme &#8595;</a>
+     {% endunless %}
     <div id="content">
      {% for episode in show.popular_episodes limit:7 %}
       {% include 're2009/episode' %}
