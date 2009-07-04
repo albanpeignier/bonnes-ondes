@@ -9,7 +9,9 @@ class PublicController < ApplicationController
 
   def welcome
     if @show.blank?
-      if request.host =~ /((www.)bonnes-ondes.fr|localhost)/
+      # localhost is used in development
+      # www.example.com is used by cucumber
+      if request.host =~ /((www.)bonnes-ondes.fr|localhost|www.example.com)/
         @episodes_last =  Episode.find(:all, :order => "created_at DESC", :limit => 10)
       else
         raise ActiveRecord::RecordNotFound
