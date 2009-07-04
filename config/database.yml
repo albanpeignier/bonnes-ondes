@@ -21,7 +21,7 @@ development:
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
 # Do not set this db to the same as development or production.
-test:
+test: &TEST
   adapter: mysql
   database: bonnes-ondes-test
   username: root
@@ -34,3 +34,6 @@ production:
   username: bonnesondes
   password: madishni
   socket: /var/run/mysqld/mysqld.sock
+
+cucumber:
+  <<: *TEST
