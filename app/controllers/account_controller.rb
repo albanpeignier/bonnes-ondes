@@ -50,7 +50,7 @@ class AccountController < ApplicationController
     cookies.delete :auth_token
     reset_session
     flash[:notice] = "Vous n'êtes plus connecté"
-    redirect_back_or_default(:controller => 'account', :action => 'index')
+    redirect_to(:controller => 'public', :action => 'welcome')
   end
 
   def activate
