@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 class ShowController < ApplicationController
 
   def create
     if request.post?
       @show = current_user.shows.build(params[:show])
       if @current_user.save
-        flash[:notice] = "Votre émission est créé"
+        flash[:notice] = "Votre émission est créée"
         redirect_to :action => "show", :id => @show
       else
         flash[:error] = "Impossible de créer l'émission"
