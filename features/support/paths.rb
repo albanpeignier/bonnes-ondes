@@ -25,6 +25,25 @@ module NavigationHelpers
     when /the edit "(.*)" show logo page/
       show = Show.find_by_slug($1)
       "/compte/emission/select_logo/#{show.id}"
+    when /the new post page of "(.*)" show/
+      show = Show.find_by_slug($1)
+      new_admin_show_post_path(show)
+    when /the posts page of "(.*)" show/
+      show = Show.find_by_slug($1)
+      admin_show_posts_path(show)
+    when /the edit "(.*)" post page of "(.*)" show/
+      show = Show.find_by_slug($2)
+      post = show.posts.find_by_slug($1)
+
+      edit_admin_show_post_path(show, post)
+    when /the "(.*)" post page of "(.*)" show/
+      show = Show.find_by_slug($2)
+      post = show.posts.find_by_slug($1)
+
+      admin_show_post_path(show, post)
+    when /the posts page of "(.*)" show/
+      show = Show.find_by_slug($1)
+      admin_show_posts_path(show)
     
     # Add more mappings here.
     # Here is a more fancy example:

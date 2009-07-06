@@ -1,6 +1,6 @@
 Factory.define :user do |u|
   u.sequence(:login) { |n| "username-#{n}" }
-  u.email "dummy@tryphon.org"
+  u.sequence(:email) { |n| "dummy#{n}@tryphon.org" }
 
   password = "password"
   u.password password
@@ -10,8 +10,16 @@ Factory.define :user do |u|
 end
 
 Factory.define :show do |u|
-  u.sequence(:slug) { |n| "slug-{n}" }
+  u.sequence(:slug) { |n| "slug-#{n}" }
   u.name "name"
   u.description "description"
+  u.users { |users| [users.association(:user)] }
+end
+  
+Factory.define :post do |u|
+  u.sequence(:slug) { |n| "slug-#{n}" }
+  u.title "name"
+  u.description "description"
+  u.association :show
 end
   

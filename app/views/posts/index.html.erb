@@ -1,0 +1,26 @@
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Show</th>
+    <th>Title</th>
+    <th>Slug</th>
+    <th>Description</th>
+  </tr>
+
+<% for post in @posts %>
+  <tr>
+    <td><%=h post.show %></td>
+    <td><%=h post.title %></td>
+    <td><%=h post.slug %></td>
+    <td><%=h post.description %></td>
+    <td><%= link_to 'Voir', [:admin, post.show, post] %></td>
+    <td><%= link_to 'Modifier', edit_admin_show_post_path(post.show, post) %></td>
+    <td><%= link_to 'Supprimer', [:admin, post.show, post], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New post', new_admin_show_post_path(@show) %>

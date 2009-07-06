@@ -11,7 +11,7 @@ class PublicController < ApplicationController
     if @show.blank?
       # localhost is used in development
       # www.example.com is used by cucumber
-      if request.host =~ /((www.)bonnes-ondes.fr|localhost|www.example.com)/
+      if request.host =~ /(www.)bonnes-ondes\.fr|bonnes-ondes\.local|localhost|www.example.com/
         @episodes_last =  Episode.find(:all, :order => "created_at DESC", :limit => 10)
       else
         raise ActiveRecord::RecordNotFound
@@ -132,7 +132,7 @@ class PublicController < ApplicationController
 
   def create_visit(show)
     return if logged_in? and current_user.shows.include? show
-    return unless request.env["HTTP_USER_AGENT"].match(/MSIE|Gecko|Mozilla|Opera|KTML/)
+    return unless (request.env["HTTP_USER_AGENT"] and request.env["HTTP_USER_AGENT"].match(/MSIE|Gecko|Mozilla|Opera|KTML/))
 
     show.increment! :visit_count
   end

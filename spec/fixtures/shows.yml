@@ -1,5 +1,6 @@
 first:
   name: Test
   description: Just for test
+  slug: dummy
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>

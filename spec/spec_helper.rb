@@ -5,6 +5,9 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'spec'
 require 'spec/rails'
 
+require 'factory_girl'
+include AuthenticatedTestHelper
+
 require File.expand_path(File.dirname(__FILE__) + "/template_example_group")
 
 Spec::Runner.configure do |config|
@@ -33,6 +36,7 @@ Spec::Runner.configure do |config|
   # You can also declare which fixtures to use (for example fixtures for test/fixtures):
   #
   # config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
+
   #
   # == Mock Framework
   #

@@ -43,8 +43,14 @@
   </div>
 <% end %>
 
-<h3>Images</h3>
+<h3>Informations</h3>
 
+<div class="actions">
+  <%= link_to "Tous les informations", admin_show_posts_path(@show) %>
+  <%= link_to "Ajouter une information", new_admin_show_post_path(@show) %>
+</div>
+
+<h3>Images</h3>
 
 <% unless @show.images.empty? %>
   <p>Les dernières images modifiées :</p>

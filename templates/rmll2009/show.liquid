@@ -33,6 +33,11 @@
      <div id="content">
        <h2>Radio RMLL du 7 au 11 juillet 2009</h2>
        {{ show.description | textilize }}
+
+       {% for post in show.posts %}
+       <h2>{{ post.title }}</h2>
+       {{ post.description | textilize }}
+       {% endfor %}
      </div>
 
      <div id="footer">

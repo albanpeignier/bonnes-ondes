@@ -4,7 +4,7 @@ class Show < ActiveRecord::Base
   has_one :host, :dependent => :destroy
   belongs_to :template
 
-  liquid_methods :name, :description, :episodes, :logo, :tags
+  liquid_methods :name, :description, :episodes, :logo, :tags, :posts
 
   def after_initialize
     self.visit_count ||= 0
@@ -25,6 +25,7 @@ class Show < ActiveRecord::Base
   has_and_belongs_to_many :users
   has_many :episodes, :dependent => :destroy, :order => "`order` desc"
   has_many :images, :dependent => :destroy
+  has_many :posts, :dependent => :destroy, :order => "`created_at` desc"
 
   belongs_to :logo, :class_name => "Image", :foreign_key => "logo_id"
 
