@@ -235,14 +235,13 @@ hr {
 }
 
 #barredroite ul {
-	padding-left: 5px;
+	padding-left: 0px;
 	list-style: disc outside;
 }
 #barredroite li {
 	margin: 0;
 	padding: 0;
 }
-
 
 #footer {
 	clear: both;
