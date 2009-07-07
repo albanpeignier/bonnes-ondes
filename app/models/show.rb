@@ -64,11 +64,11 @@ end
 class Show::LiquidDropClass
 
   def broadcasted_episodes
-    @object.episodes.broadcasted
+    Episode.sort @object.episodes.broadcasted
   end
 
   def not_broadcasted_episodes
-    @object.episodes.not_broadcasted
+    Episode.sort @object.episodes.not_broadcasted
   end
 
   def popular_episodes
@@ -96,7 +96,7 @@ class ShowTags < Liquid::Drop
   end
 
   def [](key)
-    @show.episodes.find_tagged_with(key)
+    Episode.sort @show.episodes.find_tagged_with(key)
   end
 
 end

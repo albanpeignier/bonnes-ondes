@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Episode < ActiveRecord::Base
   acts_as_taggable
   acts_as_rated
@@ -25,6 +26,14 @@ class Episode < ActiveRecord::Base
 
   has_many :contents, :dependent => :destroy
   belongs_to :image
+
+  def self.sort(episodes)
+    if episodes.all?(&:broadcasted_at)
+      episodes.sort_by(&:broadcasted_at).reverse
+    else
+      episodes
+    end
+  end
 
 end
 
