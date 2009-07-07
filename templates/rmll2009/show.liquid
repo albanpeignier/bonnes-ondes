@@ -24,12 +24,6 @@
        <h2>{{ post.title }}</h2>
        {{ post.description | textilize }}
        {% endfor %}
-
-       <h2>Prochaines émissions</h2>
-       {% for next_episode in show.not_broadcasted_episodes %}
-       <h3>{{ next_episode.title }}</h3>
-       {{ next_episode.description | textilize }}
-       {% endfor %}
      </div>
      
      {% include 'rmll2009/footer' %}
