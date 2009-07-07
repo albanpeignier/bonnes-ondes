@@ -1,0 +1,49 @@
+<h2>Le programme</h2>
+<div class="part">
+<div class="day" id="mardi">
+ <h3>Mardi</h3>
+ <ul>
+  {% for episode in show.tag.mardi reversed %}
+    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title |truncate:35}}</a></li>
+  {% endfor %}
+ </ul>
+</div>
+
+<div class="day" id="mercredi">
+ <h3>Mercredi</h3>
+ <ul>
+  {% for episode in show.tag.mercredi reversed %}
+    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title |truncate:35}}</a></li>
+  {% endfor %}
+ </ul>
+</div>
+
+<div class="day" id="jeudi">
+ <h3>Jeudi</h3>
+ <ul>
+  {% for episode in show.tag.jeudi reversed %}
+    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title |truncate:35}}</a></li>
+  {% endfor %}
+ </ul>
+</div>
+</div>
+
+<div class="part">
+<div class="day" id="vendredi">
+ <h3>Vendredi</h3>
+ <ul>
+  {% for episode in show.tag.vendredi reversed %}
+    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title |truncate:35}}</a></li>
+  {% endfor %}
+ </ul>
+</div>
+
+<div class="day" id="samedi">
+ <h3>Samedi</h3>
+ <ul>
+  {% for episode in show.tag.samedi reversed %}
+    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title |truncate:35}}</a></li>
+  {% endfor %}
+ </ul>
+</div>
+</div>

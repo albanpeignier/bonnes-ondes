@@ -634,3 +634,13 @@ h1, h2 { font-weight: bold; }
 #content h2 { margin-top: 10px; }
 #content ul li { list-style: circle; }
 #content strong { font-weight: bold; }
+
+#barredroite a.video { padding-left: 30px; }
+
+#programme { clear: both; }
+#programme h2 { margin-left: 10px; }
+#programme part {clear: both;}
+#programme .day {float:left;width:32%;padding:.4em;}
+#programme .part { margin: 20px; }
+#programme .part:after { content: " ";  display: block; height: 0; clear: both; visibility: hidden; }
+
