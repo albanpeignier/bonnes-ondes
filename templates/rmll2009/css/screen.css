@@ -632,6 +632,7 @@ form.newsletter label {
 p { margin: 5px 0; }
 h1, h2 { font-weight: bold; }
 #content h2 { margin-top: 10px; }
+#content h3 { margin: 30px 0 15px -10px; }
 #content ul li { list-style: circle; }
 #content strong { font-weight: bold; }
 
@@ -644,3 +645,8 @@ h1, h2 { font-weight: bold; }
 #programme .part { margin: 20px; }
 #programme .part:after { content: " ";  display: block; height: 0; clear: both; visibility: hidden; }
 
+#content .broadcasted_at { text-align: right; font-style: italic; margin-bottom: 20px; }
+#content .audio .duration { font-style: italic; font-size: 0.8em; }
+#content .audio a { font-size: 1.2em; }
+#content .audio img { margin: 2px 15px 0 0; float: left; }
+#content p { width: 90% }

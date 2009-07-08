@@ -18,7 +18,30 @@
 
      <div id="content">
        <h2>{{ episode.title }}</h2>
+       <div class="broadcasted_at">{{episode.broadcasted_at | prettydate }}</div>
        {{ episode.description | textilize }}
+
+ 	     <h3>Ecoutez</h3>
+       {% unless episode.contents == empty %}
+   	   {% for content in episode.contents %}
+	     <div class="audio" id="audio-{{forloop.index}}">
+         <a href="{{content.url_for_playlist}}" title="Ecoutez {{content.name}} de {{episode.title}}"><img src="{{theme.url_for_assets}}/media/listen-small.jpg"/></a>
+         <a href="{{content.url_for_playlist}}" title="Ecoutez {{content.name}} de {{episode.title}}">{{content.name}} &#8594;</a>
+	       {% if content.duration %}
+         <p class="duration">{{content.duration}} minutes</p>
+         {% endif %}
+	     </div>
+	     {% endfor %}
+	     {% else %}
+       <p>
+         {% if episode.broadcasted_at > now %}
+         Ecoutez en direct cette émission {{episode.broadcasted_at | prettydate }}
+         {% else %}
+         Retrouvez prochainement le contenu de ce programme
+         {% endif %}
+       </p>
+       {% endunless %}
+
      </div>
      
      {% include 'rmll2009/footer' %}
