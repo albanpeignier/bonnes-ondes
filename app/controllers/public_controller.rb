@@ -5,7 +5,7 @@ class PublicController < ApplicationController
 
   append_view_path "#{RAILS_ROOT}/templates"
 
-  before_filter :assigns_show, :create_user_google_analytics_account
+  before_filter :assigns_show, :assigns_now, :create_user_google_analytics_account
 
   def welcome
     if @show.blank?
@@ -108,6 +108,10 @@ class PublicController < ApplicationController
     end
 
     @show = find_show(show_slug)
+  end
+
+  def assigns_now
+    @now = Time.now
   end
 
   def create_user_google_analytics_account
