@@ -4,9 +4,11 @@
   <title>Radio RMLL - {{ episode.title }} </title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/screen.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/rating.css" media="screen" />
   <link rel="alternate" type="application/rss+xml" title="{{show.name}}" href="{{ show.url_for_podcast }}" />
+  {{theme.javascript_include_tag}}
  </head>
- <body>
+ <body class="episode">
    <div id="page" class="deuxcolonnes">
      {% include 'rmll2009/header' %}
 
@@ -21,6 +23,10 @@
        <div class="broadcasted_at">{{episode.broadcasted_at | prettydate }}</div>
        {{ episode.description | textilize }}
 
+       <div class="vote">
+         {{ episode.vote_tag }}
+       </div>
+
        {% unless episode.tags == empty %}
        <div class="tags">
          Mots-clés :
@@ -32,6 +38,7 @@
 
  	     <h3>Ecoutez</h3>
        {% unless episode.contents == empty %}
+
    	   {% for content in episode.contents %}
 	     <div class="audio" id="audio-{{forloop.index}}">
          <a href="{{content.url_for_playlist}}" title="Ecoutez {{content.name}} de {{episode.title}}"><img src="{{theme.url_for_assets}}/media/listen-small.jpg"/></a>
@@ -40,6 +47,7 @@
          <p class="duration">{{content.duration}} minutes</p>
          {% endif %}
 	     </div>
+
 	     {% endfor %}
 	     {% else %}
        <p>
@@ -50,8 +58,8 @@
          {% endif %}
        </p>
        {% endunless %}
-
      </div>
+
      
      {% include 'rmll2009/footer' %}
    </div>
