@@ -653,10 +653,12 @@ h1, h2 { font-weight: bold; }
 #content .audio a { font-size: 1.2em; }
 #content .audio img { margin: 2px 15px 0 0; float: left; }
 #content p { width: 90% }
-body.episode #content p { width: 70%; font-size: 1.2em; margin-bottom: 30px; }
+body.episode #content p { width: 70%; }
 #content.search h3 { margin-bottom: 5px; }
 
-#content .vote { margin-top: 0px; float: right; }
+#content .tags, #content .vote { margin-top: 20px; }
+
+#content .vote { float: right; }
 #content .vote .rating { margin-top: 0px; text-align: right;  }
 #content .vote .rating ul li { list-style: none; text-align: center; }
 #content .vote .rating span { margin-left: 10px; font-style: italic; font-size: 0.8em; }
