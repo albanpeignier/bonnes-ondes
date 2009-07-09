@@ -1,0 +1,19 @@
+.rating ul { position: relative; margin: 0px; padding: 0px; width: 80px; height: 16px; list-style: none; background: url("../images/stars-bg.png") no-repeat top right; }
+.rating ul.rate1 { background-position: -64px; }
+.rating ul.rate2 { background-position: -48px; }
+.rating ul.rate3 { background-position: -32px; }
+.rating ul.rate4 { background-position: -16px; }
+.rating ul.rate5 { background-position: 0; }
+.rating ul li { float: left; padding: 0px; margin: 0px; }
+.rating ul li a { position: absolute; display: block; width: 16px; height: 16px; padding: 0px; z-index: 16; text-indent: -9000px; }
+.rating ul li a:hover { z-index: 1; left: 0px; background: url("../images/star.png") repeat-x left bottom; }
+.rating a.one { left: 0px; }
+.rating a.one:hover { width: 16px; }
+.rating a.two { left: 16px; }
+.rating a.two:hover { width: 32px; }
+.rating a.three { left: 32px; }
+.rating a.three:hover { width: 48px; }
+.rating a.four { left: 48px; }
+.rating a.four:hover { width: 64px; }
+.rating a.five { left: 64px; }
+.rating a.five:hover { width: 80px; }
