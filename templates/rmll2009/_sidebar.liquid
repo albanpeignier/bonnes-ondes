@@ -7,6 +7,23 @@
     <br/>
     <a class="video" href="http://dubzone.intuxication.net:8080/rmllvideo.ogg.m3u" title="Regarder Radio RMLL 2009">Video</a>
   </p>
+
+  <h2>Mots-clés</h2>
+
+  <ul>
+    {% for tag in show.tags limit:15 %}
+    {% case tag.name %}
+    {% when 'mardi' %}
+    {% when 'mercredi' %}
+    {% when 'jeudi' %}
+    {% when 'vendredi' %}
+    {% when 'samedi' %}
+    {% else %}
+    <li><a href="/tags/{{tag.name}}">{{ tag.name }}</a></li>
+    {% endcase %}
+    {% endfor %}
+  </ul>
+
   <h2>Radios partenaires</h2>
 
   <ul>

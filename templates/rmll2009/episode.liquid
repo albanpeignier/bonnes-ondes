@@ -21,6 +21,15 @@
        <div class="broadcasted_at">{{episode.broadcasted_at | prettydate }}</div>
        {{ episode.description | textilize }}
 
+       {% unless episode.tags == empty %}
+       <div class="tags">
+         Mots-clés :
+         {% for tag in episode.tags %}
+         <a href="/tags/{{tag}}" rel="tag">{{tag}}</a>{% unless forloop.last %},{% endunless %}
+         {% endfor %}
+       </div>
+       {% endunless %}
+
  	     <h3>Ecoutez</h3>
        {% unless episode.contents == empty %}
    	   {% for content in episode.contents %}

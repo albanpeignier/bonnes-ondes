@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+ <head>
+  <title>Radio RMLL - Rechercher {{ search }} </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/screen.css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="{{show.name}}" href="{{ show.url_for_podcast }}" />
+ </head>
+ <body>
+   <div id="page" class="deuxcolonnes">
+     {% include 'rmll2009/header' %}
+
+     <div id="location">
+       {% include 'rmll2009/location' %} - <a title="{{ search }}" href="">{{ search }}</a>
+     </div>
+
+     {% include 'rmll2009/sidebar' %}
+
+     <div id="content" class="search">
+       <h2>Recherche : {{ search }}</h2>
+
+       <p>
+         Voici tous les émissions correspondants à votre recherche :
+       </p>
+
+       {% for episode in episodes %}
+       <h3>{{ episode.title }}</h3>
+       <a href="{{episode.url_for}}" rel="bookmark" title="{{episode.title}}">
+         &#8594; {{episode.broadcasted_at | prettydate }}, lire et écouter la suite &#8250;
+       </a>
+       <p>
+         {{ episode.description | textilize | strip_tags | truncate: 400 }}
+       </p>
+       {% endfor %}
+     </div>
+     
+     {% include 'rmll2009/footer' %}
+   </div>
+ </body>
+</html>
