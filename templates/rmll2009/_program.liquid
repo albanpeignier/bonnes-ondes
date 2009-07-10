@@ -7,6 +7,8 @@
     <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title |truncate:35}}</a></li>
   {% endfor %}
  </ul>
+
+ <div class="listen"><a href="/tags/mardi?format=m3u" title="Ecouter toutes les émissions de mardi">Ecouter tout le mardi</a></div>
 </div>
 
 <div class="day" id="mercredi">
@@ -16,6 +18,8 @@
     <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title |truncate:35}}</a></li>
   {% endfor %}
  </ul>
+
+ <div class="listen"><a href="/tags/mercredi?format=m3u" title="Ecouter toutes les émissions de mercredi">Ecouter tout le mercredi</a></div>
 </div>
 
 <div class="day" id="jeudi">
@@ -25,8 +29,10 @@
     <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}">{{episode.title |truncate:35}}</a></li>
   {% endfor %}
  </ul>
+
+ <div class="listen"><a href="/tags/jeudi?format=m3u" title="Ecouter toutes les émissions de mercredi">Ecouter tout le jeudi</a></div>
 </div>
-</div>
+
 
 <div class="part">
 <div class="day" id="vendredi">

@@ -5,8 +5,9 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/screen.css" media="screen" />
   <link rel="alternate" type="application/rss+xml" title="{{show.name}}" href="{{ show.url_for_podcast }}" />
+  {{theme.javascript_include_tag}}
  </head>
- <body>
+ <body class="show">
    <div id="page" class="deuxcolonnes">
      {% include 'rmll2009/header' %}
 
@@ -24,6 +25,22 @@
        <h2>{{ post.title }}</h2>
        {{ post.description | textilize }}
        {% endfor %}
+
+       <h2>Vos émissions préférées</h2>
+
+       <p>Selon vos votes :</p>
+       
+       {% for episode in show.popular_episodes limit:5 %}
+       <h3>{{ episode.title }}</h3>
+       <a href="{{episode.url_for}}" rel="bookmark" title="{{episode.title}}">
+         &#8594; {{episode.broadcasted_at | prettydate }}, lire et écouter la suite &#8250;
+       </a>
+       <p>
+         {{ episode.description | textilize | strip_tags | truncate: 400 }}
+       </p>
+       <div class="vote">Note des auditeurs : {{ episode.rating_avg | integer }} sur 5 - {{ episode.rating_count }} votes</div>
+       {% endfor %}
+
      </div>
      
      {% include 'rmll2009/footer' %}

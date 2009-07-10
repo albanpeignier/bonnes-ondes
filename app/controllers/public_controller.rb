@@ -69,7 +69,7 @@ class PublicController < ApplicationController
 
   def tags
     @search = params[:search]
-    @episodes = @show.episodes.find_tagged_with @search
+    @episodes = Episode.sort(@show.episodes.find_tagged_with(@search))
 
     respond_to do |format|
       format.html {
