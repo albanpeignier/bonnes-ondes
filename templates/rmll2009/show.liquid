@@ -28,8 +28,6 @@
 
        <h2>Vos émissions préférées</h2>
 
-       <p>Selon vos votes :</p>
-       
        {% for episode in show.popular_episodes limit:5 %}
        <h3>{{ episode.title }}</h3>
        <a href="{{episode.url_for}}" rel="bookmark" title="{{episode.title}}">
