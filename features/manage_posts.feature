@@ -34,6 +34,18 @@ Feature: Manage posts
   And I should see "Nouveau titre de mon info"
   And I should see "Nouvelle description de mon info"
 
+  Scenario: Cancel post editing
+  Given a post "test" exists for "test" show
+  And I am on the edit "test" post page of "test" show
+  When I follow "revenir"
+  Then I should be on the "test" post page of "test" show 
+
+  Scenario: See the last posts in show page
+  Given a post "test" with title "Last updated title" exists for "test" show
+  And I am on the "test" show page
+  Then I should see "Informations"
+  And I should see "Last updated title"
+
   Scenario: Go to posts page from show page
   Given I am on the "test" show page
   When I follow "Tous les informations"
@@ -46,27 +58,23 @@ Feature: Manage posts
   | Titre 2 | Description 2 |
   When I am on the posts page of "test" show
   Then I should see "Titre 1"
-  And I should see "Description 1"
   And I should see "Titre 2"
-  And I should see "Description 2"
 
   Scenario: Go to the post page from show posts page
-  Given a post "test" exists for "test" show
+  Given a post "test" with title "Post Title" exists for "test" show
   And I am on the posts page of "test" show
-  # the link selection only works with a single post ...
-  When I follow "Voir" 
+  When I follow "Post Title" 
   Then I should be on the "test" post page of "test" show 
 
   Scenario: Go to the edit post page from show posts page
   Given a post "test" exists for "test" show
-  And I am on the posts page of "test" show
-  # the link selection only works with a single post ...
+  And I am on the "test" post page of "test" show
   When I follow "Modifier" 
   Then I should be on the edit "test" post page of "test" show 
 
   Scenario: Destroy a post
   Given a post "test" exists for "test" show
-  And I am on the posts page of "test" show
+  And I am on the "test" post page of "test" show
   When I follow "Supprimer"
   Then the post "test" for show "test" should not exist
   And I should be on the posts page of "test" show

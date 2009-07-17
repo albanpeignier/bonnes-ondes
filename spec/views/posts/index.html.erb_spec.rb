@@ -4,8 +4,10 @@ describe "/posts/index.html.erb" do
   include PostsHelper
   
   before(:each) do
-    assigns[:posts] = Array.new(2) do
+    assigns[:show] = @show = Factory(:show)
+    assigns[:posts] = @posts = Array.new(2) do
       Factory(:post, 
+              :show => @show,
               :title => "value for title",
               :slug => "value for slug",
               :description => "value for description")
@@ -14,9 +16,17 @@ describe "/posts/index.html.erb" do
 
   it "should render list of posts" do
     render "/posts/index.html.erb"
-    response.should have_tag("tr>td", "value for title", 2)
-    response.should have_tag("tr>td", "value for slug", 2)
-    response.should have_tag("tr>td", "value for description", 2)
+    @posts.each do |post|
+      response.should have_tag("a", post.title)
+    end
   end
+
+  it "should render link to show each post" do
+    render "/posts/index.html.erb"
+    @posts.each do |post|
+      response.should have_tag("a[href=?]", admin_show_post_path(@show, post))
+    end
+  end
+
 end
 

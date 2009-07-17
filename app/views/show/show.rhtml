@@ -45,6 +45,15 @@
 
 <h3>Informations</h3>
 
+<ul>
+  <% for post in @show.posts.last_updated %>
+  <li>
+    <%= link_to post.title, [:admin, @show, post] %>
+    <br/>modifié <%= format_date(post.updated_at) %>
+  </li>
+  <% end %>
+</ul>
+
 <div class="actions">
   <%= link_to "Tous les informations", admin_show_posts_path(@show) %>
   <%= link_to "Ajouter une information", new_admin_show_post_path(@show) %>
