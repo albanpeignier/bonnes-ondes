@@ -62,7 +62,7 @@ class PublicController < ApplicationController
     end
 
     respond_to do |format|
-   	  format.html { redirect_to url_for_episode(@episode) }
+   	  format.html { redirect_to :action => "episode", :episode_slug => @episode.slug }
    	  format.js { render :layout => false }
    	end
   end
