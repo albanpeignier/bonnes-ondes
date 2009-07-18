@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class EpisodeController < ApplicationController
 
   def create
@@ -69,7 +70,7 @@ class EpisodeController < ApplicationController
     return unless request.post?
 
     if @episode.update_attributes(params[:episode])
-      flash[:notice] = "L'image est modifié"
+      flash[:notice] = "L'image est modifiée"
       redirect_to :action => "show", :id => @episode
     else
       flash[:error] = "Impossible de modifier l'image"
