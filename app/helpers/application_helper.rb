@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   include RateHelper
+  include UserVoiceHelper
 
   def main_domain
     RAILS_ENV == 'development' ? 'bonnes-ondes.local' : 'bonnes-ondes.fr'
