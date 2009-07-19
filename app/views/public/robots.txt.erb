@@ -4,3 +4,6 @@ User-agent: *
 <%- for content in @show.episodes.collect(&:contents).flatten -%>
 Disallow: <%= url_for_content(content, :only_path => true) %>
 <%- end -%>
+<%- for episode in @show.episodes -%>
+Disallow: <%= url_for :controller => "public", :action => "vote", :episode_id => episode %>
+<%- end -%>
