@@ -52,4 +52,14 @@
   {% endfor %}
  </ul>
 </div>
+
+<div class="day" id="bonus">
+ <h3>Bonus</h3>
+ <ul>
+  {% for episode in show.tag.bonus reversed %}
+    <li><a href="{{episode.url_for}}">{{episode.title |truncate:35}}</a></li>
+  {% endfor %}
+ </ul>
+</div>
+
 </div>
