@@ -20,12 +20,16 @@
 
      <div id="content">
        <h2>{{ episode.title }}</h2>
+       <div id="details">
        <div class="broadcasted_at">{{episode.broadcasted_at | prettydate }}</div>
-       {{ episode.description | textilize }}
-
        <div class="vote">
          {{ episode.vote_tag }}
        </div>
+
+       {{episode.image.tag}}
+       </div>
+       {{ episode.description | textilize }}
+
 
        {% unless episode.tags == empty %}
        <div class="tags">

@@ -649,18 +649,17 @@ h1, h2 { font-weight: bold; }
 #programme .part:after { content: " ";  display: block; height: 0; clear: both; visibility: hidden; }
 #programme .listen { margin-top: 5px; padding-left: 10px; }
 
-#content .broadcasted_at { text-align: right; font-style: italic; margin-bottom: 20px; }
+#content .broadcasted_at { font-style: italic; }
 #content .audio .duration { font-style: italic; font-size: 0.8em; }
 #content .audio a { font-size: 1.2em; }
 #content .audio img { margin: 2px 15px 0 0; float: left; }
 #content p { width: 90% }
-body.episode #content p { width: 70%; }
-#content h3.listen { margin-bottom: 15px; }
+body.episode #content p { width: 435px; }
+body.episode #content #details { text-align: right; float: right; }
+body.episode #content #details .rating { margin: 5px 0px 5px 110px; }
+#content h3.listen { clear: none; margin-bottom: 15px; }
 
-#content .tags, #content .vote { margin-top: 20px; }
-
-#content .vote { float: right; }
-#content .vote .rating { margin-top: 0px; text-align: right;  }
+#content .tags { margin-top: 20px; }
 #content .vote .rating ul li { list-style: none; text-align: center; }
 #content .vote .rating span { margin-left: 10px; font-style: italic; font-size: 0.8em; }
 body.show #content .vote { font-style: italic; margin-top: 0; font-size: 0.8em; }
