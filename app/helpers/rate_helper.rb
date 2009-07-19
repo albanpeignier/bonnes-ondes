@@ -39,6 +39,7 @@ module RateHelper
   def rating_count_description(rating_count)
     case rating_count
       when 0
+        "aucun vote"
       when nil
         "aucun vote"
       when 1
