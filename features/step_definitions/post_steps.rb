@@ -16,6 +16,6 @@ Given /^the following posts exist for "([^\"]*)" show$/ do |show_slug, table|
   @show = Show.find_by_slug(show_slug)
 
   table.hashes.each do |hash|
-    Factory.create(:post, hash.update(:show => @show))
+    Factory.create(:post, hash.dup.update(:show => @show))
   end
 end
