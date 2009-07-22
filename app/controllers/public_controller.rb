@@ -1,3 +1,4 @@
+# -*- coding: undecided -*-
 class PublicController < ApplicationController
 
   layout "public"
@@ -6,6 +7,8 @@ class PublicController < ApplicationController
   append_view_path "#{RAILS_ROOT}/templates"
 
   before_filter :assigns_show, :assigns_now, :create_user_google_analytics_account
+
+  rescue_from ActiveRecord::RecordNotFound, :with => :show_home_page_when_not_found
 
   def welcome
     if @show.blank?
@@ -84,6 +87,11 @@ class PublicController < ApplicationController
 
   private
 
+  def show_home_page_when_not_found
+    flash[:notice] = "La page demandée n'existe pas"
+    redirect_to "/"
+  end
+
   def render_show
     create_visit @show
     render_template @show, :show, @show
@@ -127,11 +135,11 @@ class PublicController < ApplicationController
   end
 
   def find_episode
-    find_show.episodes.find_by_slug(params[:episode_slug])
+    find_show.episodes.find_by_slug(params[:episode_slug]) or raise ActiveRecord::RecordNotFound
   end
 
   def find_content
-    find_episode.contents.find_by_slug(params[:content_slug])
+    find_episode.contents.find_by_slug(params[:content_slug]) or raise ActiveRecord::RecordNotFound
   end
 
   def create_visit(show)
