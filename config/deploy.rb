@@ -5,6 +5,7 @@ set :repository, "git://github.com/albanpeignier/bonnes-ondes.git"
 set :deploy_to, "/var/www/bonnes-ondes"
 
 set :keep_releases, 5
+after "deploy:update", "deploy:cleanup" 
 set :use_sudo, false
 
 set :synchronous_connect, true
