@@ -18,7 +18,7 @@
       <p>
         {{ show.description | textilize }}
       </p>
-     {% for episode in show.popular_episodes limit:7 %}
+     {% for episode in show.broadcasted_episodes limit:7 %}
       {% include 're2009/episode' %}
      {% endfor %}
     </div>
