@@ -14,10 +14,12 @@
        <p class="program"><a href="#program" onclick="Effect.ScrollTo('program'); return false;">Le programme &#8595;</a>
      {% endunless %}
     <div id="content">
+     <div id="summary">
       <h1>{{show.name}}</h1>
       <p>
         {{ show.description | textilize }}
       </p>
+     </div>
      {% for episode in show.broadcasted_episodes limit:7 %}
       {% include 're2009/episode' %}
      {% endfor %}

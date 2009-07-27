@@ -29,6 +29,7 @@ h3{font-size:14px;}
 #content .vote li a{display:block;width:16px;height:16px;text-indent:-5000px;background:url("../media/star.png") no-repeat;}
 #content .player{margin:12px 0 12px 12px;}
 #content .player img{float:left;margin-right:1em;border:1px solid #fff;}
+#content #summary { margin-bottom: 14px; }
 #sidebar{float:left;width:190px;}
 #sidebar ul{margin:0 4px 12px 6px;}
 ul#keywords li{text-transform:capitalize;}
