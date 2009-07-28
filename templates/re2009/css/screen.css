@@ -9,7 +9,7 @@ h3{font-size:14px;}
 #wrapper{width:797px;margin:0 auto;}
 #header{height:300px;}
 #page,#small{position:relative;overflow:auto;clear:both;padding:12px 62px 12px 52px;background:#fff url("../media/wrapper.png") repeat-y;}
-#small{background-image:none;}
+#small{margin-top:12px;background-image:none;}
 #page .program{position:absolute;right:62px;}
 #content{float:right;width:485px;margin:0 5px 22px 0;text-align:left;}
 #content div.entry{margin-bottom:14px;}
@@ -29,7 +29,7 @@ h3{font-size:14px;}
 #content .vote li a{display:block;width:16px;height:16px;text-indent:-5000px;background:url("../media/star.png") no-repeat;}
 #content .player{margin:12px 0 12px 12px;}
 #content .player img{float:left;margin-right:1em;border:1px solid #fff;}
-#content #summary { margin-bottom: 14px; }
+#content #summary{margin-bottom:14px;}
 #sidebar{float:left;width:190px;}
 #sidebar ul{margin:0 4px 12px 6px;}
 ul#keywords li{text-transform:capitalize;}
