@@ -34,7 +34,7 @@ h4{font-size:12px;}
 #content #summary{margin-bottom:14px;}
 #sidebar{float:left;width:190px;}
 #sidebar ul{margin:0 4px 12px 6px;}
-#sidebar #listen a {display:block;width:150px;margin:12px 0;padding:8px 0 0 28px;height:42px;background:url('../media/stream.png') 0px 0 no-repeat;color:#685038;font-weight:bold;font-size:1.4em;font-variant:small-caps;}
+#sidebar #listen a {display:block;width:150px;margin:12px 0;padding:8px 0 0 28px;height:42px;background:url('../media/stream.png') 0px 0 no-repeat;color:#685038;font-weight:bold;font-size:17px;font-variant:small-caps;}
 ul#keywords li{text-transform:capitalize;}
 #sidebar li{padding:2px 0;}
 #program{clear:both;}
