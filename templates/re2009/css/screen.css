@@ -17,6 +17,7 @@ h4{font-size:12px;}
 #content .entry-title{margin-bottom:0;}
 #content .entry-title a{color:#685038;}
 #content .post-info{margin:-2px 0 4px 2px;font-size:11px;color:#D16B22;}
+#content .entry-content {text-align:justify;}
 #content .entry-content img{float:right;margin:0 12px;}
 #content strong{font-weight:bold;}
 #content p{margin:5px 0;text-align:justify;}
