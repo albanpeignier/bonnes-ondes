@@ -41,6 +41,6 @@ ul#keywords li{text-transform:capitalize;}
 #program .day{float:left;width:23%;margin:0 6px;}
 #program li{margin:4px 0;line-height:15px;}
 #program span.dtstart{font-size:10px;font-weight:bold;padding:3px;background:#efefef;}
-#footer{padding-bottom:-12px;text-align:center;width:797px;height:52px;background:url("../media/footer.png") no-repeat;}
+#footer{padding-bottom:-12px;color:#8f8f8f;text-align:center;width:797px;height:52px;background:url("../media/footer.png") no-repeat;}
 #footer .rtbf {font-size: 10px;}
 #footer strong {font-weight:bold;}
