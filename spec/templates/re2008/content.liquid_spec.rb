@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
 describe "re2008/content" do
 
-  fixtures :contents
+  fixtures :contents, :episodes
 
   before do
     @template = Template.new :slug => 're2008'
