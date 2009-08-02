@@ -1,1 +1,3 @@
 config/deploy_local.rb
+tmp
+coverage
