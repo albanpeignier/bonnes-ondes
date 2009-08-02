@@ -5,6 +5,19 @@ class Image < ActiveRecord::Base
   belongs_to :show
   has_attachment :storage => :file_system, :max_size => 300.kilobytes, :content_type => :image, :thumbnails => { :normal => '200>', :thumb => '75' }
   validates_as_attachment
+
+  protected
+
+  def attachment_attributes_valid?
+    if self.size > attachment_options[:max_size]
+      errors.add :size, "Le fichier de l'image est trop grand (300 ko maximum)"
+    elsif not attachment_options[:content_type].include? self.content_type
+      errors.add :size, "Le fichier n'est pas reconnu comme une image (#{content_type})"
+    else
+      super
+    end
+  end
+
 end
 
 class Image::LiquidDropClass
