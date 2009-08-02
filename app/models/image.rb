@@ -11,8 +11,8 @@ class Image < ActiveRecord::Base
   def attachment_attributes_valid?
     if self.size > attachment_options[:max_size]
       errors.add :size, "Le fichier de l'image est trop grand (300 ko maximum)"
-    elsif self.content_type != :image
-      errors.add :size, "Le fichier n'est pas reconnu comme une image"
+    elsif not attachment_options[:content_type].include? self.content_type
+      errors.add :size, "Le fichier n'est pas reconnu comme une image (#{content_type})"
     else
       super
     end
