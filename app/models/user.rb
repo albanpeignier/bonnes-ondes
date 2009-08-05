@@ -1,4 +1,5 @@
 require 'digest/sha1'
+require "digest/sha2"
 class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
   attr_accessor :password
@@ -48,6 +49,18 @@ class User < ActiveRecord::Base
 
     return user
   end
+
+	def change_password
+	  generated_password = new_password
+	  self.password = generated_password
+    self.password_confirmation = generated_password
+	  UserNotifier.deliver_new_password(self, generated_password)
+	end
+
+	def new_password
+	  random_sha = Digest::SHA256.hexdigest rand.to_s
+	  random_sha[-10..-1]
+	end
 
   # Encrypts some data with the salt.
   def self.encrypt(password, salt)
