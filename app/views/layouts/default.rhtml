@@ -8,7 +8,7 @@
   <%= javascript_include_tag(:defaults) %>
   <%= textile_editor_support %>
  </head>
- <body>
+ <body class="<%= controller.controller_name %> <%= action_name %>">
   <ul id="access">
    <li><a href="#content">Aller au contenu</a></li>
    <li><a href="#sidebar">Aller au menu</a></li>

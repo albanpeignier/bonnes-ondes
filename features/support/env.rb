@@ -24,3 +24,7 @@ require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
 
 require 'factory_girl'
+
+def fixture_file(path)
+  File.join(Rails.root, "spec/fixtures", path)
+end

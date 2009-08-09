@@ -87,7 +87,9 @@ When /^I choose "([^\"]*)"$/ do |field|
 end
 
 When /^I attach the file at "([^\"]*)" to "([^\"]*)"$/ do |path, field|
-  attach_file(field, path)
+  path = fixture_file(path)
+  content_type = `file --brief --mime-type #{path}`
+  attach_file(field, path, content_type)
 end
 
 Then /^I should see "([^\"]*)"$/ do |text|

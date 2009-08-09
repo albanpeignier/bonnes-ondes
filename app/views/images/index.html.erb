@@ -1,0 +1,18 @@
+<h2><%= @show.name %> - Images</h2>
+
+<% unless @images.empty? %>
+  <ul class="images">
+    <% for image in @images %>
+      <li>
+        <%= link_to image_tag(image.public_filename(:thumb)), admin_show_image_path(image.show, image) %>
+        <%= link_to image.title, admin_show_image_path(image.show, image) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= will_paginate @images %>
+
+<div class="actions">
+  <%= link_to "Ajouter une nouvelle image", new_admin_show_image_path(@show) %>
+</div>

@@ -133,3 +133,4 @@ p#cloud { margin-bottom: 8px; }
 
 #selection li { display: inline; }
 
+.images.show #content img { margin: 10px 0px 10px 50px; }

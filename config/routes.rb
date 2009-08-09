@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.with_options :path_prefix => 'compte', :name_prefix => 'admin_' do |admin|
     admin.resources :shows do |shows|
       shows.resources :posts
+      shows.resources :images
     end
   end
 

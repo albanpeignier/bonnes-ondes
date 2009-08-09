@@ -44,6 +44,17 @@ module NavigationHelpers
     when /the posts page of "(.*)" show/
       show = Show.find_by_slug($1)
       admin_show_posts_path(show)
+    when /the new image page of "(.*)" show/
+      show = Show.find_by_slug($1)
+      new_admin_show_image_path(show)
+    when /the images page of "(.*)" show/
+      show = Show.find_by_slug($1)
+      admin_show_images_path(show)
+    when /the "(.*)" image page of "(.*)" show/
+      show = Show.find_by_slug($2)
+      image = show.images.find_by_title($1)
+
+      admin_show_image_path(show, image)
     
     # Add more mappings here.
     # Here is a more fancy example:

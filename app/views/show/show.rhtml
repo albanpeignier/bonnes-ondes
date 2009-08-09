@@ -78,8 +78,8 @@
 <% end %>
 
 <div class="actions">
-  <%= link_to "Toutes les images", :controller => "image", :action => "list", :show => @show %>
-  <%= link_to("Ajouter une nouvelle image", :controller => "image", :action => "create", :show => @show) %>
+  <%= link_to "Toutes les images", admin_show_images_path(@show) %>
+  <%= link_to "Ajouter une nouvelle image", new_admin_show_image_path(@show) %>
 </div>
 
 <h3>Statistiques</h3>

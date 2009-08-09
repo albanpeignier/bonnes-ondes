@@ -1,0 +1,8 @@
+<h2>Image <%= @image.title %></h2>
+
+<%= image_tag @image.public_filename %>
+
+<div class="actions">
+  <%= link_to("Supprimer", admin_show_image_path(@image.show, @image), :method => "delete", :confirm => "Etes-vous sûr de vouloir définitivement supprimer cette image ?", :class => "destroy") %>
+</div>
+
