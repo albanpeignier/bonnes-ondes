@@ -1,8 +1,8 @@
 <% form_tag do -%>
-<p><label for="login">Login</label><br/>
+<p><label for="login">Utilisateur</label><br/>
 <%= text_field_tag 'login' %></p>
 
-<p><label for="password">Password</label><br/>
+<p><label for="password">Mot de passe</label><br/>
 <%= password_field_tag 'password' %></p>
 
 <!-- Uncomment this if you want this functionality
@@ -10,6 +10,8 @@
 <%= check_box_tag 'remember_me' %></p>
 -->
 
-<p><%= submit_tag 'Log in' %></p>
+<p><%= submit_tag "S'identifier" %>
+ou
 <%= link_to "rappel de votre mot de passe &#8250;", :controller => :account, :action => :recover_password%>
+</p>
 <% end -%>

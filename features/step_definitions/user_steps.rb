@@ -16,6 +16,6 @@ Given /I am logged in/i do
   visit "/compte/login"
   fill_in "login", :with => @user.login
   fill_in "password", :with => @user.password
-  click_button "Log in"
+  click_button "S'identifier"
 end
 

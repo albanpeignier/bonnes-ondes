@@ -8,7 +8,7 @@ Feature: Manage sessions
     And an user "johndoe" exists with password "secret"
     And I fill in "login" with "johndoe"
     And I fill in "password" with "secret"
-    When I press "Log in"
+    When I press "S'identifier"
     Then I should be on the account page
     And I should see "Bienvenue sur votre compte"
 
@@ -17,7 +17,7 @@ Feature: Manage sessions
     And an user "johndoe" exists with password "secret"
     And I fill in "login" with "johndoe"
     And I fill in "password" with "wrong"
-    When I press "Log in"
+    When I press "S'identifier"
     Then I should be on the new session page
     And I should see "Mauvais login ou mot de passe"
 
