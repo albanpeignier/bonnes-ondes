@@ -53,6 +53,22 @@ class AccountController < ApplicationController
     redirect_to(:controller => 'public', :action => 'welcome')
   end
 
+  def recover_password
+    @email = params[:email]
+
+    if request.post?
+      user = User.find_by_email(@email)
+      unless user.nil?
+        user.change_password
+        user.save!
+        flash[:success] = "Votre nouveau de passe a été envoyé à #{user.email}"
+        redirect_to :action => :login
+      else
+        flash[:failure] = "Aucun compte Bonnes-Ondes ne correspond à cet email"
+      end
+    end
+  end
+
   def activate
     if params[:code]
       @user = User.find_by_activation_code(params[:code])
