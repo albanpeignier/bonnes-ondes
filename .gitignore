@@ -1,3 +1,9 @@
+*~
+config/database.yml
 config/deploy_local.rb
-tmp
 coverage
+db/development_structure.sql
+db/test.sqlite3
+log/*
+public/attachments
+tmp
