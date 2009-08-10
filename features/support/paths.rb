@@ -12,6 +12,8 @@ module NavigationHelpers
       '/'
     when /the new session page/
       '/compte/login'
+    when /the new password page/
+      '/compte/recover_password'
     when /the account page/
       '/compte'
     when /the new show page/

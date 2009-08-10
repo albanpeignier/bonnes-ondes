@@ -26,3 +26,17 @@ Feature: Manage sessions
     When I follow "Quitter"
     Then I should be on the homepage
     And I should see "Vous n'êtes plus connecté"
+
+  Scenario: Retrieve a lost password
+    Given I am on the new password page
+    And an user "johndoe" exists with email "johndoe@nowhere.priv"
+    And I fill in "email" with "johndoe@nowhere.priv"
+    When I press "Envoyer"
+    Then I should see "Votre nouveau de passe a été envoyé à johndoe@nowhere.priv"
+
+  Scenario: Retrieve a password for an unknown email
+    Given I am on the new password page
+    And I fill in "email" with "nobody@nowhere.priv"
+    When I press "Envoyer"
+    Then I should see "Aucun compte Bonnes-Ondes ne correspond à cet email"
+     

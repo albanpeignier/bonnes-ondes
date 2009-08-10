@@ -5,6 +5,12 @@ Given /An user "([^\"]*)" exists with password "([^\"]*)"/i do |login, password|
     :password_confirmation => password)
 end
 
+Given /An user "([^\"]*)" exists with email "([^\"]*)"/i do |login, email|
+  @user = Factory.create(:user, 
+    :login => login,
+    :email => email)
+end
+
 Given /I am logged in/i do
   @user = Factory.create(:user)
   visit "/compte/login"
