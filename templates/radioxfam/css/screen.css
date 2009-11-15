@@ -102,16 +102,30 @@ strong {
 }
 
 #footer {
+  text-align: right;
   font-size: 95%;
   color: #fff;
 }
 
-#footer p, #footer img {
+#footer p {
+  height: 55px;
+  clear: both;
+}
+
+#footer span, #footer img {
   float: left;
 }
 
-#footer p {
-  margin: 15px 0 0 85px;
+#footer span {
+  margin-top: 15px;
+}
+
+#footer .oxfam span {
+  margin-left: 85px;
+}
+
+#footer .autresmondes span {
+  margin-left: 722px;
 }
 
 #footer a {
