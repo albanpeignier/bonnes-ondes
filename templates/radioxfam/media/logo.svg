@@ -41,6 +41,13 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 526.18109 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3287"
+       inkscape:persp3d-origin="32 : 21.333333 : 1"
+       inkscape:vp_z="64 : 32 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 32 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -81,7 +88,7 @@
      id="layer1">
     <g
        id="g3361"
-       transform="matrix(1.1747319,0,0,1.1747319,-10.212896,-7.7285835)"
+       transform="matrix(1.1747319,0,0,1.1747319,-16.212896,-23.584141)"
        inkscape:export-filename="/home/alban/share/projects/kolaka.org/bonnes-ondes/trunk/templates/radioxfam/media/logo.png"
        inkscape:export-xdpi="72.00943"
        inkscape:export-ydpi="72.00943">
@@ -100,57 +107,39 @@
          d="M 234.11404,70.46542 C 231.81689,70.46544 230.03531,71.31382 228.76929,73.01054 C 227.50325,74.70731 226.87023,77.0958 226.87024,80.17604 C 226.87023,83.24324 227.50325,85.62521 228.76929,87.32195 C 230.03531,89.01871 231.81689,89.86708 234.11404,89.86707 C 236.42421,89.86708 238.21232,89.01871 239.47838,87.32195 C 240.74439,85.62521 241.3774,83.24324 241.37743,80.17604 C 241.3774,77.0958 240.74439,74.70731 239.47838,73.01054 C 238.21232,71.31382 236.42421,70.46544 234.11404,70.46542 M 234.11404,65.0032 C 238.81271,65.00323 242.49334,66.34757 245.15595,69.03624 C 247.81851,71.72495 249.1498,75.43821 249.14984,80.17604 C 249.1498,84.90083 247.81851,88.60757 245.15595,91.29626 C 242.49334,93.98495 238.81271,95.32929 234.11404,95.32929 C 229.4284,95.32929 225.74777,93.98495 223.07213,91.29626 C 220.40954,88.60757 219.07825,84.90083 219.07825,80.17604 C 219.07825,75.43821 220.40954,71.72495 223.07213,69.03624 C 225.74777,66.34757 229.4284,65.00323 234.11404,65.0032 M 258.35589,83.54343 L 250.44644,72.83434 L 257.86645,72.83434 L 262.34977,79.33419 L 266.89184,72.83434 L 274.31184,72.83434 L 266.40239,83.50427 L 274.7034,94.76154 L 267.28339,94.76154 L 262.34977,87.83098 L 257.47489,94.76154 L 250.05488,94.76154 L 258.35589,83.54343 M 293.08701,64.29839 L 293.08701,68.89919 L 289.21059,68.89919 C 288.21864,68.89922 287.52688,69.08194 287.13534,69.44737 C 286.74377,69.7998 286.54799,70.41976 286.548,71.30727 L 286.548,72.83434 L 292.53883,72.83434 L 292.53883,77.84627 L 286.548,77.84627 L 286.548,94.76154 L 279.53913,94.76154 L 279.53913,77.84627 L 276.05427,77.84627 L 276.05427,72.83434 L 279.53913,72.83434 L 279.53913,71.30727 C 279.53913,68.91879 280.20477,67.15679 281.53607,66.02125 C 282.86736,64.87271 284.92956,64.29842 287.72268,64.29839 L 293.08701,64.29839 M 304.25085,84.8943 C 302.78903,84.89431 301.68614,85.14229 300.9422,85.63826 C 300.21128,86.13424 299.84583,86.86514 299.84584,87.83098 C 299.84583,88.71851 300.13949,89.41679 300.72684,89.92581 C 301.32722,90.42178 302.15601,90.66977 303.21323,90.66977 C 304.53146,90.66977 305.64087,90.1999 306.54146,89.26016 C 307.44203,88.30738 307.89232,87.11966 307.89233,85.69699 L 307.89233,84.8943 L 304.25085,84.8943 M 314.95994,82.25129 L 314.95994,94.76154 L 307.89233,94.76154 L 307.89233,91.51161 C 306.95258,92.84291 305.89538,93.81528 304.72072,94.42871 C 303.54604,95.0291 302.11686,95.32929 300.43317,95.32929 C 298.16213,95.32929 296.31529,94.67017 294.89264,93.35193 C 293.48303,92.02064 292.77823,90.29779 292.77823,88.18338 C 292.77823,85.61216 293.65923,83.72616 295.42124,82.52538 C 297.19629,81.32462 299.97635,80.72423 303.76141,80.72421 L 307.89233,80.72421 L 307.89233,80.17604 C 307.89232,79.06664 307.45508,78.25742 306.58062,77.74838 C 305.70613,77.22632 304.3422,76.96528 302.48885,76.96527 C 300.98787,76.96528 299.59132,77.11538 298.29919,77.41556 C 297.00704,77.71577 295.80627,78.16606 294.69686,78.76643 L 294.69686,73.42167 C 296.19782,73.05624 297.70532,72.78215 299.21934,72.59941 C 300.73336,72.40365 302.24738,72.30576 303.76141,72.30574 C 307.71612,72.30576 310.56796,73.08887 312.31693,74.65508 C 314.07891,76.20827 314.95992,78.74034 314.95994,82.25129 M 338.44271,76.47582 C 339.33022,75.11844 340.38089,74.08734 341.59475,73.38252 C 342.8216,72.66469 344.16594,72.30576 345.62779,72.30574 C 348.14677,72.30576 350.0654,73.08235 351.38368,74.6355 C 352.70188,76.1887 353.361,78.44667 353.36104,81.40944 L 353.36104,94.76154 L 346.31301,94.76154 L 346.31301,83.32807 C 346.32603,83.15841 346.33256,82.98221 346.33259,82.79947 C 346.34561,82.61675 346.35213,82.35572 346.35217,82.01635 C 346.35213,80.46319 346.12373,79.34073 345.66694,78.64896 C 345.21009,77.94418 344.47266,77.59178 343.45464,77.59176 C 342.12332,77.59178 341.09222,78.13995 340.36134,79.2363 C 339.64346,80.33267 339.27148,81.91848 339.2454,83.99372 L 339.2454,94.76154 L 332.19738,94.76154 L 332.19738,83.32807 C 332.19736,80.90043 331.98853,79.34073 331.57089,78.64896 C 331.15321,77.94418 330.40925,77.59178 329.33901,77.59176 C 327.99465,77.59178 326.95703,78.14648 326.22613,79.25588 C 325.49521,80.35225 325.12976,81.925 325.12977,83.97414 L 325.12977,94.76154 L 318.08174,94.76154 L 318.08174,72.83434 L 325.12977,72.83434 L 325.12977,76.04511 C 325.99119,74.8052 326.9766,73.87199 328.08603,73.24547 C 329.20848,72.61901 330.44188,72.30576 331.78624,72.30574 C 333.30024,72.30576 334.63806,72.67121 335.7997,73.4021 C 336.9613,74.13302 337.8423,75.1576 338.44271,76.47582"
          style="font-size:40.09544754px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#93bf22;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:LMMathExtension10;-inkscape-font-specification:LMMathExtension10 Bold" />
     </g>
-    <g
-       id="g3353"
-       transform="matrix(1.2970319,0,0,1.2970319,-314.79795,-117.39415)"
+    <path
+       sodipodi:type="arc"
+       style="fill:#93bf22;fill-opacity:1;stroke:#ffffff;stroke-width:4.06256676000000017;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3803"
+       sodipodi:cx="-170.54546"
+       sodipodi:cy="22.181818"
+       sodipodi:rx="58.545456"
+       sodipodi:ry="56.363636"
+       d="M -112,22.181818 A 58.545456,56.363636 0 1 1 -229.09091,22.181818 A 58.545456,56.363636 0 1 1 -112,22.181818 z"
+       transform="matrix(0.6142358,0,0,0.6258249,186.86121,55.287656)"
        inkscape:export-filename="/home/alban/share/projects/kolaka.org/bonnes-ondes/trunk/templates/radioxfam/media/logo.png"
        inkscape:export-xdpi="72.00943"
-       inkscape:export-ydpi="72.00943">
-      <rect
-         y="121.33719"
-         x="282.69183"
-         height="69.45256"
-         width="53.855598"
-         id="rect3330"
-         style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <path
-         transform="matrix(0.7344587,0,0,0.7344587,122.06561,30.105801)"
-         d="M 273.48231,163.34448 A 18.118704,18.118704 0 1 1 237.2449,163.34448 A 18.118704,18.118704 0 1 1 273.48231,163.34448 z"
-         sodipodi:ry="18.118704"
-         sodipodi:rx="18.118704"
-         sodipodi:cy="163.34448"
-         sodipodi:cx="255.3636"
-         id="path2538"
-         style="fill:none;fill-opacity:1;stroke:#85b932;stroke-width:13.61546993;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         sodipodi:type="arc" />
-      <path
-         sodipodi:open="true"
-         sodipodi:end="6.3006386"
-         sodipodi:start="3.0892328"
-         transform="matrix(0.7344587,0,0,0.7344587,122.06564,59.237942)"
-         d="M 237.26973,164.29274 A 18.118704,18.118704 0 1 1 273.47955,163.6607"
-         sodipodi:ry="18.118704"
-         sodipodi:rx="18.118704"
-         sodipodi:cy="163.34448"
-         sodipodi:cx="255.3636"
-         id="path3320"
-         style="fill:none;fill-opacity:1;stroke:#85b932;stroke-width:13.61546993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         sodipodi:type="arc" />
-      <rect
-         y="129.15398"
-         x="307.91788"
-         height="16.016525"
-         width="3.4035034"
-         id="rect3326"
-         style="fill:#85b932;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <path
-         id="path3328"
-         d="M 289.89927,149.37486 L 329.33999,149.37486"
-         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <path
-         id="path3351"
-         d="M 289.89927,182.26193 L 329.33999,182.26193"
-         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </g>
+       inkscape:export-ydpi="72.00943" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:44.41315842000000202;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 82.115956,47.171123 C 74.127819,47.171123 67.368965,53.46053 66.944093,61.437791 L 75.32699,61.437791 C 75.727153,58.234193 78.509462,55.691767 82.115956,55.691767 C 85.72245,55.691767 88.485837,58.234193 88.885244,61.437791 L 97.268141,61.437791 C 96.843622,53.46053 90.104087,47.171123 82.115956,47.171123 z"
+       id="path3854"
+       inkscape:export-filename="/home/alban/share/projects/kolaka.org/bonnes-ondes/trunk/templates/radioxfam/media/logo.png"
+       inkscape:export-xdpi="72.00943"
+       inkscape:export-ydpi="72.00943" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:44.41315842000000202;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 66.944093,63.012044 C 67.358871,70.998666 74.121257,77.278712 82.115956,77.278712 C 90.110655,77.278712 96.853697,70.998666 97.268141,63.012044 L 88.885244,63.012044 C 88.494571,66.224712 85.729679,68.777746 82.115956,68.777746 C 78.502227,68.777744 75.718406,66.224712 75.32699,63.012044 L 66.944093,63.012044 z"
+       id="path3290"
+       inkscape:export-filename="/home/alban/share/projects/kolaka.org/bonnes-ondes/trunk/templates/radioxfam/media/logo.png"
+       inkscape:export-xdpi="72.00943"
+       inkscape:export-ydpi="72.00943" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:44.41315842000000202;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 97.268141,87.353931 C 96.853363,79.367309 90.090977,73.087263 82.096278,73.087263 C 74.101579,73.087263 67.358537,79.367309 66.944093,87.353931 L 75.32699,87.353931 C 75.717663,84.141263 78.482555,81.588229 82.096278,81.588229 C 85.710007,81.588231 88.493828,84.141263 88.885244,87.353931 L 97.268141,87.353931 z"
+       id="path3856"
+       inkscape:export-filename="/home/alban/share/projects/kolaka.org/bonnes-ondes/trunk/templates/radioxfam/media/logo.png"
+       inkscape:export-xdpi="72.00943"
+       inkscape:export-ydpi="72.00943" />
   </g>
 </svg>

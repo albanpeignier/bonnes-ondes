@@ -32,6 +32,12 @@ strong {
   height: 58px;
   width: 283px;
   background: transparent url(../media/logo.png) no-repeat top left;
+  margin-top: 15px;
+}
+
+#header img {
+  float: right;
+  margin: -10px -15px -10px 0;
 }
 
 #menu {
@@ -63,7 +69,7 @@ strong {
 }
 
 #content {
-  margin: 0 27px 27px 27px;
+  padding: 0 27px 27px 27px;
 }
 
 #content h2 {
@@ -73,43 +79,74 @@ strong {
   margin-bottom: 10px;
 }
 
+#content h3 {
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 110%;
+}
+
 #content p {
   margin: 5px 0;
+  line-height: 140%;
+}
+
+#content a {
+  color: #000;
 }
 
 #sidebar {
-  width: 170px;
+  width: 190px;
   float: right;
   min-height: 400px;
   margin-left: 30px;
 }
-
 
 #sidebar .block {
   background-color: #eff0d0;
 }
 
 #sidebar h3 {
-  background: transparent url(../media/background_menu.jpg) no-repeat scroll 0 0;
-  height: 20px;
+  background: transparent url(../media/background_block.jpg) no-repeat scroll 0 0;
+  height: 26px;
   color: #fff;
   text-align: center;
-  padding-top: 4px;
+  padding-top: 10px;
+  margin-top: 10px;
 }
 
 #sidebar ul, #sidebar p {
-  padding: 10px;
+  padding: 10px 20px;
+}
+
+#sidebar #contact li {
+  padding-left: 25px; 
+  line-height: 24px;
+}
+
+#sidebar #contact li.twitter {
+  background: transparent url(../media/twitter.png) no-repeat scroll center left;
+}
+
+#sidebar #contact li.rss {
+  background: transparent url(../media/rss.png) no-repeat scroll center left;
+}
+
+#sidebar #contact li.email {
+  background: transparent url(../media/email.png) no-repeat scroll center left;
+}
+
+#sidebar #contact li.facebook {
+  background: transparent url(../media/facebook.png) no-repeat scroll center left;
+}
+
+#main {
+  width: 585px;
 }
 
 #footer {
-  text-align: right;
   font-size: 95%;
   color: #fff;
-}
-
-#footer p {
-  height: 55px;
-  clear: both;
+  margin: 5px 0 0 45px;
 }
 
 #footer span, #footer img {
@@ -120,15 +157,11 @@ strong {
   margin-top: 15px;
 }
 
-#footer .oxfam span {
-  margin-left: 85px;
-}
-
-#footer .autresmondes span {
-  margin-left: 722px;
-}
-
 #footer a {
   color: #fff;
   text-decoration: none;
+}
+
+#footer img.autresmondes {
+  margin-left: 10px;
 }
