@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-fr" lang="fr-fr">
+  <head>                                     
+    <title>RadiOxfam - Prochain rendez-vous samedi 12 décembre</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="RadiOxfam, radio, radio éphémère, webradio, copenhague, climat, bruxelles, train" />
+    <meta name="description" content="RadiOxfam, la seule radio qui réclame moins d'émissions" />
+
+    <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/screen.css" media="screen" />
+    <link rel="alternate" type="application/rss+xml" title="{{show.name}}" href="{{ show.url_for_podcast }}" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{theme.url_for_assets}}/media/favicon.ico" />
+
+    {{theme.javascript_include_tag}}
+  </head>
+
+  <body class="show">
+    <div id="shadow">
+      <div id="page">
+        <div id="header">
+          <h1>RadioOxfam</h1>
+          <div id="menu">
+            <ul>
+              <li><a href="/">Accueil</a></li>
+              <li><a href="/#programme">Programme</a></li>
+              <li><a href="{{ show.url_for_podcast }}">Podcast</a></li>
+            </ul>
+          </div>
+          <div id="breadcrumbs">
+            Vous êtes ici : Accueil
+          </div>
+        </div>
+        <div id="content">
+          <div id="sidebar">
+            <div class="block">
+              <h3>Restons en contact</h3>
+              <ul>
+                <li><a href="{{ show.url_for_podcast }}">RSS</a></li>
+                <li><a href="http://twitter.com/radioxfam">Twitter</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <h2>Une voie peut tout changer</h2>
+
+          <p>
+            Etiam ullamcorper gravida egestas! Proin pellentesque sem et libero aliquet dapibus? Donec volutpat metus eu mauris tempor in imperdiet justo dignissim. Duis et tellus vitae risus eleifend consectetur a eget libero? Proin auctor metus ut odio interdum a suscipit ligula blandit. Curabitur condimentum malesuada adipiscing. Nullam consequat placerat diam, at blandit odio eleifend nec. Duis semper tincidunt molestie! Pellentesque fringilla, magna at tincidunt vulputate, sapien risus consequat justo, eu porttitor eros turpis vel ipsum. Vivamus leo nibh, molestie id rhoncus at, adipiscing ut justo. Ut sit amet tortor ipsum, id commodo quam.
+          </p>
+          
+          <p>
+            Nunc sit amet lacinia odio. Phasellus sagittis adipiscing quam sed tincidunt! Aliquam ligula neque, condimentum nec ultrices vitae, dignissim eu urna. Curabitur elit quam; tincidunt a lobortis eu, volutpat a lectus. Nunc massa sem; pellentesque quis viverra quis, viverra quis sapien. Integer venenatis nisl erat, ut venenatis ligula? Sed vestibulum ligula a mauris luctus id facilisis erat pretium. Etiam quis nunc vitae sapien vestibulum congue quis vitae sem. Curabitur sed elementum est. Nunc iaculis mi in leo molestie porta. Sed tempus est a magna congue ut ultrices tortor consectetur. Phasellus elementum consequat quam, et ornare ante pretium eget. 
+          </p>
+        </div>
+      </div>
+      <div id="footer">
+        <p>
+          <a href="http://www.radioxfam.org"><strong>RadiOxfam</strong></a> est une <a href="http://fr.wikipedia.org/wiki/Radio_%C3%A9ph%C3%A9m%C3%A8re">radio éphémère</a> mise en oeuvre par :
+        </p>
+        <a href="http://www.oxfamfrance.org/" title="Oxfam France - Agir Ici"><img src="{{theme.url_for_assets}}/media/oxfam-france-agir-ici.png" alt="Oxfam France - Agir Ici"/></a>
+        <a href="http://www.oxfamsol.be/fr/" title="Oxfam Solidarité"><img src="{{theme.url_for_assets}}/media/oxfam-solidarite.png" alt="Oxfam Solidarité"/></a>
+        <a href="http://www.omdm.be/" title="Oxfam Magasins du Monde"><img src="{{theme.url_for_assets}}/media/oxfam-magasins-du-monde.png" alt="Oxfam Magasins du Monde"/></a>
+      </div>
+    </div>
+  </body>
+</html>
