@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-fr" lang="fr-fr">
   <head>                                     
-    <title>RadiOxfam - Prochain rendez-vous samedi 12 décembre</title>
+    <title>RadiOxfam - Prochain rendez-vous vendredi 11 décembre</title>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="RadiOxfam, radio, radio éphémère, webradio, copenhague, climat, bruxelles, train" />
@@ -70,51 +70,28 @@
           </div>
 
           <div id="main">
-          <h2>Une voie peut tout changer</h2>
 
-          <p>
-            A l'occasion du <a href="http://fr.wikipedia.org/wiki/Conf%C3%A9rence_de_Copenhague">sommet sur le climat à Copenhague</a>, 
-            Oxfam-Magasins du monde, Oxfam-Solidarité et
-            Oxfam-France, aux côtés de 750 citoyens européens, prendront place à bord de 
-            <a href="http://www.climatetjusticesociale.be/">l’euro-train reliant Bruxelles à Copenhague</a>.
-          </p>
+            {{ show.description | textilize }}
 
-          <p>
-            Pour sensibiliser et débattre des enjeux sociaux, économiques et culturels tant au Nord qu’au Sud liés
-            au réchauffement climatique, ces trois organisations créent <a href="http://www.radioxfam.org"><strong>RadiOxfam</strong>, une radio éphémère 
-            au sein du train</a>.
-          </p>
+            <h2>Avant le départ</h2>
 
-          <h3>Concrètement</h3>
-          
-          <p>
-            Un studio radio est mis en place dans le train. Une table ronde radiophonique sera organisée avec
-            différents thèmes de discussion en lien avec la thématique du climat.
-          </p>
-          <p>
-            Différentes personnes seront
-            convié-e-s à discuter autour des micros : intervenants « spécialistes » d'organisations participantes,
-            simples voyageurs-euses témoignant de leur participation...
-          </p>
-          
-          <h3>Diffusion de la radio</h3>
+            {% for episode in show.broadcasted_episodes limit:3 %}
+            <div class="episode_preview">
+            <h3><a href="{{episode.url_for}}">{{ episode.title }}</a></h3>
+            <p>
+              {{ episode.description | textilize | strip_tags | truncate: 110 }}
+            </p>
+            <a class="listen" href="{{episode.url_for}}" rel="bookmark" title="{{episode.title}}">
+              Ecouter la suite &#8250;
+            </a>
+            </div>
+            {% endfor %}
 
-          <p>
-            Durant le trajet vers le Danemark, il sera proposé aux voyageurs-euses du train 15-20 minutes
-            d’émission toutes les heures ainsi que de la musique. Le tout sera mis en ligne depuis Copenhague. 
-          </p>
-          <p>
-          Vous pourrez retrouver l'ensemble des émissions dès le <strong>samedi 12 décembre au matin</strong>.
-          </p>
-          <p>
-            A Copenhague, des reportages seront réalisés durant les manifestations. Chaque nuit, l’équipe radio
-            mettra en ligne de nouveaux reportages jusqu’au mardi 15 décembre.
-          </p>
+            {% for post in show.posts limit:1 %}
+            <h2 class="clear left">{{ post.title }}</h2>
+            {{ post.description | textilize }}
+            {% endfor %}
 
-          <p>
-            Cette radio est réalisée par Autres(M)Ondes, une association qui utilise le média de la radio afin de
-            permettre la réappropriation du débat public par ceux qui trop souvent n’ont pas la parole.
-          </p>
           </div>
         </div>
       </div>

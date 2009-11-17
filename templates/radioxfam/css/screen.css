@@ -23,7 +23,7 @@ strong {
 }
 
 #header {
-  padding: 15px 15px 15px 27px;
+  padding: 15px 15px 5px 27px;
 }
 
 #header h1 {
@@ -76,7 +76,7 @@ strong {
   color: #99cc00;
   font-size: 180%;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 #content h3 {
@@ -94,11 +94,46 @@ strong {
   color: #000;
 }
 
+#content .episode_preview {
+  width: 182px;
+  float: left;
+  margin: 0 2px 20px 1px;
+  background: #eff0d0;
+  padding: 6px 6px 6px 8px;
+}
+
+#content .episode_preview h3 {
+  margin: 0;
+  padding: 5px 12px;
+  text-align: center;
+}
+
+#content .episode_preview h3 a {
+  text-decoration: none;
+}
+
+#content .episode_preview p {
+  font-size: 90%;
+}
+
+#content .episode_preview a.listen {
+  background: transparent url(../media/play.png) no-repeat scroll center left;
+  margin: 10px 0 5px 13px;
+  padding-left: 36px;
+  line-height: 26px;
+  display: block;
+  color: #98cb00;
+  font-weight: bold;
+}
+
+#content .clear.left {
+  clear: left;
+}
+
 #sidebar {
   width: 190px;
   float: right;
   min-height: 400px;
-  margin-left: 30px;
 }
 
 #sidebar .block {
@@ -140,7 +175,7 @@ strong {
 }
 
 #main {
-  width: 585px;
+  width: 600px;
 }
 
 #footer {
