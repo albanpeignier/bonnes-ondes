@@ -68,6 +68,11 @@ strong {
   color:#666666;
 }
 
+#breadcrumbs a {
+  color:#666666;
+  text-decoration: none;
+}
+
 #content {
   padding: 0 27px 27px 27px;
 }
@@ -76,7 +81,7 @@ strong {
   color: #99cc00;
   font-size: 180%;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 #content h3 {
@@ -97,7 +102,7 @@ strong {
 #content .episode_preview {
   width: 182px;
   float: left;
-  margin: 0 2px 20px 1px;
+  margin: 0 2px 15px 1px;
   background: #eff0d0;
   padding: 6px 6px 6px 8px;
 }
@@ -117,8 +122,11 @@ strong {
 }
 
 #content .episode_preview a.listen {
-  background: transparent url(../media/play.png) no-repeat scroll center left;
   margin: 10px 0 5px 13px;
+}
+
+#content a.listen {
+  background: transparent url(../media/play.png) no-repeat scroll center left;
   padding-left: 36px;
   line-height: 26px;
   display: block;
@@ -128,6 +136,25 @@ strong {
 
 #content .clear.left {
   clear: left;
+}
+
+.episode #content .description {
+  margin-bottom: 30px;
+}
+
+.episode #content .description img {
+  float: left;
+  margin-right: 10px;
+}
+
+.episode #content .audio {
+  background: #eff0d0;
+  padding: 10px 0 10px 10px;
+  margin: 5px 0 5px 210px;
+}
+
+.episode #content .audio embed {
+  margin: 10px 0 0 0;
 }
 
 #sidebar {

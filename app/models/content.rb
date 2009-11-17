@@ -126,7 +126,7 @@ class Content::LiquidDropClass
   def embedded_player
     view.tag(:embed,
       :src => "/flash/mediaplayer.swf", :type => "application/x-shockwave-flash",
-      :pluginspage => "http://www.macromedia.com/go/getflashplayer", :height => "20", :width => "385",
+      :pluginspage => "http://www.macromedia.com/go/getflashplayer", :height => "20", :width => "370",
       :flashvars => "file=#{@object.content_url(:format => :mp3)}")
   end
 

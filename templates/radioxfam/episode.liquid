@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-fr" lang="fr-fr">
+  <head>                                     
+    <title>RadiOxfam - Prochain rendez-vous vendredi 11 décembre</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="RadiOxfam, radio, radio éphémère, webradio, copenhague, climat, bruxelles, train" />
+    <meta name="description" content="RadiOxfam, la seule radio qui réclame moins d'émissions" />
+
+    <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/screen.css" media="screen" />
+    <link rel="alternate" type="application/rss+xml" title="{{show.name}}" href="{{ show.url_for_podcast }}" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{theme.url_for_assets}}/media/favicon.ico" />
+
+    {{theme.javascript_include_tag}}
+  </head>
+
+  <body class="episode">
+    <div id="shadow">
+      <div id="page">
+        <div id="header">
+          <img src="{{theme.url_for_assets}}/media/radioxfam-bruxelles-copenhague.png"/>
+          <h1>RadioOxfam</h1>
+          <div id="menu">
+            <ul>
+              <li><a href="/">Accueil</a></li>
+              <li><a href="/#programme">Programme</a></li>
+              <li><a href="{{ show.url_for_podcast }}">Podcast</a></li>
+            </ul>
+          </div>
+          <div id="breadcrumbs">
+            Vous êtes ici : <a href="/">RadiOxfam</a> - {{episode.title}}
+          </div>
+        </div>
+        <div id="content">
+          <div id="sidebar">
+            <img src="{{theme.url_for_assets}}/media/la-seule-radio-qui-reclame-moins-d-emissions.png"/>
+            <div class="block">
+              <h3>Restons en contact</h3>
+              <ul id="contact">
+                <li class="rss"><a href="{{ show.url_for_podcast }}">RSS</a></li>
+                <li class="twitter"><a href="http://twitter.com/radioxfam">Twitter</a></li>
+                <li class="facebook"><a href="http://www.facebook.com/group.php?gid=311236435429">Facebook</a></li>
+                <li class="email"><a href="mailto:radioxfam-request@lists.tryphon.org?subject=subscrib">Liste de diffusion</a></a>
+
+                <li class="email">
+                  <script type="text/javascript">
+                  //<![CDATA[
+                  <!--
+                  var x="function f(x){var i,o=\"\",l=x.length;for(i=l-1;i>=0;i--) {try{o+=x.c" +
+                  "harAt(i);}catch(e){}}return o;}f(\")\\\"function f(x,y){var i,o=\\\"\\\\\\\""+
+                  "\\\\,l=x.length;for(i=0;i<l;i++){y%=127;o+=String.fromCharCode(x.charCodeAt" +
+                  "(i)^(y++));}return o;}f(\\\"\\\\<69.180+N\\\\\\\\026\\\\\\\\020\\\\\\\\n\\\\"+
+                  "\\\\020\\\\\\\\000\\\\\\\\n\\\\\\\\t@KV\\\\\\\\nL\\\\\\\\005\\\\\\\\034\\\\" +
+                  "\\\\n\\\\\\\\026L.Q\\\\\\\\031\\\\\\\\024\\\\\\\\037\\\\\\\\033\\\\\\\\014\\"+
+                  "\\\\\\026@\\\\\\\\t\\\\\\\\035\\\\\\\\031\\\\\\\\027oydbiEaji`f%obcS21fz`ys" +
+                  "*D;Ytri\\\\\\\\177|TDP\\\\\\\\003H\\\\\\\\002CV]@ZN\\\\\\\\014IK\\\\\\\\017" +
+                  "bPVZ{MPVU\\\\\\\\031JZN\\\\\\\\035[R!(.\\\\\\\\037f{\\\\\\\\010(=:j\\\\\\\\" +
+                  "010##:.3%7!hz7izpakg\\\"\\\\,88)\\\"(f};)lo,0(rtsbus.o nruter};)i(tArahc.x=" +
+                  "+o{)--i;0=>i;1-l=i(rof}}{)e(hctac};l=+l;x=+x{yrt{)601=!)31/l(tAedoCrahc.x(e" +
+                  "lihw;lo=l,htgnel.x=lo,\\\"\\\"=o,i rav{)x(f noitcnuf\")"                     ;
+                  while(x=eval(x));
+                  //-->
+                  //]]>
+                  </script>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="main">
+            <h2>{{episode.title}}</h2>
+            <div class="description">
+              {{episode.image.tag}}
+              {{ episode.description | textilize }}
+            </div>
+
+   	        {% for content in episode.contents %}
+	          <div class="audio">
+              <a class="listen" href="{{content.url_for_playlist}}" title="Ecoutez {{content.name}} de {{episode.title}}">Ecouter
+              {% if episode.contents.size > 1 %}
+                <strong>{{content.name}}</strong>
+              {% endif %}
+              </a> 
+              
+              {{ content.embedded_player }}
+
+	          </div>
+	          {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <span class="text">
+          <a href="http://www.radioxfam.org"><strong>RadiOxfam</strong></a> est mise en oeuvre par 
+        </span>
+        <a href="http://www.omdm.be/" title="Oxfam Magasins du Monde"><img src="{{theme.url_for_assets}}/media/oxfam-magasins-du-monde.png" alt="Oxfam Magasins du Monde"/></a>
+        <a href="http://www.oxfamfrance.org/" title="Oxfam France - Agir Ici"><img src="{{theme.url_for_assets}}/media/oxfam-france-agir-ici.png" alt="Oxfam France - Agir Ici"/></a>
+        <a href="http://www.oxfamsol.be/fr/" title="Oxfam Solidarité"><img src="{{theme.url_for_assets}}/media/oxfam-solidarite.png" alt="Oxfam Solidarité"/></a>
+        <span class="text">et réalisée par</span>
+        <a title="Autres(M)Ondes, Radios éphémères" href="http://www.autres-mondes.org"><img class="logo autresmondes" src="{{theme.url_for_assets}}/media/autres-mondes.png" alt="Autres(M)Ondes"/></a>
+      </div>
+    </div>
+  </body>
+</html>
