@@ -29,10 +29,10 @@ strong {
 #header h1 {
   text-indent: -999em;
   display: block;
-  height: 58px;
+  height: 70px;
   width: 283px;
   background: transparent url(../media/logo.png) no-repeat top left;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
 #header img {
@@ -226,4 +226,13 @@ strong {
 
 #footer img.autresmondes {
   margin-left: 10px;
+}
+
+div[lang=en], div[lang=ne] {
+  display: none;
+}
+
+.language_switchers {
+    float: right;
+    margin-top: 7px;
 }

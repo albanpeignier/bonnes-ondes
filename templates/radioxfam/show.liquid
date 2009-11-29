@@ -12,8 +12,6 @@
     <link rel="alternate" type="application/rss+xml" title="{{show.name}}" href="{{ show.url_for_podcast }}" />
 
     <link rel="shortcut icon" type="image/x-icon" href="{{theme.url_for_assets}}/media/favicon.ico" />
-
-    {{theme.javascript_include_tag}}
   </head>
 
   <body class="show">
@@ -87,6 +85,14 @@
             </div>
             {% endfor %}
 
+            <div class="language_switchers">
+              <a href="javascript:language_manager.display('fr');" title="Afficher en français">fr</a> 
+              | 
+              <a href="javascript:language_manager.display('en');" title="Display in english">en</a> 
+              | 
+              <a href="javascript:language_manager.display('nl');">nl</a>
+            </div>
+
             {% for post in show.posts limit:1 %}
             <h2 class="clear left">{{ post.title }}</h2>
             {{ post.description | textilize }}
@@ -106,5 +112,9 @@
         <a title="Autres(M)Ondes, Radios éphémères" href="http://www.autres-mondes.org"><img class="logo autresmondes" src="{{theme.url_for_assets}}/media/autres-mondes.png" alt="Autres(M)Ondes"/></a>
       </div>
     </div>
+
+    {{theme.javascript_include_tag}}
+    <script src="{{theme.url_for_assets}}/javascripts/radioxfam.js" type="text/javascript"></script>
+
   </body>
 </html>
