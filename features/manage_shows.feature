@@ -60,5 +60,5 @@ Feature: Manage shows
   Given I am logged in
   And a show "test" exists with name "Nom de mon émission"
   When I am on the edit "test" show logo page
-  Then I should see "Vous n'avez pas encore ajouter d'image dans votre émission" 
+  Then I should see "Vous n'avez pas encore ajouté d'image dans votre émission" 
   And I should see "Ajouter une nouvelle image"

@@ -25,7 +25,7 @@ Sélectionnez le parmi les images de votre émission :
     ou <%= link_to("revenir", :action => "show", :id => @show) %>
 <% end %>
 <% else %>
-<p class="empty">Vous n'avez pas encore ajouter d'image dans votre émission.</p>
+<p class="empty">Vous n'avez pas encore ajouté d'image dans votre émission.</p>
 <div class="actions">
   <%= link_to("Ajouter une nouvelle image", :controller => "image", :action => "create", :show => @show) %>
 </div>
