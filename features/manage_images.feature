@@ -15,7 +15,7 @@ Feature: Manage images
   Scenario: Create a new image
   Given I am on the new image page of "test" show
   And I fill in "image[title]" with "Titre de mon image"
-  And I attach the file at "image.jpg" to "image[uploaded_data]"
+  And I attach the image file at "image.jpg" to "image[uploaded_data]"
   When I press "Créer"
   Then I should be on the images page of "test" show 
   And I should see "L'image est ajoutée"

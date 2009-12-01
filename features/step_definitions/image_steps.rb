@@ -14,3 +14,9 @@ Given /^the following images exist for "([^\"]*)" show$/ do |show_slug, table|
     Factory.create(:image, hash.dup.update(:show => @show))
   end
 end
+
+When /^I attach the image file at "([^\"]*)" to "([^\"]*)"$/ do |path, field|
+  path = fixture_file(path)
+  content_type = `file --brief --mime-type #{path}`
+  attach_file(field, path, content_type)
+end
