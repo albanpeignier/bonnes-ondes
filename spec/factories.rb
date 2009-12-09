@@ -14,6 +14,21 @@ Factory.define :show do |u|
   u.name "name"
   u.description "description"
   u.users { |users| [users.association(:user)] }
+  u.episodes { |episodes| [episodes.association(:episode), episodes.association(:episode)] }
+end
+
+Factory.define :episode do |f|
+  f.sequence(:slug) { |n| "episode-#{n}" }
+  f.sequence(:order) { |n| n }
+  f.title "title"
+  f.description "description"
+  f.contents { |contents| [contents.association(:content), contents.association(:content)] }
+end
+
+Factory.define :content do |f|
+  f.sequence(:slug) { |n| "content-#{n}" }
+  f.name "name"
+  f.principal true
 end
   
 Factory.define :post do |u|
