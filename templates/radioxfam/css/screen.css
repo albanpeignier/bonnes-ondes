@@ -228,6 +228,19 @@ strong {
   margin-left: 10px;
 }
 
+#footer .license {
+    clear: both;
+    text-align: right;
+    clear: both;
+    padding: 5px 15px 5px 0;
+    font-size: 60%;
+}
+
+#footer .license a {
+    font-weight: bold;
+    font-size: 160%;
+}
+
 div[lang=en], div[lang=ne] {
   display: none;
 }
