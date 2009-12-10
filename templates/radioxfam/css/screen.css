@@ -134,6 +134,20 @@ strong {
   font-weight: bold;
 }
 
+#content .episode_list h3 {
+  color:#99CC00;
+}
+
+#content .episode_list h3 a {
+  color:#99CC00;
+  text-decoration: none;
+}
+
+#content .episode_list a.listen {
+  text-align: right;
+  background: transparent;
+}
+
 #content .clear.left {
   clear: left;
 }

@@ -71,13 +71,25 @@
 
             {{ show.description | textilize }}
 
-            <h2>Avant le départ</h2>
+            <h2>Avant l'arrivée à Copenhague</h2>
 
             {% for episode in show.broadcasted_episodes limit:3 %}
             <div class="episode_preview">
             <h3><a href="{{episode.url_for}}">{{ episode.title }}</a></h3>
             <p>
               {{ episode.description | textilize | strip_tags | truncate: 110 }}
+            </p>
+            <a class="listen" href="{{episode.url_for}}" rel="bookmark" title="{{episode.title}}">
+              Ecouter la suite &#8250;
+            </a>
+            </div>
+            {% endfor %}
+
+            {% for episode in show.broadcasted_episodes offset:3 limit:5 %}
+            <div class="episode_list">
+            <h3><a href="{{episode.url_for}}">{{ episode.title }}</a></h3>
+            <p>
+              {{ episode.description | textilize | strip_tags | truncate: 200 }}
             </p>
             <a class="listen" href="{{episode.url_for}}" rel="bookmark" title="{{episode.title}}">
               Ecouter la suite &#8250;
