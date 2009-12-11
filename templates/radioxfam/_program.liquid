@@ -1,0 +1,29 @@
+<h2>Tout le programme</h2>
+
+<div class="part">
+ <h3>Avant le départ</h3>
+ <ul>
+  {% for episode in show.tag.avant reversed %}
+    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}" title="Ecouter {{episode.title}}">{{episode.title |truncate:35}}</a></li>
+  {% endfor %}
+ </ul>
+</div>
+
+<div class="part">
+ <h3>Aller</h3>
+ <ul>
+  {% for episode in show.tag.aller reversed %}
+    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}" title="Ecouter {{episode.title}}">{{episode.title |truncate:35}}</a></li>
+  {% endfor %}
+ </ul>
+</div>
+
+<div class="part">
+ <h3>Retour</h3>
+ <ul>
+  {% for episode in show.tag.retour reversed %}
+    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}" title="Ecouter {{episode.title}}">{{episode.title |truncate:35}}</a></li>
+  {% endfor %}
+ </ul>
+</div>
+

@@ -263,3 +263,29 @@ div[lang=en], div[lang=ne] {
     float: right;
     margin-top: 21px;
 }
+
+#programme h2 {
+    clear: both;
+}
+
+#programme .part {
+    float: left;
+    width: 270px;
+}
+
+#programme .part ul {
+    padding: 10px 0;
+    font-size: 95%;
+}
+
+#programme .part li {
+    padding: 2px 0;
+}
+
+#programme:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

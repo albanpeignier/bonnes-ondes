@@ -23,7 +23,7 @@
           <div id="menu">
             <ul>
               <li><a href="/">Accueil</a></li>
-              <li><a href="/#programme">Programme</a></li>
+              <li><a href="#programme">Programme</a></li>
               <li><a href="{{ show.url_for_podcast }}">Podcast</a></li>
             </ul>
           </div>
@@ -110,6 +110,10 @@
             {{ post.description | textilize }}
             {% endfor %}
 
+          </div>
+
+          <div id="programme">
+            {% include 'radioxfam/program' %}
           </div>
         </div>
       </div>
