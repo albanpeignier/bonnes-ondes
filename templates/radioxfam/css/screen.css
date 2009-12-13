@@ -135,6 +135,7 @@ strong {
 }
 
 #content .episode_list h3 {
+  clear: left;
   color:#99CC00;
 }
 
