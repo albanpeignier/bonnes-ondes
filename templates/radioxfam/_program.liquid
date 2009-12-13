@@ -4,7 +4,7 @@
  <h3>Avant le départ</h3>
  <ul>
   {% for episode in show.tag.avant reversed %}
-    <li><span class="dtstart">{{ episode.broadcasted_at|date:'%H:%M' }}</span> <a href="{{episode.url_for}}" title="Ecouter {{episode.title}}">{{episode.title |truncate:35}}</a></li>
+    <li><a href="{{episode.url_for}}" title="Ecouter {{episode.title}}">{{episode.title |truncate:35}}</a></li>
   {% endfor %}
  </ul>
 </div>
