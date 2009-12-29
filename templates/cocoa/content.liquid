@@ -23,7 +23,7 @@
           <div class="description">
             <p>
               {{content.episode.image.tag_for_thumb}}
-              {{content.episode.description | textilize | truncate :100}}
+              {{content.episode.description | textilize | strip_tags | truncate :200}}
             </p>
 
             {{content.name}}
