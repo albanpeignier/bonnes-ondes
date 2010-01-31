@@ -44,6 +44,10 @@
             {% for content in episode.contents %}
               <li>
                 <a href="{{content.url_for}}" onclick="window.open(this.href,'bonnes-ondes-ecouter','height=300,width=900');return false;">
+                  <img src="{{theme.url_for_assets}}/images/ecouter.png"/>
+                </a>
+
+                <a class="content_description" href="{{content.url_for}}" onclick="window.open(this.href,'bonnes-ondes-ecouter','height=300,width=900');return false;">
                   {% if episode.contents.size == 1 %}
                     {{episode.title}}
                   {% else %}

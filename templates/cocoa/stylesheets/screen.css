@@ -51,15 +51,22 @@ ul.contents  {
 }
 .contents li {
   list-style: none;
-  background-repeat: no-repeat;
-  background-image:url(../images/ecouter.png);
   height: 65px;
-  padding: 12px 0 0 75px;
+  margin: 10px 0;
+}
+.contents li img {
+  float: left;
+  margin-right: 15px;
+}
+.contents li .content_description {
+  display:block;
+  padding-top:10px;
 }
 
 .contents a {
   font-size:14pt; color:white; text-decoration: none; color: black;
 }
+
 
 .contents li .info {
   font-size:9pt;
