@@ -45,6 +45,27 @@ h2 { font-size: 1.1em; }
 
 #links { clear: both; padding-top: 15px; text-align: right; }
 
+ul.episodes {
+  margin: 5px 0;
+  padding: 0;
+}
+
+ul.episodes li {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
+ul.episodes img {
+  float: left;
+  margin: 0 15px 0 5px;
+}
+
+ul.episodes .broadcast_date {
+  font-size: 80%;
+  color: #AAA;
+}
+
 ul.contents  {
   margin: 1em 0;
   padding: 0;

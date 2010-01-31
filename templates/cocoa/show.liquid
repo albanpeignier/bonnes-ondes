@@ -27,12 +27,16 @@
 
         <h2>Tous les épisodes</h2>
 
-        <ul>
+        <ul class="episodes">
           {% for episode in show.episodes %}
             <li>
+              <a href="{{episode.url_for}}">
+                <img class="podcast" src="{{theme.url_for_assets}}/images/ecouter-small.png"/>
+              </a>
+
               <a href="{{episode.url_for}}">{{episode.title}}</a><br/>
               {% if episode.broadcasted_at %}
-                diffusé {{episode.broadcasted_at | date: 'le %d/%m/%Y à %Hh%M'}}
+              <span class="broadcast_date">diffusé {{episode.broadcasted_at | date: 'le %d/%m/%Y à %Hh%M'}}</a>
               {% endif %}
             </li>
           {% endfor %}
@@ -41,7 +45,7 @@
         <h2>Abonnez-vous</h2>
 
         <p>
-        Pour suivre tous nos programmes, il suffit de s'abonner au podcast de {{show.name}} :
+        Pour suivre tous nos programmes, il suffit de vous abonner au podcast de {{show.name}} :
         </p>
         
         <div class="podcast_resources">
