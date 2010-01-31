@@ -7,12 +7,18 @@
     <link rel="alternate" type="application/rss+xml" title="Podcast de {{content.episode.show.name}}" href="{{content.episode.show.url_for_podcast}}"/>
   </head>
 
+  {% if content.episode.contents.size == 1 %}
+    {% assign title = content.episode.title %}
+  {% else %}
+    {% assign title = content.name %}
+  {% endif %}
+
   <body class="content">
     <div id="all" class="condensed">
       <div id="header">
         <div class="left border"></div>
         <div class="right border"></div>
-        <h1>Ecouter {{content.episode.show.name}}</h1>
+        <h1>Ecouter {{title}}</h1>
       </div>
 
       <div id="view">
@@ -20,20 +26,21 @@
         <div class="right border"></div>
 
         <div id="page">
-          <div class="description">
-            <p>
-              {{content.episode.image.tag_for_thumb}}
-              {{content.episode.description | textilize | strip_tags | truncate :200}}
-            </p>
+          <span class="description_image">{{content.episode.image.tag_for_thumb}}</span>
+          <div class="content_description">
+            {{ title }}
+            <br/>
 
-            {{content.name}}
             {% if content.has_duration? %}
-              - durée : {{content.duration}} minutes
+              <span class="info">Durée : {{content.duration}} minutes</span>
             {% endif %}
           </div>
 
-          {{content.embedded_player}}<br/>
-          <a href="{{content.url_for_playlist}}">Ecouter sur votre ordinateur</a>
+          <div class="listen">
+            {{content.embedded_player_started}}
+            <br/>
+            ou <a href="{{content.url_for_playlist}}">écouter sur votre ordinateur</a> avec <a class="vlc" href="http://www.videolan.org/vlc/" target="_new"><img src="{{theme.url_for_assets}}/images/vlc.png"/>VLC</a>, Winamp, iTunes, etc
+          </div>
 
           <div id="links">
             <a href="javascript:window.close();">Fermer</a>

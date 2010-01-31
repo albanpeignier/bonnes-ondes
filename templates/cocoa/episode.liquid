@@ -49,11 +49,12 @@
               {% endif %}
 
               <li>
-                <a href="{{content.url_for}}" onclick="window.open(this.href,'bonnes-ondes-ecouter','height=300,width=900');return false;" title="Ecouter {{title}}">
+                <a href="{{content.url_for}}" onclick="window.open(this.href,'bonnes-ondes-ecouter','height=325,width=900,location=no,status=no,resizable=no');return false;" title="Ecouter {{title}}">
                   <img src="{{theme.url_for_assets}}/images/ecouter.png"/>
                 </a>
 
-                <a class="content_description" href="{{content.url_for}}" title="" onclick="window.open(this.href,'bonnes-ondes-ecouter','height=300,width=900');return false;" title="Ecouter {{title}}">
+                <div class="content_description">
+                <a href="{{content.url_for}}" title="" onclick="window.open(this.href,'bonnes-ondes-ecouter','height=325,width=900,location=no,status=no,resizable=no');return false;" title="Ecouter {{title}}">
                   {{ title }}
                   <br/>
 
@@ -61,6 +62,7 @@
                     <span class="info">Durée: {{content.duration}} minutes</span>
                   {% endif %}
                 </a>
+                </div>
               </li>
             {% endfor %}
           </ul>

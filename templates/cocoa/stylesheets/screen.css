@@ -35,7 +35,7 @@ h2 { font-size: 1.1em; }
 
 #footer p { color:#333333; font-size:10px; position:absolute; right:24px; top:2px; }
 
-#page .description img { float: right; margin: 0 10px 10px 10px; }
+#page .description img, #page .description_image { float: right; margin: 0 10px 10px 10px; }
 #page p { margin: 6px 0; }
 #page a { color: black; }
 
@@ -82,21 +82,32 @@ ul.contents  {
   float: left;
   margin-right: 15px;
 }
-.contents li .content_description {
-  display:block;
+
+#page .content_description {
   padding-top:10px;
+  font-size: 14pt; text-decoration: none; color: black;
 }
 
-.contents a {
-  font-size:14pt; color:white; text-decoration: none; color: black;
+#page .content_description a {
+  text-decoration: none; color: black;
 }
 
-.contents li .info {
+#page .content_description .info {
   font-size: 60%;
 }
 
-body.content #page {
+body.content #page .content_description {
   background-repeat: no-repeat;
   background-image:url(../images/ecouter.png);
-  padding: 0 0 0 75px;
+  padding-left: 75px;
+  height: 60px;
+}
+
+#page .listen {
+  margin-top: 5px;
+  padding-left: 75px;
+}
+
+#page .listen .vlc {
+  text-decoration: none;
 }
