@@ -25,9 +25,9 @@
           {{episode.description | textilize}}
         </div>
 
-        <p>
+        <div class="date">
           Date de diffusion : {{episode.broadcasted_at | date: 'le %d/%m/%Y à %H:%M'}}
-        </p>
+        </div>
 
         {% unless episode.tags == empty %}
          <div class="tags">
@@ -42,22 +42,23 @@
           <h2>Ecouter</h2>
           <ul class="contents">
             {% for content in episode.contents %}
+              {% if episode.contents.size == 1 %}
+                {% assign title = episode.title %}
+              {% else %}
+                {% assign title = content.name %}
+              {% endif %}
+
               <li>
-                <a href="{{content.url_for}}" onclick="window.open(this.href,'bonnes-ondes-ecouter','height=300,width=900');return false;">
+                <a href="{{content.url_for}}" onclick="window.open(this.href,'bonnes-ondes-ecouter','height=300,width=900');return false;" title="Ecouter {{title}}">
                   <img src="{{theme.url_for_assets}}/images/ecouter.png"/>
                 </a>
 
-                <a class="content_description" href="{{content.url_for}}" onclick="window.open(this.href,'bonnes-ondes-ecouter','height=300,width=900');return false;">
-                  {% if episode.contents.size == 1 %}
-                    {{episode.title}}
-                  {% else %}
-                    {{content.name}}
-                  {% endif %}
-
+                <a class="content_description" href="{{content.url_for}}" title="" onclick="window.open(this.href,'bonnes-ondes-ecouter','height=300,width=900');return false;" title="Ecouter {{title}}">
+                  {{ title }}
                   <br/>
 
                   {% if content.has_duration? %}
-                    <span class="info">durée: {{content.duration}} minutes</span>
+                    <span class="info">Durée: {{content.duration}} minutes</span>
                   {% endif %}
                 </a>
               </li>

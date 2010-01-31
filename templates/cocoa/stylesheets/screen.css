@@ -39,6 +39,9 @@ h2 { font-size: 1.1em; }
 #page p { margin: 6px 0; }
 #page a { color: black; }
 
+#page .date, #page .tags { background-repeat: no-repeat; padding-left: 20px; margin: 5px 0; font-size: 85%; line-height: 16px; }
+#page .tags { background-image: url("../images/tags.png"); }
+#page .date { margin-top: 1em; background-image: url("../images/date.png"); }
 #page .podcast_resources { margin-top: 10px; }
 #page .podcast_resources img { float: left; margin-right: 10px; }
 #page .podcast_resources p { margin: 0; }
@@ -88,10 +91,8 @@ ul.contents  {
   font-size:14pt; color:white; text-decoration: none; color: black;
 }
 
-
 .contents li .info {
-  font-size:9pt;
-  font-style: italic;
+  font-size: 60%;
 }
 
 body.content #page {
