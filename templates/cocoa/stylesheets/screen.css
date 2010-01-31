@@ -36,6 +36,7 @@ h2 { font-size: 1.1em; }
 
 #page .description img { float: right; margin: 0 10px 10px 10px; }
 #page p { margin: 6px 0; }
+#page a { color: black; }
 
 #links { clear: both; padding-top: 15px; text-align: right; }
 
