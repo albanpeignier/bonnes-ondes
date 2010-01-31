@@ -40,9 +40,23 @@
 
         <h2>Abonnez-vous</h2>
 
-        <ul>
-          <li>Podcast : <a href="{{show.url_for_podcast}}">RSS</a></li>
-        </ul>
+        <p>
+        Pour suivre tous nos programmes, il suffit de s'abonner au podcast de {{show.name}} :
+        </p>
+        
+        <div class="podcast_resources">
+          <a href="{{show.url_for_podcast}}">
+            <img class="podcast" src="{{theme.url_for_assets}}/images/podcast.png"/>
+          </a>
+
+          <p>
+            Adresse du podcast : <input class="podcast" size="{{show.url_for_podcast | size}}" value="{{show.url_for_podcast}}" type="text" readonly="true"/> {{show.clippy_for_podcast}}
+          </p>
+        
+          <p>
+            <a href="{{show.itpc_url_for_podcast}}" title="Ajouter ce podcast dans votre iTunes">iTunes</a> | <a href="{{show.url_for_podcast}}" title="Voir le feed RSS">RSS</a> | <a href="http://wiki.tryphon.org/comment_lire_un_podcast" title="Comment lire un podcast ?">Aide</a>
+          </p>
+        </div>
 
       </div>
     </div>

@@ -87,6 +87,14 @@ class Show::LiquidDropClass
     view.url_for_podcast(@object)
   end
 
+  def clippy_for_podcast
+    view.clippy url_for_podcast
+  end
+
+  def itpc_url_for_podcast
+    "itpc://#{url_for_podcast}"
+  end
+
 end
 
 class ShowTags < Liquid::Drop
