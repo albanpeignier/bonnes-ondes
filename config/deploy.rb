@@ -1,6 +1,6 @@
 set :application, "bonnes-ondes"
 set :scm, "git"
-set :repository, "git://github.com/albanpeignier/bonnes-ondes.git"
+set :repository, "git://projects.tryphon.eu/bonnes-ondes"
 
 set :deploy_to, "/var/www/bonnes-ondes"
 
