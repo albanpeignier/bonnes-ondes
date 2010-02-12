@@ -92,7 +92,7 @@ class Show::LiquidDropClass
   end
 
   def itpc_url_for_podcast
-    "itpc://#{url_for_podcast}"
+    url_for_podcast.gsub(/^http:/, "itpc:")
   end
 
 end
