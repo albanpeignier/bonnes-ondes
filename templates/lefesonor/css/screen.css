@@ -1,0 +1,186 @@
+@import 'reset.css';
+
+body {
+    background: #1E1F21 url(../media/background.jpg) repeat 0% 0%;
+    font: 13px "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+    color: #555;
+}
+
+#page {
+	  width: 940px;
+	  margin: 0 auto;
+}
+	    
+#header {
+    margin: 80px 0 0 0;
+	  position: relative;
+}
+
+h1 {
+    font-size: 2.4em;
+    font-weight: normal;
+    color: #F9D811;
+}
+
+#nav, #nav ul {
+    background-color: #4A4F54;
+    height: 3em;
+}
+
+#nav li {
+    float: left;
+}
+
+#nav a, #nav a:hover, #nav a:visited {
+    color: #fff;
+    display: block;
+    line-height: 3em;
+    padding: 0 1em 0 1em;
+}
+
+#nav a:hover, #nav a.podcast:hover{
+    background-color: #6A6F64;
+}
+
+#nav a.podcast {
+    background: transparent url("../media/rss-icon.gif") no-repeat 15px 15px;
+    padding-left: 30px;
+}
+
+#frame {
+    background: #fff;
+    padding: 15px;
+}
+
+#frame strong {
+    font-weight: bold;
+}
+
+#frame a {
+    text-decoration: underline;
+}
+
+#frame a:hover {
+    color: #F9D811;
+}
+
+#frame:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#content {
+    width: 590px;
+    float: left;
+    margin-right: 20px;
+}
+
+#content h2 {
+    font-size: 1.6em;
+    margin: 10px 0; 
+}
+
+#content h3 {
+    font-size: 1.2em;
+}
+
+#content h3 a {
+    text-decoration: none;
+}
+
+#content .episode.preview {
+    min-height: 80px;
+    margin-bottom: 10px;
+}
+
+#content .episode.preview a.listen {
+    float: left;
+    display: block;
+    background: #e8e8e8 url("../media/ecouter.png") no-repeat center 0;
+    width: 60px;
+    height: 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.15em;
+    color: #F9D811;
+    font-weight: bold;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding-top: 55px;
+    margin-right: 10px;
+}
+
+#sidebar {
+    float: left;
+    width: 300px;
+}
+
+#sidebar .block {
+    background: #e8e8e8;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+#sidebar h3 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#sidebar .block li a {
+    text-decoration: none;
+}
+
+#sidebar .block p {
+    margin-bottom: 3px;
+}
+
+#sidebar .block li {
+    border-bottom:1px solid #DEDEDE;
+    padding: 5px 0;
+}
+
+#sidebar .block li.facebook {
+    background: url("../media/facebook.png") no-repeat right 6px;
+}
+
+#sidebar .block li.twitter {
+    background: url("../media/twitter.png") no-repeat right 6px;
+}
+
+#sidebar .block li.newsletter {
+    background: url("../media/email.png") no-repeat 102% 6px;
+}
+
+#sidebar .episode.list li a.listen {
+    float: right;
+}
+
+#sidebar div.podcast input {
+    width: 100%;
+    text-align: center;
+}
+
+#sidebar div.podcast object {
+    position:relative;
+    top:4px;
+}
+
+#sidebar div.podcast div.links {
+    margin-top: 3px;
+    text-align: right;
+    padding: 3px 3px 4px 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+#sidebar div.podcast div.links a.rss {
+    background: url("../media/rss-icon.gif") no-repeat 0 4px;
+    padding-left: 15px;
+}
+
+

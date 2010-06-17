@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+ <head>
+  <title>{{ show.name }}</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/screen.css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="{{show.name}}" href="{{ show.url_for_podcast }}" />
+ </head>
+
+ <body>
+   <div id="page">
+     <div id="header">
+       <h1><a href="{{ show.url }}" title="{{ show.name }}">{{ show.name }}</a></h1>
+       <ul id="nav">
+         <li><a title="{{ show.name }}" href="{{ show.url }}">Accueil</a></li>
+         {% for episode in show.broadcasted_episodes limit:1 %}
+         <li><a href="{{ episode.url_for }}">Dernière émission : {{ episode.broadcasted_at | date:'%d/%m' }} {{ episode.title }}</a></li>
+         {% endfor %}
+         <li><a class="podcast" title="{{ show.name }}, le podcast" href="{{ show.url_for_podcast }}">Podcast</a></li>
+       </ul>
+     </div>
+
+     <div id="frame">
+       <div id="content">
+         {% for post in show.posts limit:1 %}
+         <h2>{{ post.title }}</h2>
+         {{ post.description | textilize }}
+         {% endfor %}
+
+         <h2>Dernières émissions</h2>
+
+         {% for episode in show.broadcasted_episodes limit:3 %}
+         <h3><a href="{{ episode.url_for }}">{{ episode.title }}</a></h3>
+         <div class="episode preview">
+           <a class="listen" href="{{ episode.url_for }}" title="Ecouter {{show.name}} - {{ episode.title }} du {{episode.broadcasted_at | date:'%d/%m/%Y' }}">
+             {{episode.broadcasted_at | date:'%d/%m' }}
+           </a>
+           {{ episode.description | textilize | strip_tags | truncate: 300 }}
+         </div>
+         {% endfor %}
+         
+       </div>
+
+       <div id="sidebar">
+         <div class="block">
+           {{ show.description | textilize }}
+         </div>
+
+         <div class="block">
+           <h3>Podcast</h3>
+           <div class="podcast">
+             <input size="{{show.url_for_podcast | size}}" value="{{show.url_for_podcast}}" type="text" readonly="true"/>
+             <div class="links">
+               <a href="{{show.itpc_url_for_podcast}}" title="Ajouter {{show.name}} dans votre iTunes">iTunes</a> | <a class="rss" href="{{show.url_for_podcast}}" title="Abonner vous au feed RSS de {{show.name}}">RSS</a> | {{show.clippy_for_podcast}}
+             </div>
+           </div>
+         </div>
+
+         <div class="block">
+           <h3>Dernièrement dans {{show.name}}</h3>
+
+           {% for episode in show.broadcasted_episodes limit:15 reversed %}
+           <ul class="episode list">
+             <li>
+               <a href="{{ episode.url_for }}" title="{{ episode.title }}, émission du {{episode.broadcasted_at | date:'%d/%m/%Y' }}">{{ episode.broadcasted_at | date:'%d/%m' }} : {{ episode.title | truncate: 25 }}</a>
+               <a class="listen" href="{{ episode.url_for }}" title="Ecouter {{show.name}} - {{ episode.title }} du {{episode.broadcasted_at | date:'%d/%m/%Y' }}"><img src="{{theme.url_for_assets}}/media/ecouter-small.png"/></a>
+             </li>
+           </ul>
+           {% endfor %}
+         </div>
+
+         <div class="block">
+           <h3>Retrouvez {{show.name}} sur ...</h3>
+           <ul>
+             <li class="facebook"><a href="http://www.facebook.com/group.php?gid=31217990869">Facebook</a></li>
+             <li class="twitter"><a href="http://myspace.com/lefesonor">Twitter</a></li>
+             <li class="newsletter" title="Inscrivez-vous à notre Newsletter"><a href="http://spreadsheets.google.com/viewform?key=pDmrnAIbtJxHqSZlsrix8XQ">Notre Newsletter</a></li>
+           </ul>
+         </div>
+
+       </div>
+
+     </div>
+
+   </div>
+ </body>
+</html>
