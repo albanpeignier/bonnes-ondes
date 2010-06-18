@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+ <head>
+  <title>{{ show.name }}</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/screen.css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="{{show.name}}" href="{{ episode.show.url_for_podcast }}" />
+ </head>
+
+ <body>
+   <a id="logo" href="http://www.leszindemscafe.com/"><img src="{{theme.url_for_assets}}/media/les-zindems-cafe.jpg"/></a>
+   <div id="page">
+     <h1><a href="{{ episode.show.url_for }}">Z'Indems Radio</a></h1>
+
+     <div id="content">
+       <h2>{{episode.title}}</h2>
+       {{episode.image.tag}}
+       <div class="broadcasted_at">{{episode.broadcasted_at | prettydate }}</div>
+       {{episode.description | textilize}}
+       
+       {% for content in episode.contents %}
+       {% if forloop.first %}
+       <h3>Ecouter</h3>
+       {% endif %}
+       <div>
+         <p>
+           {{ content.embedded_player }}
+         </p>
+         <p>
+           <a class="listen" href="{{content.url_for_playlist}}" title="Ecoutez {{content.name}} de {{episode.title}}">Ecoutez
+           {% if episode.contents.size > 1 %}
+           <strong>{{content.name}}</strong>
+           {% else %}
+             avec votre lecteur audio préféré
+           {% endif %}
+           </a> 
+         </p>
+         </div>
+       {% endfor %}
+     </div>
+
+     {% include 'zindems/sidebar' %}
+   </div>
+ </body>
+</html>

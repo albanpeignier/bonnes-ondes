@@ -1,0 +1,22 @@
+<div id="sidebar">
+  <h3>Vendredi</h3>
+  <ul>
+    {% for episode in show.tag.vendredi reversed %}
+    <li>{{episode.broadcasted_at | date:'%Hh' }} <a href="{{ episode.url_for }}">{{ episode.title }}</a></li>
+    {% endfor %}
+  </ul>
+  
+  <h3>Samedi</h3>
+  <ul>
+    {% for episode in show.tag.samedi reversed %}
+    <li>{{episode.broadcasted_at | date:'%Hh' }} <a href="{{ episode.url_for }}">{{ episode.title }}</a></li>
+    {% endfor %}
+  </ul>
+  
+  <h3>Dimanche</h3>
+  <ul>
+    {% for episode in show.tag.dimanche reversed %}
+    <li>{{episode.broadcasted_at | date:'%Hh' }} <a href="{{ episode.url_for }}">{{ episode.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

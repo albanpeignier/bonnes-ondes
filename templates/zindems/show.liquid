@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+ <head>
+  <title>{{ show.name }}</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/screen.css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="{{show.name}}" href="{{ show.url_for_podcast }}" />
+ </head>
+
+ <body>
+   <a id="logo" href="http://www.leszindemscafe.com/"><img src="{{theme.url_for_assets}}/media/les-zindems-cafe.jpg"/></a>
+   <div id="page">
+     <h1>Z'Indems Radio</h1>
+
+     <div id="content">
+       <img src="{{theme.url_for_assets}}/media/festival-les-zindems-cafe.png"/>
+       {{ show.description | textilize }}
+       
+       <h3>Ecouter en direct</h3>
+       <p>
+         <embed flashvars="file=http://stream.tryphon.org:8000/live.mp3&autostart=true" height="20" pluginspage="http://www.macromedia.com/go/getflashplayer" src="/flash/mediaplayer.swf" type="application/x-shockwave-flash" width="280" />
+       </p>
+       <p>
+         ou en <a href="http://stream.tryphon.org:8000/live.mp3.m3u"/>MP3</a> et en <a href="http://stream.tryphon.org:8000/live.mp3.m3u"/>Ogg</a>
+       </p>
+     </div>
+
+     {% include 'zindems/sidebar' %}
+   </div>
+ </body>
+</html>

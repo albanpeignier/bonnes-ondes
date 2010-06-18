@@ -1,0 +1,70 @@
+@import 'reset.css';
+
+body {
+    background: #000;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+#logo {
+    display: block;
+    text-align: center;
+}
+
+#page {
+    width: 700px;
+    margin: 20px auto 0 auto;
+    color: #fff;
+}
+
+h1 {
+    color: #83292b;
+    font-size: 280%;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+}
+
+h2 {
+    font-weight: bold;
+    color: #fabc09;
+    font-size: 180%;
+}
+
+h3 {
+    font-weight: bold;
+    margin: 20px 0 3px 0;
+}
+
+#content {
+    float: left;
+    margin-right: 20px;
+    width: 550px;
+}
+
+#content img {
+    float: left;
+    margin-right: 20px;
+}
+
+#content a {
+    text-decoration: underline;
+}
+
+#content .broadcasted_at {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+#sidebar {
+    float: left;
+}
+
+#sidebar h3 {
+    font-weight: bold;
+    color: #83292b;
+}
+
+#sidebar li a {
+    color: #fabc09;
+}
