@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+ <head>
+  <title>Radio RMLL - {{ episode.title }} </title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/css/screen.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/rating.css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="{{show.name}}" href="{{ show.url_for_podcast }}" />
+  {{theme.javascript_include_tag}}
+ </head>
+ <body class="episode">
+   <div id="page" class="deuxcolonnes">
+     {% include 'rmll2010/header' %}
+
+     <div id="content">
+
+     {% include 'rmll2010/sidebar' %}
+
+     <div id="location">
+       {% include 'rmll2010/location' %} ; <a title="{{ episode.title }}" href="{{ episode.url_for }}">{{ episode.title }}</a> }
+     </div>
+
+       <h2>{{ episode.title }}</h2>
+       <div id="details">
+       <div class="broadcasted_at">{{episode.broadcasted_at | prettydate }}</div>
+       <div class="vote">
+         {{ episode.vote_tag }}
+       </div>
+
+       {{episode.image.tag}}
+       </div>
+       {{ episode.description | textilize }}
+
+
+       {% unless episode.tags == empty %}
+       <div class="tags">
+         Mots-clés :
+         {% for tag in episode.tags %}
+         <a href="/tags/{{tag}}" rel="tag">{{tag}}</a>{% unless forloop.last %},{% endunless %}
+         {% endfor %}
+       </div>
+       {% endunless %}
+
+ 	     <h3 class="listen">Ecoutez</h3>
+       {% unless episode.contents == empty %}
+
+   	   {% for content in episode.contents %}
+	     <div class="audio" id="audio-{{forloop.index}}">
+         <a href="{{content.url_for_playlist}}" title="Ecoutez {{content.name}} de {{episode.title}}"><img src="{{theme.url_for_assets}}/media/listen-small.jpg"/></a>
+         <a href="{{content.url_for_playlist}}" title="Ecoutez {{content.name}} de {{episode.title}}">{{content.name}} &#8594;</a>
+	       {% if content.duration %}
+         <p class="duration">{{content.duration}} minutes</p>
+         {% endif %}
+	     </div>
+
+	     {% endfor %}
+	     {% else %}
+       <p>
+         {% if episode.broadcasted_at > now %}
+         Ecoutez en direct cette émission {{episode.broadcasted_at | prettydate }}
+         {% else %}
+         Retrouvez prochainement le contenu de ce programme
+         {% endif %}
+       </p>
+       {% endunless %}
+       
+			<div id="programme">
+         {% include 'rmll2010/program' %}
+       </div>
+
+     </div>
+
+     
+     {% include 'rmll2010/footer' %}
+   </div>
+ </body>
+</html>
