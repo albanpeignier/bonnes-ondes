@@ -1,0 +1,35 @@
+<div id="sidebar">
+  <h2>Balado Réception</h2>
+  <p>
+    <a href="{{ show.url_for_podcast }}" title="Abonnez-vous au podcast de Radio RMLL 2009">
+      <img src="{{theme.url_for_assets}}/media/podcast.png"/> 
+    </a>
+  </p>
+
+  <h2>Mots-clés</h2>
+
+  <ul>
+    {% for tag in show.tags limit:15 %}
+    {% case tag.name %}
+    {% when 'mardi' %}
+    {% when 'mercredi' %}
+    {% when 'jeudi' %}
+    {% when 'vendredi' %}
+    {% when 'samedi' %}
+    {% when 'dimanche' %}
+    {% else %}
+    <li><a href="/tags/{{tag.name}}">{{ tag.name }}</a></li>
+    {% endcase %}
+    {% endfor %}
+  </ul>
+
+  <h2>Radios partenaires</h2>
+
+  <ul>
+    <li><a href="http://www.canalb.fr">Canal B</a></li>
+    <li><a href="http://www.divergence-fm.org/">Divergence FM</a></li>
+    <li><a href="http://www.o2radio.net/">O2 Radio</a></li>
+    <li><a href="http://www.radiopanik.org">Radio Panik</a></li>
+    <li><a href="http://www.autres-mondes.org/">Autres(M)Ondes</a></li>
+  </ul>
+</div>

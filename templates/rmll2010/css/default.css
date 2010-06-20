@@ -1,0 +1,820 @@
+body {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff url('../images/haut-gris.png') top repeat-x;
+    font-size : 12px;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+    vertical-align : middle;
+}
+
+.clear {
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+    color: #4ab504;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+}
+
+ul li {
+    list-style: url('../images/puce1.png');
+}
+
+ul li ul li {
+    list-style: url('../images/puce2.png');
+}
+
+h2 {
+    background: transparent url('../media/section-bg.png') no-repeat;
+    color: #2D7DBE;
+    padding: 0 0 0 40px;
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+    color: #2d90cc;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+h3 a {
+    text-decoration: underline;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+pre {
+    margin: 10px;
+    background-color: #fdfaf0;
+    padding: 10px;
+}
+
+blockquote {
+    background-color: #fdfaf0;
+    padding: 10px;
+    margin: 10px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    margin: 5px 20px;
+    border: 0;
+    border-top: 1px solid #ababab;
+}
+
+#accessibility a {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+#accessibility a:focus {
+    position:static;
+    width:auto;
+    height:auto;
+}
+
+#breadcrumb {
+    margin: 10px 5px;
+}
+
+#breadcrumb .delim {
+    color: #0a2031;
+    font-weight: bold;
+    padding: 0 2px;
+}
+
+#formulaire_recherche input {
+    vertical-align: middle;
+}
+
+#formulaire_recherche {
+    padding: 0 5%;
+}
+
+#formulaire_recherche label {
+    color: #39434a;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: block;
+}
+
+input#recherche {
+    border: none;
+    border-top: 1px solid #373737;
+    border-left: 1px solid #373737;
+    padding: 5px;
+    background: #ddd;
+    width: 65%;
+    margin-right: 2%;
+}
+
+#menu {
+    background: #040E16 url('../media/menu-bg.png') repeat-x;
+    min-height: 30px;
+}
+
+#menu ul {
+    display: table;
+    margin: 0 auto;
+}
+
+#menu ul li {
+    display: inline;
+    margin: 0px 10px;
+}
+
+#menu ul li a {
+    color: white;
+    text-decoration : none;
+    font-size : 110%;
+    border-bottom: 1px solid #7cc200;
+}
+
+#menu ul li a:hover {
+    border-color: white;
+}
+
+#head-wrapper {
+    background: url('../media/headrep-bg.png') repeat-x;
+}
+
+#head, #content, #footer-inner {
+    display: table;
+    margin: 0 auto;
+    width: 90%;
+}
+
+#head {
+    background: url('../media/head-bg.png') no-repeat center top;
+    position: relative;
+    z-index: 100;
+}
+
+#logo {
+    float: left;
+    height: 185px;
+    width: 75%;
+}
+
+#logo h1 {
+    margin: 0;
+    padding: 20px 0 0 20px;
+}
+
+#sidelogo {
+    float: right;
+    height : 197px;
+    background: url('../media/radio_rmll2010.png') no-repeat center 50px;
+    width: 25%;
+		min-width: 185px;
+}
+
+#content {
+    position: relative;
+    top: -11px;
+    z-index: 1;
+}
+
+#main {
+    background: white;
+    float: left;
+    width: 73%;
+    padding-right:2%;
+    min-height: 700px;
+}
+
+#sidebar {
+    background: url('../media/sidebar-bg.png') repeat-x #7CD5EF;
+    width: 25%;
+    float: right;
+    padding-top: 25px;
+     min-height: 500px;
+}
+
+#sidebar h2 { background: none; padding: 0;}
+
+#sidebar hr {
+    margin: 10px 0;
+    border-top: 1px solid #3cb2e0;
+    border-bottom: 1px solid #bde9f7;
+}
+
+#sidebar>* { margin: 0 20px;}
+
+#sidebar .elem {
+    padding: 0px 10%;
+}
+
+#sidebar .elem a {
+    color: black;
+}
+
+#sidebar .elem a.icon {
+    font-size: 1.1em;
+}
+
+#sidebar .elem a.icon:hover {
+    text-decoration: none;
+}
+
+#sidebar .elem a.icon:hover span {
+    text-decoration: underline;
+}
+
+#flags {
+    text-align: center;
+}
+
+#footer-wrapper {
+    background: #037ebc url('../images/footer-img-rep.png') repeat-x;
+    margin: 0 0 50px 0;
+    position: relative;
+    top: -11px;
+}
+
+#footer-inner {
+    background: url('../images/footer-img.png') no-repeat right top;
+    height: 151px;
+}
+
+#footer-inner a {
+    color: white;
+}
+
+#webmaster {
+    float: left;
+    padding : 10px 0;
+    text-align: left;
+}
+
+#footer {
+  color: white;
+  text-align: right;
+}
+
+.description {
+    margin: 10px 0 0 10px;
+    padding: 0 5px;
+    border-left: 1px solid #2f8600;
+}
+
+.news-focus .item {
+    margin-bottom : 10px;
+}
+
+.news-focus .item .date {
+    font-size: 0.9em;
+    font-style: italic;
+    padding: 0 20px;
+}
+
+.news-focus h3 span {
+    display: block;
+}
+
+.news-focus .item h3 a {
+    padding: 5px 0 0 10px;
+}
+
+.agenda-focus-wrapper, .schedule-focus-wrapper {
+    padding : 0 5% !important;
+}
+
+.agenda-focus h3, .schedule-focus-wrapper h3 a {
+    color: #39434a !important;
+}
+
+.agenda-focus .title {
+    padding-top: 10px;
+}
+
+.schedule-focus-wrapper .title {
+    padding-top: 4px;
+}
+
+.agenda-focus .content {
+    min-height: 32px;
+}
+
+.schedule-focus-wrapper .content {
+    margin: 2px 0px 2px 5px;
+}
+
+.agenda-focus .date {
+    background: url('../images/date-bg.png') no-repeat;
+    width: 32px;
+    padding-top: 1px;
+    height: 32px;
+    float: left;
+    color: white;
+    text-align: center;
+    font-size : 11px;
+    padding-right: 8px;
+}
+
+
+.submenu {
+    margin: 5px;
+    padding: 5px;
+    float: right;
+    border-left: 1px solid #2f8600;
+}
+
+.submenu li {
+    list-style: none !important;
+    padding: 0 10px;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.submenu li a {
+    color: #13171a;
+    border-bottom: 1px solid #008bce;
+}
+
+.submenu li a:hover {
+    text-decoration : none;
+    border-bottom: 1px solid #000000;
+}
+
+/*
+.news-focus .title {
+
+    float: left;
+    padding-top: 15px;
+}
+*/
+
+/* Plugin RMLL */
+.rmll-events-brief {
+    background : #d0ff85;
+    margin : 10px 20px;
+    border-left : 3px solid #2F8600;
+    padding : 5px 0;
+}
+
+.rmll-events-brief .info {
+    padding: 1px 0;
+}
+
+.rmll-events-brief .info span {
+    font-weight : bold;
+    padding : 0 5px 0 20px;
+}
+
+
+/* SPIP */
+
+hr.spip {
+        clear : both;
+        color: inherit;
+        background-color: inherit;
+        height: 1px;
+        border: 0;
+}
+
+.spip_documents_center {
+        display : block;
+        text-align : center;
+}
+
+.spip_documents_left {
+        float: left;
+        margin-right: 15px;
+        text-align: center;
+}
+
+.spip_documents_right {
+        float: right;
+        margin-left: 15px;
+        text-align: center;
+}
+
+dl.spip_documents, dt.spip_doc_titre, dd.spip_doc_descriptif {
+        width : auto !important;
+}
+
+.spip_documents img {
+    margin: 8px;
+}
+
+.spip-admin-float a {
+        display : block;
+        margin : 5px !important;
+}
+
+table.spip {
+    max-width: 99%;
+    margin: 10px;
+    border-collapse: collapse;
+}
+
+table.spip caption {
+    caption-side: bottom;
+    text-align: center;
+    margin: 0 auto;
+    font-weight: bold;
+}
+table.spip tr.row_first {
+    background: #ffc;
+}
+table.spip tr.row_odd {
+    /*background: #eee;*/
+}
+
+table.spip tr.row_even {
+    background: #ddd;
+}
+table.spip th, table.spip td {
+    padding: 0.20em 0.40em;
+    text-align: left;
+    border: 1px solid;
+}
+
+table.spip th {
+    vertical-align: bottom;
+    font-weight: bold;
+}
+
+table.spip td {
+    vertical-align: top;
+}
+
+.trad-keyw span {
+    color: white;
+    font-weight: normal;
+    background: gray;
+    border-radius: 5px;
+    padding: 2px;
+    -moz-border-radius: 5px;
+}
+
+.portfolio img {
+    margin: 8px;
+}
+
+/* page traduc */
+
+#traduc h3 a {
+    color: black;
+}
+
+#traduc a {
+    color: #808080;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+.trad-keyw span.trad-keyw-color1 {
+    background: orange;
+}
+
+.trad-keyw span.trad-keyw-color5, .trad-keyw span.trad-keyw-color9 {
+    background: #318800;
+}
+
+.trad-keyw span.trad-keyw-color6, .trad-keyw span.trad-keyw-color8 {
+    background: #ff8600;
+}
+
+.trad-keyw span.trad-keyw-color7 {
+    background: #7cd5ef;
+}
+
+/* OSM */
+
+#page-osm #content {
+    width: 100%;
+    background: white;
+}
+
+#map {
+    width: 80%;
+    height: 500px;
+    float: left;
+}
+
+#map-infos {
+    width: 20%;
+    float: right;
+    background: #091e2d url(../images/sidelogo.png) no-repeat 50% 0%;
+    height: 500px;
+}
+
+#map-flags {
+    margin: 150px 0 10px 0;
+    text-align: center;
+}
+
+#map-infos-content {
+    margin: 0px 8px 0px 8px;
+    background: white;
+    min-height: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+#map-infos-content .desc {
+    padding-top: 15px;
+}
+
+#map-infos-content .cat {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+#map-infos-content .name {
+    text-align : center;
+    font-size: 1.2em;
+    text-decoration: underline;
+}
+
+#map-infos-content .accessibility {
+    font-weight : bold;
+    color : darkblue;
+    background: url(../images/pictos/accessibility.png) no-repeat;
+    padding : 4px 0px 0px 36px;
+    min-height : 32px;
+}
+
+/* RMLL Schedule */
+
+/*
+
+
+.rmll-evenements-brief {
+    margin : 10px 20px;
+    padding : 5px 10px;
+    background : #eeeeee;
+    border-left : 2px solid #808080;
+}
+
+.rmll-evenements-brief .info {
+    margin : 2px 0px;
+}
+
+.rmll-evenements-brief .info .expl {
+    padding-right : 5px;
+    color : #808080;
+    font-weight : bold;
+}
+
+.rmll-evenements-theme {
+    margin : 15px 0px 0px 5px;
+}
+
+.rmll-evenements-theme .description {
+    padding : 1px 8px 8px 8px;
+    background : #eeeeee;
+    border-left : 2px solid #808080;
+}
+*/
+.rmll-schedule-wrap {
+    padding : 5px;
+}
+
+.rmll-schedule td {
+    text-align : left;
+    vertical-align : top;
+}
+
+table.rmll-schedule, .rmll-schedule th, .rmll-schedule td {
+    border : 1px solid #808080;
+    border-collapse : collapse;
+}
+
+.rmll-schedule th.conf {
+    text-align : center;
+    padding : 6px;
+}
+
+.rmll-schedule td.timeslot, .rmll-schedule th.timeslot {
+    text-align : center;
+    padding : 3px;
+    width : 1%;
+    white-space : nowrap;
+}
+
+.rmll-schedule td.pause {
+    text-align : center;
+    padding : 3px;
+    background : #93b0c7;
+    font-weight : bold;
+}
+
+.rmll-schedule tr.odd td.timeslot {
+    background : #f2f0e9;
+}
+
+.rmll-schedule .conf .infos {
+    min-width : 130px;
+    padding : 7px;
+    margin-bottom : 8px;
+    margin-right : 5px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 3px #888;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-box-shadow: 5px 5px 3px #888;
+    -moz-box-shadow: 5px 5px 3px #888;
+}
+
+.rmll-schedule-all .conf .infos {
+    padding : 5px;
+}
+
+.rmll-schedule-all .conf .hider {
+    display : none;
+    padding : 4px;
+}
+
+.rmll-schedule .conf .infos .time {
+    font-size : 0.8em;
+    margin-bottom : 4px;
+}
+
+.rmll-schedule .conf .infos .time span {
+    text-decoration : underline;
+}
+
+.rmll-schedule-all .conf .infos .time {
+    text-align : center;
+    text-decoration : none;
+}
+
+.rmll-schedule-all .conf .infos .time a {
+    color : black;
+    text-decoration : underline;
+}
+
+.rmll-schedule .conf .infos .title {
+    font-size : 0.9em;
+    margin-bottom : 4px;
+}
+
+.rmll-schedule .conf .infos .title a {
+    color : black;
+    font-weight : bold;
+}
+
+.rmll-schedule .conf .infos .nature {
+    font-size : 0.8em;
+    text-decoration : underline;
+}
+
+.rmll-schedule .conf .infos .speaker {
+    font-size : 0.8em;
+    font-style : italic;
+}
+
+.rmll-schedule .conf-color-0 {
+    background : #9dff00;
+}
+
+.rmll-schedule .conf-color-1 {
+    background : #fa8072;
+}
+
+.rmll-schedule .conf-color-2 {
+    background : #a4adbe;
+}
+
+.rmll-schedule .conf-color-3 {
+    background : #f3eea0;
+}
+
+.rmll-schedule .conf-color-4 {
+    background : #6eb926;
+}
+
+.rmll-schedule .conf-color-5 {
+    background : #d18604;
+}
+
+.rmll-schedule .conf-color-6 {
+    background : #d2cd77;
+}
+
+.rmll-schedule .conf-color-7 {
+    background : #7abfa6;
+}
+
+.rmll-schedule .conf-color-8 {
+    background : #add8e6;
+}
+
+.rmll-schedule .conf-color-9 {
+    background : #f5d07f;
+}
+
+.rmll-schedule .conf-color-10 {
+    background : #ffb6c1;
+}
+
+.rmll-schedule .conf-color-11 {
+    background : #cc9d94;
+}
+
+.rmll-schedule .conf-color-12 {
+    background : #d295fa;
+}
+
+.rmll-schedule .conf-color-13 {
+    background : #ddddff;
+}
+
+.rmll-schedule .conf-color-14 {
+    background : #00fa9a;
+}
+
+.rmll-schedule .conf-color-15 {
+    background : #c77670;
+}
+
+.rmll-schedule .conf-color-16 {
+    background : #ffe100;
+}
+
+.rmll-schedule .conf-color-17 {
+    background : #cfb5b5;
+}
+
+.rmll-schedule .conf-color-18 {
+    background : #8EA0AF;
+}
+
+.rmll-schedule .conf-color-19 {
+    background : #ff1f28;
+}
+
+.rmll-ical-wrap {
+    margin : 10px;
+}
+
+.rmll-pager-wrap {
+    overflow : auto;
+    margin : 10px 0px 5px 0px;
+}
+
+.rmll-pager-wrap .prev {
+    float : left;
+}
+
+.rmll-pager-wrap .next {
+    float : right;
+}
+
+.rmll-listdays-wrap {
+    margin : 20px;
+}
+
+.rmll-listdays-wrap .msg {
+    margin-bottom : 10px;
+    font-weight : bold;
+    font-size : 1.1em;
+}
+
+.rmll-schedule-theme-wrap {
+    margin : 10px 0;
+}
+
+#prog {
+    text-align : left;
+    padding : 15px;
+}
+
+#prog .flags {
+    float:right;
+}
+
+.rmll-keyword-selector , .rmll-theme-selector, .rmll-day-selector {
+    margin : 10px;
+}
