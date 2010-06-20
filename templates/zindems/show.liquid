@@ -22,10 +22,23 @@
            <source src="http://stream.tryphon.org:8000/live.mp3"/>
            <source src="http://stream.tryphon.org:8000/live.ogg"/>
          </audio>
-       </p>
-       <p>
+         <br/>
          ou en <a href="http://stream.tryphon.org:8000/live.mp3.m3u"/>MP3</a> et en <a href="http://stream.tryphon.org:8000/live.ogg.m3u"/>Ogg</a>
        </p>
+
+       <h3>Abonnez-vous au podcast</h3>
+
+       <p>
+         Vous pouvez retrouver en podcast plus de 7 heures de programme :
+       </p>
+
+       <div class="podcast">
+         Adresse du podcast :<br/>
+         <input size="{{show.url_for_podcast | size}}" value="{{show.url_for_podcast}}" type="text" readonly="true"/> 
+         <p class="links">
+           <a href="{{show.itpc_url_for_podcast}}" title="Ajouter ce podcast dans votre iTunes">iTunes</a> | <a href="{{show.url_for_podcast}}" title="Voir le feed RSS">RSS</a> | <a href="http://wiki.tryphon.org/comment_lire_un_podcast" title="Comment lire un podcast ?">Aide</a> 
+         </p>
+       </div>
      </div>
 
      {% include 'zindems/sidebar' %}
