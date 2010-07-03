@@ -10,9 +10,7 @@ set :use_sudo, false
 
 set :synchronous_connect, true
 
-role :app, "zigmun.tryphon.org"
-role :web, "zigmun.tryphon.org"
-role :db,  "zigmun.tryphon.org", :primary => true
+server "zigmun.tryphon.org", :app, :web, :db, :primary => true
 
 set :mongrel_conf, "bonnes-ondes.conf"
 
