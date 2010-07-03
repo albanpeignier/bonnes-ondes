@@ -4,7 +4,7 @@ body {
     border: 0;
     color: #000;
     font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff url('../images/haut-gris.png') top repeat-x;
+    background: #ffffff /*url('../images/haut-gris.png') top repeat-x*/;
     font-size : 12px;
 }
 
@@ -33,14 +33,6 @@ a:hover {
 }
 
 ul {
-}
-
-ul li {
-    list-style: url('../images/puce1.png');
-}
-
-ul li ul li {
-    list-style: url('../images/puce2.png');
 }
 
 h2 {
