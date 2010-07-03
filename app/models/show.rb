@@ -51,7 +51,11 @@ class Show < ActiveRecord::Base
 
   alias :real_template :template
   def template
-    real_template or Show.default_template
+    real_template or default_template
+  end
+
+  def default_template
+    @default_template ||= (Template.find_by_slug(self.slug) or Show.default_template)
   end
 
   def self.default_template
