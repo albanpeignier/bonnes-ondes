@@ -622,7 +622,7 @@ form.newsletter label {
 
 p { margin: 5px 0; }
 h1, h2 { font-weight: bold; }
-#content h2 { margin-top: 10px; margin-bottom: 15px; }
+#content h2 { margin-top: 15px; margin-bottom: 5px; }
 #content h3 { margin: 20px 0 5px -10px; }
 #content ul li { list-style: circle; }
 #content strong { font-weight: bold; }
@@ -641,8 +641,7 @@ h1, h2 { font-weight: bold; }
 #content .audio .duration { font-style: italic; font-size: 0.8em; }
 #content .audio a { font-size: 1.2em; }
 #content .audio img { margin: 2px 15px 0 0; float: left; }
-#content p { width: 90% }
-body.episode #content p { width: 435px; }
+
 body.episode #content #details { text-align: right; float: right; padding-right: 20px;}
 body.episode #content #details .rating { margin: 5px 0px 5px 110px; }
 #content h3.listen { clear: none; margin-bottom: 15px; }
@@ -652,5 +651,7 @@ body.episode #content #details .rating { margin: 5px 0px 5px 110px; }
 #content .vote .rating span { margin-left: 10px; font-style: italic; font-size: 0.8em; }
 body.show #content .vote { font-style: italic; margin-top: 0; font-size: 0.8em; }
 #sidebar ul {margin-left: 20px;}
-body.episode #sidebar p{width: 90%;}
-#sidebar a{color: #388E00;}
+#sidebar a {color: #388E00;}
+#sidebar { margin-left: 30px; padding-bottom: 30px; }
+#sidebar p { marging-left: 10px;  }
+#content p { font-size: 115%; margin-top: 5px; margin-bottom: 5px; }
