@@ -633,7 +633,7 @@ h1, h2 { font-weight: bold; }
 #barredroite h2 { margin-top: 10px; }
 
 #programme part {clear: both;}
-#programme .day {float:left;width:37%;min-width: 200px;}
+#programme .day {float:left; width:25%;min-width: 200px;}
 #programme .part:after { content: " ";  display: block; height: 0; clear: both; visibility: hidden; }
 #programme .listen { margin-top: 5px;}
 
