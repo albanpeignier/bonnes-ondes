@@ -1,10 +1,10 @@
-# -*- coding: undecided -*-
+# -*- coding: utf-8 -*-
 class PublicController < ApplicationController
 
   layout "public"
   skip_before_filter :login_required
 
-  append_view_path "#{RAILS_ROOT}/templates"
+  append_view_path "#{Rails.root}/templates"
 
   before_filter :assigns_show, :assigns_now, :create_user_google_analytics_account
 

@@ -76,8 +76,8 @@ module Rubaidh # :nodoc:
     # Return true if the Google Analytics system is enabled and configured
     # correctly for the specified format
     def self.enabled?(format)
-      raise Rubaidh::GoogleAnalyticsConfigurationError if default_account.blank? || analytics_url.blank?
-      environments.include?(RAILS_ENV) && formats.include?(format.to_sym)
+      raise Rubaidh::GoogleAnalyticsConfigurationError if analytics_url.blank?
+      not default_account.blank? and environments.include?(RAILS_ENV) and formats.include?(format.to_sym)
     end
 
     def self.accounts(request)

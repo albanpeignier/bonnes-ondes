@@ -6,8 +6,8 @@ class Show < ActiveRecord::Base
 
   liquid_methods :name, :description, :episodes, :logo, :tags, :posts
 
-  def after_initialize
-    self.visit_count ||= 0
+  def visit_count
+    read_attribute(:visit_count) or 0
   end
 
   validates_presence_of :name, :message => "Pas de nom défini"

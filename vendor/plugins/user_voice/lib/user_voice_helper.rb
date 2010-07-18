@@ -1,6 +1,7 @@
 module UserVoiceHelper
 
   def user_voice_feedback(user_voice_account = UserVoice.default, options = {})
+    return unless user_voice_account
     user_voice_account = user_voice_account.dup.update_attributes(options)
 
     javascript_tag do

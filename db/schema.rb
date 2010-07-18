@@ -12,11 +12,11 @@
 ActiveRecord::Schema.define(:version => 20100619084303) do
 
   create_table "contents", :force => true do |t|
-    t.string   "type",                           :default => "", :null => false
-    t.string   "name",                           :default => "", :null => false
-    t.string   "slug",                           :default => "", :null => false
-    t.integer  "duration",         :limit => 11
-    t.integer  "episode_id",       :limit => 11, :default => 0,  :null => false
+    t.string   "type",             :default => "", :null => false
+    t.string   "name",             :default => "", :null => false
+    t.string   "slug",             :default => "", :null => false
+    t.integer  "duration"
+    t.integer  "episode_id",       :default => 0,  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "audiobank_id"
@@ -26,23 +26,23 @@ ActiveRecord::Schema.define(:version => 20100619084303) do
   end
 
   create_table "episodes", :force => true do |t|
-    t.integer  "order",          :limit => 11
+    t.integer  "order"
     t.string   "title",                                                       :default => "", :null => false
     t.string   "slug",                                                        :default => "", :null => false
     t.text     "description"
-    t.integer  "show_id",        :limit => 11,                                :default => 0,  :null => false
+    t.integer  "show_id",                                                     :default => 0,  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "image_id",       :limit => 11
+    t.integer  "image_id"
     t.datetime "broadcasted_at"
-    t.integer  "rating_count",   :limit => 11
+    t.integer  "rating_count"
     t.integer  "rating_total",   :limit => 10, :precision => 10, :scale => 0
     t.decimal  "rating_avg",                   :precision => 10, :scale => 2
   end
 
   create_table "hosts", :force => true do |t|
     t.string   "name"
-    t.integer  "show_id",                     :limit => 11
+    t.integer  "show_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "google_analytics_tracker_id"
@@ -51,20 +51,20 @@ ActiveRecord::Schema.define(:version => 20100619084303) do
   create_table "images", :force => true do |t|
     t.string   "content_type"
     t.string   "filename"
-    t.integer  "size",         :limit => 11
-    t.integer  "parent_id",    :limit => 11
+    t.integer  "size"
+    t.integer  "parent_id"
     t.string   "thumbnail"
-    t.integer  "width",        :limit => 11
-    t.integer  "height",       :limit => 11
-    t.integer  "db_file_id",   :limit => 11
-    t.integer  "show_id",      :limit => 11
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "db_file_id"
+    t.integer  "show_id"
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "posts", :force => true do |t|
-    t.integer  "show_id",     :limit => 11
+    t.integer  "show_id"
     t.string   "title"
     t.string   "slug"
     t.text     "description"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(:version => 20100619084303) do
   end
 
   create_table "ratings", :force => true do |t|
-    t.integer "rated_id",   :limit => 11
+    t.integer "rated_id"
     t.string  "rated_type"
     t.integer "rating",     :limit => 10, :precision => 10, :scale => 0
   end
@@ -92,23 +92,23 @@ ActiveRecord::Schema.define(:version => 20100619084303) do
   create_table "shows", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "slug",                          :default => "", :null => false
+    t.string   "slug",            :default => "", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "logo_id",         :limit => 11
-    t.integer  "visit_count",     :limit => 11, :default => 0,  :null => false
+    t.integer  "logo_id"
+    t.integer  "visit_count",     :default => 0,  :null => false
     t.string   "podcast_comment"
-    t.integer  "template_id",     :limit => 11
+    t.integer  "template_id"
   end
 
   create_table "shows_users", :id => false, :force => true do |t|
-    t.integer "show_id", :limit => 11, :default => 0, :null => false
-    t.integer "user_id", :limit => 11, :default => 0, :null => false
+    t.integer "show_id", :default => 0, :null => false
+    t.integer "user_id", :default => 0, :null => false
   end
 
   create_table "taggings", :force => true do |t|
-    t.integer  "tag_id",        :limit => 11
-    t.integer  "taggable_id",   :limit => 11
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
     t.string   "taggable_type"
     t.datetime "created_at"
   end

@@ -1,4 +1,4 @@
-require 'html/document'
+# -*- coding: utf-8 -*-
 
 module TextFilter
 
