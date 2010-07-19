@@ -1,0 +1,4 @@
+en:
+  time:
+    formats:
+      long: "%B %d, %Y %H:%M:%S"

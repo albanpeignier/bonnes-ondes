@@ -1,0 +1,39 @@
+<h2><%= @user_template.name %></h2>
+<div class="description">
+<p>
+<% if @user_template.used? %>
+
+<% if @user_template.shows.many? %>
+Ce template est utilisé par les émissions : 
+<ul>
+  <% for show in @user_template.shows %>
+    <li><%= link_to_admin_show show %></li>
+  <% end %>
+</ul>
+<% else %>
+  Ce template est utilisé par l'émission : 
+  <%= link_to_admin_show @user_template.shows.first %>
+<% end %>
+<% else %>
+Ce template n'est pas encore utilisé
+<% end %>
+</p>
+<p>
+Identifiant: <%= @user_template.slug %>
+<p>
+<p>
+Git URL: <%= @user_template.scm_url %>
+</p>
+</div>
+
+<p class="dates">
+créé le <%= I18n.localize(@user_template.created_at) %>,<br/>
+modifié le <%= I18n.localize(@user_template.updated_at) %>
+</p>
+
+<div class="actions">
+<%= link_to("Modifier", edit_admin_template_path(@user_template), :class => "edit") %>
+<% unless @user_template.used? %>
+<%= link_to("Supprimer", admin_template_path(@user_template), :method => "delete", :confirm => "Etes-vous sûr de vouloir définitivement supprimer ce template ?", :class => "destroy") %>
+<% end %>
+</div>

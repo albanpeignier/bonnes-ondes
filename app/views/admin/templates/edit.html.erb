@@ -1,0 +1,13 @@
+<h1>Modifier un template</h1>
+
+<% form_for(:user_template, @user_template, :url => [:admin, @user_template], :html => { :method => :put }) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    Utiliser la dernière version de <%= @user_template.scm_url %>
+  </p>
+  <p>
+    <%= f.submit "Mettre à jour" %> ou <%= link_to 'revenir', admin_template_path(@user_template) %>
+  </p>
+<% end %>
+
+

@@ -1,0 +1,17 @@
+<h2>Templates</h2>
+
+<% unless @user_templates.empty? %>
+<ul>
+  <% for template in @user_templates %>
+  <li>
+    <%= link_to template.name, [:admin, template] %>
+  </li>
+  <% end %>
+</ul>
+<% else %>
+<p>Vous n'avez pas encore créé de template</p>
+<% end %>
+
+<div class="actions">
+  <%= link_to "Ajouter un nouveau template", new_admin_template_path, :class => "new_show" %>
+</div>

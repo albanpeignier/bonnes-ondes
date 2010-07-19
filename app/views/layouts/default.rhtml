@@ -19,9 +19,8 @@
    <h1>Bonnes Ondes</h1>
    <ul>
     <% if logged_in? %>
-     <li><%= link_to("Tableau de bord", :controller => "account", :action => "index") %></li>
-     <li><%= link_to("Options", :controller => "account", :action => "options") %></li>
-     <li><%= link_to("Quitter", :controller => "account", :action => "logout") %></li>
+     <li><%= link_to("Tableau de bord", :controller => "/account", :action => "index") %></li>
+     <li><%= link_to("Quitter", :controller => "/account", :action => "logout") %></li>
     <% else %>
      <li><%= link_to("Accueil", :controller => "public", :action => "welcome") %></li>
      <li><%= link_to("S'identifier", :controller => "account", :action => "login") %></li>

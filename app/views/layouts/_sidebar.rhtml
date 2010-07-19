@@ -1,9 +1,10 @@
+
 <h2>Bonnes Ondes<sup>beta</sup></h2>
 
 <ul>
   <% unless current_user.shows.empty? %>
     <% for show in current_user.shows %>
-      <li><%= link_to(show.name, :controller => "show", :action => "show", :id => show) %></li>
+      <li><%= link_to_admin_show show %></li>
     <% end %>
   <% else %>
     <li><%= link_to("Renseigner votre première émission", :controller => "show", :action => "create") %></li>

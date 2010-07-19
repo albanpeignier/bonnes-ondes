@@ -1,0 +1,22 @@
+<h1>Nouveau template</h1>
+
+<% form_for(:user_template, @user_template, :url => [:admin, @user_template]) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name, "Nom" %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :slug %><br />
+    <%= f.text_field :slug %>
+  </p>
+  <p>
+    <%= f.label :scm_url, "Git URL" %><br />
+    <%= f.text_field :scm_url %>
+  </p>
+  <p>
+    <%= f.submit "Créer" %> ou <%= link_to 'revenir', admin_templates_path %>
+  </p>
+<% end %>
+
+

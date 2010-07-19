@@ -14,8 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   # Keep in mind you can assign values other than :controller and :action
 
   map.connect 'compte/activate/:code', :controller => 'account', :action => 'activate'
-  map.connect 'compte/:action', :controller => 'account'
-
+  map.connect 'compte/:action', :controller => 'account', :requirements => { :action => /activate|content_playlist|index|login|logout|recover_password|signup|and user_session/ }
   map.connect 'ep/:episode_slug', :controller => 'public', :action => 'episode'
   map.connect 'ep/:episode_slug/ecoute/:content_slug', :controller => 'public', :action => 'content'
   map.connect 'ep/:episode_slug/ecouter/:content_slug', :controller => 'public', :action => 'playlist'
@@ -34,6 +33,10 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default route as the lowest priority.
   map.connect 'compte/emission/:action/:id', :controller => "show"
   map.connect 'compte/episode/:action/:id', :controller => "episode"
+
+  map.with_options(:path_prefix => "compte", :name_prefix => "admin_", :namespace => "admin/") do |admin|
+    admin.resources :templates
+  end
 
   # Allow downloading Web Service WSDL as a file with an extension
   # instead of a file named 'wsdl'

@@ -3,10 +3,13 @@
 
 class ApplicationController < ActionController::Base
   include AuthenticatedSystem
+  helper :all
+
   before_filter :login_from_cookie, :login_required
+
   layout "default"
 
-  helper :user_session
+  helper_method :user_session
 
   def content_playlist(content)
     if content.respond_to? "playlist_url"
@@ -15,6 +18,8 @@ class ApplicationController < ActionController::Base
       render :text => content.content_url, :content_type => "audio/x-mpegurl"
     end
   end
+
+  private
 
   def user_session
     @user_session ||= UserSession.new(session)

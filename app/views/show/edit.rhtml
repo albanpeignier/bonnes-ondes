@@ -1,17 +1,26 @@
-<%= error_messages_for(:show) %>
-
 <h2>Modifier l'émission</h2>
 
-<% form_tag(:action => :edit) do %>
- <p><label for="show_name">Nom :</label><br/>
- <%= text_field("show", "name") %></p>
+<% form_for(@show, :url => {:action => :edit}, :html => { :method => :post }) do |f| %>
+ <%= f.error_messages %>
 
- <p><label for="show_description">Description :</label><br/>
-
- <%= textile_editor 'show', 'description', :rows => 10, :cols => 60 -%>
+ <p>
+   <%= f.label :name, "Nom" %><br/>
+   <%= f.text_field :name %>
  </p>
 
- <%= submit_tag "Modifier" %> ou <%= link_to("revenir", :action => "show", :id => @show) %>
+ <p>
+   <%= f.label :description %><br/>
+   <%= textile_editor 'show', 'description', :rows => 10, :cols => 60 -%>
+ </p>
+
+ <% unless current_user.templates.empty? %>
+ <p>
+   <%= f.label :template_id, "Template" %><br/>
+   <%= f.select :template_id, options_from_collection_for_select([ Show.default_template ] + current_user.templates, 'id', 'name', @show.template_id)%>
+ </p>
+ <% end %>
+
+ <%= f.submit "Modifier" %> ou <%= link_to("revenir", :action => "show", :id => @show) %>
 
  <%= textile_editor_initialize -%>
 <% end %>

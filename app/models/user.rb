@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   before_destroy :delete_shows
 
   has_and_belongs_to_many :shows
+  has_and_belongs_to_many :templates
 
   # doesn't work with has_and_belongs_to_many
   # has_many :episodes, :through => :shows
