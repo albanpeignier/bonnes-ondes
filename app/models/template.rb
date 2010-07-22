@@ -1,6 +1,15 @@
 # -*- coding: utf-8 -*-
 class Template < ActiveRecord::Base
-  has_and_belongs_to_many :users
+
+  # Used to prevent problems with old migrations
+  def self.supports_scm_url?
+    column_names.include? "scm_url"
+  end
+  def self.supports_users?
+    connection.table_exists? "templates_users"
+  end
+
+  has_and_belongs_to_many :users if supports_users?
   has_many :shows
 
   liquid_methods :slug
@@ -23,6 +32,8 @@ class Template < ActiveRecord::Base
   end
 
   def install_resources
+    return unless self.class.supports_scm_url?
+
     if has_resources?
       Dir.chdir(resources_dir) do
         logger.info "Update git template #{scm_url} in #{resources_dir}"
