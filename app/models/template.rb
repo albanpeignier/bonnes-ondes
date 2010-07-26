@@ -34,14 +34,20 @@ class Template < ActiveRecord::Base
   def install_resources
     return unless self.class.supports_scm_url?
 
+    update_success = false
     if has_resources?
       Dir.chdir(resources_dir) do
         logger.info "Update git template #{scm_url} in #{resources_dir}"
-        system "git pull origin master"
+        update_success = system "git pull origin master"
       end
     else
       logger.info "Clone git template #{scm_url} in #{resources_dir}"
-      system "git clone #{scm_url} #{resources_dir}"
+      update_success = system "git clone #{scm_url} #{resources_dir}"
+    end
+
+    if update_success
+      TemplateLiquidEngine.clear_cache! 
+      true
     end
   end
 
