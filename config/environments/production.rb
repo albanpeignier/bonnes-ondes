@@ -16,5 +16,3 @@ config.action_controller.asset_host                  = "www.bonnes-ondes.fr"
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
-
-ActionController::CgiRequest::DEFAULT_SESSION_OPTIONS.update :session_domain => '.bonnes-ondes.fr'
