@@ -1,6 +1,6 @@
 set :application, "bonnes-ondes"
 set :scm, "git"
-set :repository, "git://projects.tryphon.eu/bonnes-ondes"
+set :repository, "git://www.dbx.tryphon.priv/bonnes-ondes"
 
 set :deploy_to, "/var/www/bonnes-ondes"
 
@@ -8,49 +8,56 @@ set :keep_releases, 5
 after "deploy:update", "deploy:cleanup" 
 set :use_sudo, false
 
-set :synchronous_connect, true
+server "radio.dbx.tryphon.priv", :app, :web, :db, :primary => true
 
-server "zigmun.tryphon.org", :app, :web, :db, :primary => true
-
-set :mongrel_conf, "bonnes-ondes.conf"
+after "deploy:update_code", "deploy:symlink_shared", "deploy:gems"
 
 namespace :deploy do
- desc "Custom restart task for mongrel"
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    sudo "/usr/local/sbin/mongrel_restart #{mongrel_conf}"
+  # Prevent errors when chmod isn't allowed by server
+  task :setup, :except => { :no_release => true } do
+    dirs = [deploy_to, releases_path, shared_path]
+    dirs += shared_children.map { |d| File.join(shared_path, d) }
+    run "mkdir -p #{dirs.join(' ')} && (chmod g+w #{dirs.join(' ')} || true)"
   end
-end
 
-after "deploy:update_code", "deploy:gems"
-
-namespace :deploy do
   desc "Install gems"
   task :gems, :roles => :app do
     sudo "rake --rakefile=#{release_path}/Rakefile gems:install RAILS_ENV=production"
+  end
+
+  desc "Symlinks shared configs and folders on each release"
+  task :symlink_shared, :except => { :no_release => true }  do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/"
+    run "ln -nfs #{shared_path}/config/production.rb #{release_path}/config/environments/"
+
+    attachements_shared_dir = File.join(shared_path, "attachments")
+    attachements_local_dir = File.join(release_path, "public", "attachments")
+
+    run "ln -nfs #{attachements_shared_dir} #{attachements_local_dir}"
+
+    templates_shared_dir = File.join(shared_path, "templates")
+    templates_local_dir = File.join(release_path, "templates")
+
+    run "rsync -a #{templates_local_dir}/* #{templates_shared_dir}/"
+    run "rm -rf #{templates_local_dir}"
+
+    run "ln -nfs #{templates_shared_dir} #{templates_local_dir}"
   end
 end
 
 desc "Create data directories"
 task :after_setup, :roles => [:app, :web] do
-  attachements_shared_dir = File.join(shared_path, "data", "attachments")
+  attachements_shared_dir = File.join(shared_path, "attachments")
   run "umask 02 && mkdir -p #{attachements_shared_dir}"
 
   templates_shared_dir = File.join(shared_path, "templates")
   run "umask 02 && mkdir -p #{templates_shared_dir}"
 end
 
-desc "Link data directories"
-task :after_symlink, :roles => [:app, :web] do
-  attachements_shared_dir = File.join(shared_path, "data", "attachments")
-  attachements_local_dir = File.join(current_path, "public", "attachments")
-
-  run "ln -nfs #{attachements_shared_dir} #{attachements_local_dir}"
-
-  templates_shared_dir = File.join(shared_path, "templates")
-  templates_local_dir = File.join(current_path, "templates")
-
-  run "rsync -av #{templates_local_dir}/ #{templates_shared_dir}/"
-  run "rm -rf #{templates_local_dir}"
-
-  run "ln -nfs #{templates_shared_dir} #{templates_local_dir}"
+namespace :deploy do
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
 end
