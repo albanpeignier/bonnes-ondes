@@ -2,7 +2,9 @@ module PublicHelper
   include ClippyHelper
 
   def contents_for_feed(show)
-    Episode.sort(show.episodes.broadcasted).collect { |e| e.contents.principal }.flatten
+    Episode.sort(show.episodes).select(&:broadcasted?).collect do |episode|
+      episode.contents.select(&:principal?) 
+    end.flatten
   end
 
 end

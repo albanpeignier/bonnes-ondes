@@ -6,7 +6,8 @@ class PublicController < ApplicationController
 
   append_view_path "#{Rails.root}/templates"
 
-  before_filter :assigns_show, :assigns_now, :create_user_google_analytics_account
+  before_filter :assigns_show, :create_user_google_analytics_account, :except => :feed
+  before_filter :assigns_now
 
   rescue_from ActiveRecord::RecordNotFound, :with => :show_home_page_when_not_found
 
@@ -34,6 +35,7 @@ class PublicController < ApplicationController
   end
 
   def feed
+    current_show [{:episodes => [ :show, { :contents => { :episode => [ :contents, :tags, { :show => :host } ] } }, :tags ]}, :host] 
     render :content_type => "application/rss+xml", :layout => false
   end
 
@@ -47,7 +49,7 @@ class PublicController < ApplicationController
   end
 
   def direct
-    render_template @show, :stream, @show
+    render_template current_show, :stream, current_show
   end
 
   def robots
@@ -57,7 +59,7 @@ class PublicController < ApplicationController
   end
 
   def vote
-    @episode = @show.episodes.find(params[:episode_id])
+    @episode = current_show.episodes.find(params[:episode_id])
 
     if request.post? and user_session.can_rate_episode?(@episode)
       @episode.rate params[:rating].to_i
@@ -72,11 +74,11 @@ class PublicController < ApplicationController
 
   def tags
     @search = params[:search]
-    @episodes = Episode.sort(@show.episodes.find_tagged_with(@search))
+    @episodes = Episode.sort(current_show.episodes.find_tagged_with(@search))
 
     respond_to do |format|
       format.html {
-        render_template @show, :search, @search
+        render_template current_show, :search, @search
       }
       format.m3u {
         render :layout => false
@@ -93,8 +95,8 @@ class PublicController < ApplicationController
   end
 
   def render_show
-    create_visit @show
-    render_template @show, :show, @show
+    create_visit current_show
+    render_template current_show, :show, current_show
   end
 
   def render_template(show, view, object)
@@ -104,38 +106,38 @@ class PublicController < ApplicationController
       :locals => { view.to_sym => object }
   end
 
-  def assigns_show
-    host = Host.find_by_name(request.host)
-    unless host.blank?
-      @show = host.show
-    end
-
-    show_slug = ""
-    if request.host =~ /^(.*).bonnes-ondes.(fr|local)$/
-      show_slug = $1
-    end
-
-    @show = find_show(show_slug)
-  end
-
   def assigns_now
     @now = Time.now
   end
 
   def create_user_google_analytics_account
-    user_tracker_id = (@show and @show.host and @show.host.google_analytics_tracker_id)
+    user_tracker_id = (current_show and current_show.host and current_show.host.google_analytics_tracker_id)
 
     unless user_tracker_id.blank?
       request.google_analytics_account = Rubaidh::GoogleAnalytics.new(user_tracker_id)
     end
   end
 
-  def find_show(slug = nil)
-    @show ||= Show.find_by_slug(slug)
+  def current_show(include = [])
+    unless @show
+      if host = Host.find_by_name(request.host)
+        @show = Show.find(host.show, :include => include)
+      else
+        if request.host =~ /^(.*).bonnes-ondes.(fr|local)$/
+          @show = Show.find_by_slug($1, :include => include)
+        end
+      end
+
+      raise ActiveRecord::RecordNotFound unless @show
+    end
+
+    @show
   end
+  alias_method :load_show, :current_show
+  alias_method :assigns_show, :current_show
 
   def find_episode
-    find_show.episodes.find_by_slug(params[:episode_slug]) or raise ActiveRecord::RecordNotFound
+    current_show.episodes.find_by_slug(params[:episode_slug]) or raise ActiveRecord::RecordNotFound
   end
 
   def find_content

@@ -27,6 +27,10 @@ class Episode < ActiveRecord::Base
   has_many :contents, :dependent => :destroy
   belongs_to :image
 
+  def broadcasted?
+    self.broadcasted_at < Time.now
+  end
+
   def self.sort(episodes)
     if episodes.all?(&:broadcasted_at)
       episodes.sort_by(&:broadcasted_at).reverse

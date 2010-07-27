@@ -12,8 +12,9 @@ xml.item do
     end
   end
 
-  xml.description textilize_in_text(content.episode.description)
-  xml.itunes :summary, textilize_in_text(content.episode.description)
+  text = textilize_in_text(content.episode.description)
+  xml.description text
+  xml.itunes :summary, text
 
   xml.itunes :duration, "#{content.duration}:00" if content.has_duration?
 
