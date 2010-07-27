@@ -6,22 +6,23 @@ class PublicController < ApplicationController
 
   append_view_path "#{Rails.root}/templates"
 
-  before_filter :assigns_show, :create_user_google_analytics_account, :except => [:feed, :robots]
+  before_filter :assigns_show, :create_user_google_analytics_account, :except => [:feed, :robots, :welcome]
   before_filter :assigns_now
 
   rescue_from ActiveRecord::RecordNotFound, :with => :show_home_page_when_not_found
 
   def welcome
-    if @show.blank?
+    begin
+      load_show
+      render_show
+    rescue ActiveRecord::RecordNotFound
       # localhost is used in development
       # www.example.com is used by cucumber
-      if request.host =~ /(www.)bonnes-ondes\.fr|bonnes-ondes\.local|localhost|www.example.com/
-        @episodes_last =  Episode.find(:all, :order => "created_at DESC", :limit => 10)
+      if request.host =~ /www.bonnes-ondes\.fr|www.bonnes-ondes\.local|localhost|www.example.com/
+        @episodes_last =  Episode.find :all, :order => "created_at DESC", :limit => 10
       else
         raise ActiveRecord::RecordNotFound
       end
-    else
-      render_show
     end
   end
 
@@ -91,8 +92,13 @@ class PublicController < ApplicationController
   private
 
   def show_home_page_when_not_found
+    logger.info "Page not found for #{request.host}#{request.path}"
     flash[:notice] = "La page demandée n'existe pas"
-    redirect_to "/"
+    unless request.path == "/"
+      redirect_to "/"
+    else
+      redirect_to "http://www.bonnes-ondes.fr"
+    end
   end
 
   def render_show
@@ -117,6 +123,8 @@ class PublicController < ApplicationController
     unless user_tracker_id.blank?
       request.google_analytics_account = Rubaidh::GoogleAnalytics.new(user_tracker_id)
     end
+  rescue ActiveRecord::RecordNotFound
+    logger.debug "Can't find an associated Show for Goggle Analytics account"
   end
 
   def current_show(include = [])
