@@ -5,7 +5,7 @@
 
 <% form_tag(:action => :edit) do %>
  <p><label for="episode_title">Titre :</label><br/>
- <%= text_field("episode", "title") %></p>
+ <%= text_field("episode", "title", :size => 60) %></p>
 
  <p><label for="episode_order">Numéro :</label><br/>
  <%= text_field("episode", "order") %></p>
