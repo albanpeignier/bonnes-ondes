@@ -19,7 +19,7 @@ class EpisodeController < ApplicationController
   end
 
   def create_slug
-    @slug = Slug.slugify(params[:name])
+    @slug = Slug.slugify(params[:name], Episode.slug_length)
   end
 
   def show

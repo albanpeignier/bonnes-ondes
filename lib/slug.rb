@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 class Slug
-  def self.slugify(text)
+  def self.slugify(text, length = 30)
     return "" if text.nil? or text.strip.blank?
-    reduce_separators(replace_specials(text.downcase).gsub(/[^a-z0-9-]+/, ' ').strip.gsub(' ','-')[0..29])
+    reduce_separators(replace_specials(text.downcase).gsub(/[^a-z0-9-]+/, ' ').strip.gsub(' ','-')[0..length-1])
   end
 
   private
