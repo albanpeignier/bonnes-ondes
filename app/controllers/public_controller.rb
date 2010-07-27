@@ -6,7 +6,7 @@ class PublicController < ApplicationController
 
   append_view_path "#{Rails.root}/templates"
 
-  before_filter :assigns_show, :create_user_google_analytics_account, :except => :feed
+  before_filter :assigns_show, :create_user_google_analytics_account, :except => [:feed, :robots]
   before_filter :assigns_now
 
   rescue_from ActiveRecord::RecordNotFound, :with => :show_home_page_when_not_found
@@ -35,7 +35,7 @@ class PublicController < ApplicationController
   end
 
   def feed
-    current_show [{:episodes => [ :show, { :contents => { :episode => [ :contents, :tags, { :show => :host } ] } }, :tags ]}, :host] 
+    load_show [{:episodes => [ :show, { :contents => { :episode => [ :contents, :tags, { :show => :host } ] } }, :tags ]}, :host] 
     render :content_type => "application/rss+xml", :layout => false
   end
 
@@ -53,6 +53,7 @@ class PublicController < ApplicationController
   end
 
   def robots
+    load_show [{:episodes => {:show => :host }}, {:contents => {:episode => {:show => :host}} }]
     respond_to do |format|
    	  format.txt { render :layout => false }
     end

@@ -24,6 +24,7 @@ class Show < ActiveRecord::Base
 
   has_and_belongs_to_many :users
   has_many :episodes, :dependent => :destroy, :order => "`order` desc"
+  has_many :contents, :through => :episodes
   has_many :images, :dependent => :destroy
   has_many :posts, :dependent => :destroy, :order => "`created_at` desc"
 

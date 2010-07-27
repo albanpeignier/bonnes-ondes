@@ -1,7 +1,7 @@
 Sitemap: <%= url_for :controller => :sitemaps, :action => :show, :id => @show.slug, :only_path => false %>
 
 User-agent: *
-<%- for content in @show.episodes.collect(&:contents).flatten -%>
+<%- for content in @show.contents -%>
 Disallow: <%= url_for_content(content, :only_path => true) %>
 <%- end -%>
 <%- for episode in @show.episodes -%>
