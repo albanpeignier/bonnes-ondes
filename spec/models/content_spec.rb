@@ -46,3 +46,12 @@ describe Content do
   end
 
 end
+
+describe AudiobankContent do
+
+  it "should validate that the content type is audio/ogg or application/ogg" do
+    subject.should_receive(:validate_content_type).with(%w{audio/ogg application/ogg})
+    subject.validate
+  end
+
+end
