@@ -37,12 +37,13 @@ class Content < ActiveRecord::Base
   end
 
   def validate_content_type(content_types)
-    content_types = [ content_types ] unless content_types === Array
+    content_types = Array(content_types)
 
     begin
       response = http_request_head content_url
       content_types.include? response['content-type']
     rescue Net::HTTPServerException
+      logger.warn("Can't validate content type for #{content_url}: #{e}")
       false
     end
   end
@@ -91,7 +92,7 @@ class AudiobankContent < Content
   end
 
   def validate
-    unless validate_content_type "application/ogg"
+    unless validate_content_type %w{ audio/ogg application/ogg }
       errors.add_to_base("Ce document n'existe pas dans AudioBank")
     end
   end
