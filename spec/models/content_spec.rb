@@ -42,7 +42,6 @@ describe Content do
       @content.available_end_at = 1.day.from_now
       @content.should be_available
     end
-
   end
 
 end
@@ -52,6 +51,36 @@ describe AudiobankContent do
   it "should validate that the content type is audio/ogg or application/ogg" do
     subject.should_receive(:validate_content_type).with(%w{audio/ogg application/ogg})
     subject.validate
+  end
+
+  describe "content_url" do
+
+    it "should use cast_url with specified form" do
+      subject.stub :cast_url => "<cast_url>"
+      subject.content_url(:format => "<format>").should == "<cast_url>.<format>"
+    end
+    
+  end
+
+  describe "playlist_url" do
+
+    before(:each) do
+      subject.stub :cast_url => "<cast_url>"
+    end
+
+    it "should be the cast_url" do
+      subject.playlist_url.should == subject.cast_url
+    end
+    
+  end
+
+  describe "cast_url" do
+
+    it "should have this form : <audiobank_base_url>/casts/<audiobank_id>" do
+      subject.stub :audiobank_base_url => "<audiobank_base_url>", :audiobank_id => "<audiobank_id>"
+      subject.cast_url.should == "<audiobank_base_url>/casts/<audiobank_id>"
+    end
+    
   end
 
 end

@@ -42,7 +42,7 @@ class Content < ActiveRecord::Base
     begin
       response = http_request_head content_url
       content_types.include? response['content-type']
-    rescue Net::HTTPServerException
+    rescue Net::HTTPServerException => e
       logger.warn("Can't validate content type for #{content_url}: #{e}")
       false
     end
@@ -69,33 +69,6 @@ class Content < ActiveRecord::Base
     end
   end
 
-
-end
-
-class AudiobankContent < Content
-
-  validates_presence_of :audiobank_id, :message => "Pas d'identifiant AudioBank défini"
-  validates_length_of :audiobank_id, :is => 8, :wrong_length => "L'identifiant AudioBank doit faire 8 caractères"
-  validates_format_of :audiobank_id, :with => /^[a-z0-9]*$/, :message => "L'identifiant AudioBank ne peut contenir que des minuscules et des chiffres"
-
-  def playlist_url
-    "http://audiobank.tryphon.org/casts/#{audiobank_id}"
-  end
-
-  def support_format?(format)
-    [ :mp3, :ogg ].include? format
-  end
-
-  def content_url(options = {})
-    options[:format] ||= :ogg
-    "http://audiobank.tryphon.org/casts/#{audiobank_id}.#{options[:format]}"
-  end
-
-  def validate
-    unless validate_content_type %w{ audio/ogg application/ogg }
-      errors.add_to_base("Ce document n'existe pas dans AudioBank")
-    end
-  end
 
 end
 
