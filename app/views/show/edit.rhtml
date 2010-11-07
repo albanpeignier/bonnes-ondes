@@ -16,7 +16,7 @@
  <% unless current_user.templates.empty? %>
  <p>
    <%= f.label :template_id, "Template" %><br/>
-   <%= f.select :template_id, options_from_collection_for_select([ Show.default_template ] + current_user.templates, 'id', 'name', @show.template_id)%>
+   <%= f.select :template_id, options_from_collection_for_select(([ Show.default_template, @show.template ] + current_user.templates).uniq, 'id', 'name', @show.template_id)%>
  </p>
  <% end %>
 
