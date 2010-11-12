@@ -134,3 +134,6 @@ p#cloud { margin-bottom: 8px; }
 #selection li { display: inline; }
 
 .images.show #content img { margin: 10px 0px 10px 50px; }
+
+.fieldWithErrors { display: inline }
+#content form .hint { font-size: 0.85em; color: #aaa; margin-bottom: 5px }

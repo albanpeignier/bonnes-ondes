@@ -3,16 +3,19 @@
 <% form_for(:user_template, @user_template, :url => [:admin, @user_template]) do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :name, "Nom" %><br />
+    <%= f.label :name, "Nom" %><br/>
     <%= f.text_field :name %>
+    <div class="hint">Mon template</div>
   </p>
   <p>
-    <%= f.label :slug %><br />
+    <%= f.label :slug, "Lien" %><br/>
     <%= f.text_field :slug %>
+    <div class="hint">mon-template</div>
   </p>
   <p>
-    <%= f.label :scm_url, "Git URL" %><br />
+    <%= f.label :scm_url, "URL Git" %><br/>
     <%= f.text_field :scm_url %>
+    <div class="hint">git://github.com/my-account/mon-template</div>
   </p>
   <p>
     <%= f.submit "Créer" %> ou <%= link_to 'revenir', admin_templates_path %>
