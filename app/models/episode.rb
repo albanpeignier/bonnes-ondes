@@ -31,7 +31,11 @@ class Episode < ActiveRecord::Base
   belongs_to :image
 
   def broadcasted?
-    self.broadcasted_at < Time.now
+    if broadcasted_at
+      broadcasted_at < Time.now
+    else
+      true
+    end
   end
 
   def self.sort(episodes)

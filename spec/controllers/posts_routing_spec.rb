@@ -4,27 +4,19 @@ describe PostsController do
   describe "route generation" do
 
     it "should map { :controller => 'posts', :action => 'index', :show_id => 1 } to /compte/shows/1/posts" do
-      route_for(:controller => "posts", :action => "index", :show_id => 1).should == "/compte/shows/1/posts"
+      route_for(:controller => "posts", :action => "index", :show_id => "1").should == "/compte/shows/1/posts"
     end
   
     it "should map { :controller => 'posts', :action => 'new', :show_id => 1 } to /compte/shows/1/posts/new" do
-      route_for(:controller => "posts", :action => "new", :show_id => 1).should == "/compte/shows/1/posts/new"
+      route_for(:controller => "posts", :action => "new", :show_id => "1").should == "/compte/shows/1/posts/new"
     end
   
     it "should map { :controller => 'posts', :action => 'show', :id => 1, :show_id => 1 } to /compte/shows/1/posts/1" do
-      route_for(:controller => "posts", :action => "show", :id => 1, :show_id => 1).should == "/compte/shows/1/posts/1"
+      route_for(:controller => "posts", :action => "show", :id => "1", :show_id => "1").should == "/compte/shows/1/posts/1"
     end
   
     it "should map { :controller => 'posts', :action => 'edit', :id => 1, :show_id => 1 } to /compte/shows/1/posts/1/edit" do
-      route_for(:controller => "posts", :action => "edit", :id => 1, :show_id => 1).should == "/compte/shows/1/posts/1/edit"
-    end
-  
-    it "should map { :controller => 'posts', :action => 'update', :id => 1} to /compte/shows/1/posts/1" do
-      route_for(:controller => "posts", :action => "update", :id => 1, :show_id => 1).should == "/compte/shows/1/posts/1"
-    end
-  
-    it "should map { :controller => 'posts', :action => 'destroy', :id => 1} to /compte/shows/1/posts/1" do
-      route_for(:controller => "posts", :action => "destroy", :id => 1, :show_id => 1).should == "/compte/shows/1/posts/1"
+      route_for(:controller => "posts", :action => "edit", :id => "1", :show_id => "1").should == "/compte/shows/1/posts/1/edit"
     end
   end
 

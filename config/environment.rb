@@ -42,7 +42,7 @@ Rails::Initializer.run do |config|
   # config.active_record.default_timezone = :utc
   
   config.gem "inherited_resources", :version => "= 1.0.6"
-  config.gem "RedCloth"
+  config.gem "RedCloth", :lib => "redcloth"
   config.gem "liquid"
 
   # See Rails::Configuration for more options

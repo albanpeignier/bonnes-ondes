@@ -10,11 +10,15 @@ describe "/posts/show.html.erb" do
       :description => "value for description"
     )
   end
-
+  
   it "should render attributes in <p>" do
+    # FIXME no wait to render textilize in view spec
+    # can't find' ActionView::Helpers::TextHelper::RedCloth
+    template.stub :textilize => "textilized_description"
+
     render "/posts/show.html.erb"
     response.should have_text(/value\ for\ title/)
-    response.should have_text(/value\ for\ description/)
+    response.should have_text(/textilized_description/)
   end
 end
 

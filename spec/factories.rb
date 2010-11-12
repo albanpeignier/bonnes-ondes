@@ -1,3 +1,5 @@
+puts "Loading factories ..."
+
 Factory.define :user do |u|
   u.sequence(:login) { |n| "username-#{n}" }
   u.sequence(:email) { |n| "dummy#{n}@tryphon.org" }
