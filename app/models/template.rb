@@ -9,11 +9,18 @@ class Template < ActiveRecord::Base
     connection.table_exists? "templates_users"
   end
 
+  validates_presence_of :name, :message => "Le nom doit être renseigné"
+
   has_and_belongs_to_many :users if supports_users?
   has_many :shows
 
   liquid_methods :slug
   validates_uniqueness_of :slug
+  validates_presence_of :slug, :message => "Le lien doit être renseigné"
+  validates_length_of :slug, :within => 3..20, :message => "Le lien doit contenir entre 3 et 20 lettres"
+  validates_format_of :slug, :with => /^[a-z0-9-]*$/, :message => "Le lien ne peut contenir que des minuscules, des chiffres et des tirets"
+
+  validates_presence_of :scm_url, :message => "L'URL git doit être renseignée"
 
   attr_accessor :resources
   before_save :install_resources
@@ -53,6 +60,10 @@ class Template < ActiveRecord::Base
 
   def destroy_resources
     FileUtils.rm_rf resources_dir if has_resources?
+  end
+
+  def before_validation
+    self.slug = slug.downcase if slug
   end
 
   # validate :check_resources, :if => :resources
