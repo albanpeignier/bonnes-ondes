@@ -3,6 +3,8 @@
 
 class ApplicationController < ActionController::Base
   include AuthenticatedSystem
+  include ExceptionNotification::Notifiable
+
   helper :all
 
   before_filter :login_from_cookie, :login_required

@@ -44,6 +44,7 @@ Rails::Initializer.run do |config|
   config.gem "inherited_resources", :version => "= 1.0.6"
   config.gem "RedCloth", :lib => "redcloth"
   config.gem "liquid"
+  config.gem 'exception_notification'
 
   # See Rails::Configuration for more options
 end
