@@ -1,6 +1,6 @@
 class Image < ActiveRecord::Base
 
-  liquid_methods :width, :height
+  liquid_methods :width, :height, :title
 
   belongs_to :show
   has_attachment :storage => :file_system, :max_size => 300.kilobytes, :content_type => :image, :thumbnails => { :normal => '200>', :thumb => '75' }
