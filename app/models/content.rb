@@ -103,6 +103,14 @@ class Content::LiquidDropClass
     view.url_for_content(@object, :mode => :playlist)
   end
 
+  def url_for_mp3
+    @object.content_url(:format => :mp3)
+  end
+
+  def url_for_ogg
+    @object.content_url(:format => :ogg)
+  end
+
   def embedded_player
     view.tag(:embed,
       :src => "/flash/mediaplayer.swf", :type => "application/x-shockwave-flash",
