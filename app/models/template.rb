@@ -14,7 +14,7 @@ class Template < ActiveRecord::Base
   has_and_belongs_to_many :users if supports_users?
   has_many :shows
 
-  liquid_methods :slug
+  liquid_methods :slug, :name
   validates_uniqueness_of :slug
   validates_presence_of :slug, :message => "Le lien doit être renseigné"
   validates_length_of :slug, :within => 3..20, :message => "Le lien doit contenir entre 3 et 20 lettres"
@@ -44,8 +44,12 @@ class Template < ActiveRecord::Base
     update_success = false
     if has_resources?
       Dir.chdir(resources_dir) do
-        logger.info "Update git template #{scm_url} in #{resources_dir}"
-        update_success = system "git pull origin master"
+        if File.exists?(".git")
+          logger.info "Update git template #{scm_url} in #{resources_dir}"
+          update_success = system "git pull origin master"
+        else
+          update_success = true
+        end
       end
     else
       logger.info "Clone git template #{scm_url} in #{resources_dir}"
