@@ -10,6 +10,7 @@ class PublicController < ApplicationController
   before_filter :assigns_now
 
   rescue_from ActiveRecord::RecordNotFound, :with => :show_home_page_when_not_found
+  rescue_from ActionView::MissingTemplate, :with => :no_such_template
 
   def welcome
     begin
@@ -99,6 +100,10 @@ class PublicController < ApplicationController
     else
       redirect_to "http://www.bonnes-ondes.fr"
     end
+  end
+
+  def no_such_template
+    render_optional_error_file :not_found
   end
 
   def render_show
