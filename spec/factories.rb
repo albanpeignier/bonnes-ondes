@@ -46,3 +46,8 @@ Factory.define :image do |u|
   u.association :show
 end
   
+Factory.define :template do |f|
+  f.name "Test"
+  f.slug "test"
+  f.scm_url "dummy"
+end
