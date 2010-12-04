@@ -15,6 +15,7 @@ class Template < ActiveRecord::Base
   has_many :shows
 
   liquid_methods :slug, :name
+
   validates_uniqueness_of :slug
   validates_presence_of :slug, :message => "Le lien doit être renseigné"
   validates_length_of :slug, :within => 3..20, :message => "Le lien doit contenir entre 3 et 20 lettres"
@@ -40,6 +41,7 @@ class Template < ActiveRecord::Base
 
   def install_resources
     return unless self.class.supports_scm_url?
+    return true unless self.scm_url.start_with?("git://")
 
     update_success = false
     if has_resources?
@@ -68,6 +70,7 @@ class Template < ActiveRecord::Base
 
   def before_validation
     self.slug = slug.downcase if slug
+    true
   end
 
   # validate :check_resources, :if => :resources
