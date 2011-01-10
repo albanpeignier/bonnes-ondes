@@ -9,14 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100718213053) do
+ActiveRecord::Schema.define(:version => 20110109094221) do
 
   create_table "contents", :force => true do |t|
-    t.string   "type",             :default => "", :null => false
-    t.string   "name",             :default => "", :null => false
-    t.string   "slug",             :default => "", :null => false
+    t.string   "type",             :null => false
+    t.string   "name",             :null => false
+    t.string   "slug",             :null => false
     t.integer  "duration"
-    t.integer  "episode_id",       :default => 0,  :null => false
+    t.integer  "episode_id",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "audiobank_id"
@@ -27,17 +27,17 @@ ActiveRecord::Schema.define(:version => 20100718213053) do
 
   create_table "episodes", :force => true do |t|
     t.integer  "order"
-    t.string   "title",                                                       :default => "", :null => false
-    t.string   "slug",                                                        :default => "", :null => false
-    t.text     "description"
-    t.integer  "show_id",                                                     :default => 0,  :null => false
+    t.string   "title",                                                          :null => false
+    t.string   "slug",                                                           :null => false
+    t.string   "description",    :limit => 32000
+    t.integer  "show_id",                                                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "image_id"
     t.datetime "broadcasted_at"
     t.integer  "rating_count"
-    t.integer  "rating_total",   :limit => 10, :precision => 10, :scale => 0
-    t.decimal  "rating_avg",                   :precision => 10, :scale => 2
+    t.integer  "rating_total",   :limit => 10,    :precision => 10, :scale => 0
+    t.decimal  "rating_avg",                      :precision => 10, :scale => 2
   end
 
   create_table "hosts", :force => true do |t|
@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(:version => 20100718213053) do
     t.integer  "db_file_id"
     t.integer  "show_id"
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.integer  "position"
+    t.integer  "show_id"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -91,19 +101,19 @@ ActiveRecord::Schema.define(:version => 20100718213053) do
 
   create_table "shows", :force => true do |t|
     t.string   "name"
-    t.text     "description"
-    t.string   "slug",            :default => "", :null => false
+    t.string   "description",     :limit => 32000
+    t.string   "slug",                             :default => "", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "logo_id"
-    t.integer  "visit_count",     :default => 0,  :null => false
+    t.integer  "visit_count",                      :default => 0,  :null => false
     t.string   "podcast_comment"
     t.integer  "template_id"
   end
 
   create_table "shows_users", :id => false, :force => true do |t|
-    t.integer "show_id", :default => 0, :null => false
-    t.integer "user_id", :default => 0, :null => false
+    t.integer "show_id", :null => false
+    t.integer "user_id", :null => false
   end
 
   create_table "taggings", :force => true do |t|

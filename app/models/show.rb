@@ -4,7 +4,7 @@ class Show < ActiveRecord::Base
   has_one :host, :dependent => :destroy
   belongs_to :template
 
-  liquid_methods :name, :description, :episodes, :logo, :tags, :posts
+  liquid_methods :name, :description, :episodes, :logo, :tags, :posts, :pages
 
   def visit_count
     read_attribute(:visit_count) or 0
@@ -27,6 +27,7 @@ class Show < ActiveRecord::Base
   has_many :contents, :through => :episodes
   has_many :images, :dependent => :destroy
   has_many :posts, :dependent => :destroy, :order => "`created_at` desc"
+  has_many :pages, :dependent => :destroy, :order => "position"
 
   belongs_to :logo, :class_name => "Image", :foreign_key => "logo_id"
 

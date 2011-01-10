@@ -6,3 +6,11 @@ class Post < ActiveRecord::Base
 
   named_scope :last_updated, :order => 'updated_at desc', :limit => 5
 end
+# TODO move this f... code anywhere else
+class Post::LiquidDropClass
+
+  def url_for
+    view.url_for(@object)
+  end
+
+end

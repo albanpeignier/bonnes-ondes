@@ -1,0 +1,9 @@
+<h2><%= @page.show.name %> - <%= @page.title %></h2>
+<div class="content">
+<%= textilize(@page.content) %>
+</div>
+
+<div class="actions">
+<%= link_to("Modifier", edit_admin_show_page_path(@page.show, @page), :class => "edit") %>
+<%= link_to("Supprimer", admin_show_page_path(@page.show, @page), :method => "delete", :confirm => "Etes-vous sûr de vouloir définitivement supprimer cette page ?", :class => "destroy") %>
+</div>

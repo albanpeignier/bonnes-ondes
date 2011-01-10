@@ -43,6 +43,22 @@
   </div>
 <% end %>
 
+<h3>Pages</h3>
+
+<ul>
+  <% for page in @show.pages %>
+  <li>
+    <%= link_to page.title, [:admin, @show, page] %> | <%= link_to "up", move_up_admin_show_page_path(@show, page) unless page.first? %>
+    <br/>modifié <%= format_date(page.updated_at) %>
+  </li>
+  <% end %>
+</ul>
+
+<div class="actions">
+  <%= link_to "Tous les pages", admin_show_pages_path(@show) %>
+  <%= link_to "Ajouter une page", new_admin_show_page_path(@show) %>
+</div>
+
 <h3>Informations</h3>
 
 <ul>

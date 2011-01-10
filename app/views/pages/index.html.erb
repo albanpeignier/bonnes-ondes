@@ -1,0 +1,13 @@
+<h2><%= h @show.name %> - Informations</h2>
+
+<% for page in pages %>
+  <li>
+    <%= link_to(page.title, [:admin, @show, page]) %>
+    <br/>créé <%= format_date(page.created_at) %>
+  </li>
+<% end %>
+</ul>
+
+<div class="actions">
+  <%= link_to "Ajouter une ipage", new_admin_show_page_path(@show) %>
+</div>

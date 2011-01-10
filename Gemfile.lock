@@ -12,6 +12,7 @@ GEM
     activeresource (2.3.8)
       activesupport (= 2.3.8)
     activesupport (2.3.8)
+    acts-as-list (0.1.2)
     autotest (4.4.1)
     exception_notification (2.3.3.0)
     factory_girl (1.3.2)
@@ -20,6 +21,7 @@ GEM
       has_scope (~> 0.5.0)
       responders (~> 0.4.6)
     liquid (2.2.2)
+    mysql (2.8.1)
     rack (1.1.0)
     rails (2.3.8)
       actionmailer (= 2.3.8)
@@ -46,19 +48,23 @@ GEM
     rspec-rails (1.3.2)
       rack (>= 1.0.0)
       rspec (>= 1.3.0)
+    ryanb-acts-as-list (0.1.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   RedCloth
+  acts-as-list
   autotest
   exception_notification
   factory_girl
   inherited_resources (= 1.0.6)
   liquid
+  mysql
   rails (= 2.3.8)
   rcov
   remarkable_rails
   rmagick
   rspec-rails (< 2)
+  ryanb-acts-as-list

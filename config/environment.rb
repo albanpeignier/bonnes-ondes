@@ -41,6 +41,7 @@ Rails::Initializer.run do |config|
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc
   
+  config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => 'http://gems.github.com'
   config.gem "inherited_resources", :version => "= 1.0.6"
   config.gem "RedCloth", :lib => "redcloth"
   config.gem "liquid"
