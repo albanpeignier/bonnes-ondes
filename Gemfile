@@ -8,8 +8,11 @@ gem 'rmagick'
 gem 'exception_notification'
 gem 'acts-as-list'
 
+group :development do
+  gem "sqlite3-ruby"
+end
+
 group :test do
-  gem 'mysql'
   gem 'rspec-rails', '< 2'
   gem 'rcov'
   gem 'remarkable_rails'
