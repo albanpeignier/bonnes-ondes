@@ -5,16 +5,16 @@ class Content < ActiveRecord::Base
 
   named_scope :principal, :conditions => { :principal => true }
   named_scope :for_feed, lambda { |show| { 
-      :conditions => [ "shows.id = ? and episodes.broadcasted_at < ?", show.id, Time.now ], 
+      :conditions => [ "shows.id = ? and episodes.broadcasted_at < ? ", show.id, Time.now ], 
       :include => { :episode => [:tags, :show, :contents] },
       :order => "episodes.broadcasted_at desc"
     }
   }
 
-  liquid_methods :name, :episode, :duration, :has_duration?, :id, :available?
+  liquid_methods :name, :episode, :duration, :has_duration?, :id, :available?, :principal
 
   validates_presence_of :name, :message => "Pas de nom défini"
-  validates_length_of :name, :within => 3..30, :too_short => "Le nom est trop court", :too_long => "Le nom est trop long"
+  validates_length_of :name, :within => 3..40, :too_short => "Le nom est trop court", :too_long => "Le nom est trop long"
 
   validates_presence_of :slug, :message => "Pas de lien défini"
   validates_length_of :slug, :within => 3..30, :wrong_length => "Le lien doit contenir entre 3 et 20 lettres"
@@ -37,10 +37,13 @@ class Content < ActiveRecord::Base
   end
 
   def validate_content_type(content_types)
+    return false if content_url.blank?
+
     content_types = Array(content_types)
 
     begin
       response = http_request_head content_url
+      logger.debug "Content-Type: #{response['content-type']} for #{content_url}"
       content_types.include? response['content-type']
     rescue Net::HTTPServerException => e
       logger.warn("Can't validate content type for #{content_url}: #{e}")
@@ -69,7 +72,6 @@ class Content < ActiveRecord::Base
     end
   end
 
-
 end
 
 class NetContent < Content
@@ -85,9 +87,17 @@ class NetContent < Content
   end
 
   def validate
-    unless validate_content_type %w{ audio/mpeg application/ogg }
+    unless validate_content_type %w{ audio/mpeg application/ogg audio/ogg }
       errors.add_to_base("Ce document n'est pas trouvable")
     end
+  end
+
+end
+
+class TestContent < Content
+
+  def content_url(options = {})
+    "dummy"
   end
 
 end
@@ -123,6 +133,10 @@ class Content::LiquidDropClass
       :src => "/flash/mediaplayer.swf", :type => "application/x-shockwave-flash",
       :pluginspage => "http://www.macromedia.com/go/getflashplayer", :height => "20", :width => "370",
       :flashvars => "file=#{@object.content_url(:format => :mp3)}&autostart=true")
+  end
+
+  def audio_player
+    view.audio_player(@object)
   end
 
 end

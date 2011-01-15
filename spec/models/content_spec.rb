@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 class TestContent < Content
@@ -26,7 +27,7 @@ describe Content do
 
   end
 
-  describe "available?" do
+  describe "available? " do
     
     it "should be true if available_end_at is nil" do
       @content.available_end_at = nil
@@ -82,5 +83,42 @@ describe AudiobankContent do
     end
     
   end
+
+end
+
+describe Content::LiquidDropClass do
+  include ActionController::Assertions::SelectorAssertions
+
+  let(:content) { Content.new }
+  subject { Content::LiquidDropClass.new(content) }
+
+  class TestView 
+    include ActionView::Helpers::TagHelper
+    include ActionView::Helpers::CaptureHelper
+
+    attr_accessor :output_buffer
+  end
+
+  before(:each) do
+    def subject.view
+      @view ||= TestView.new
+    end
+  end
+
+  describe "audio_player" do
+
+    let(:audio_tag) { "<audio/>" }
+
+    before(:each) do
+      subject.view.stub :audio_player => audio_tag
+    end
+    
+    it "should use view audio_player method" do
+      subject.view.should_receive(:audio_player).with(content)
+      subject.audio_player.should == audio_tag
+    end
+
+  end
+  
 
 end

@@ -55,6 +55,14 @@ class Episode::LiquidDropClass
     view.url_for_episode(@object)
   end
 
+  def principal_contents
+    @object.contents.principal
+  end
+
+  def html_description
+    view.textilize(ContentFilter.new(@object).description_with_players(view))
+  end
+
   def vote_tag
     view.rate_tag(@object)
   end
