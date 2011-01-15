@@ -28,6 +28,14 @@ module ApplicationHelper
     url_for :controller => "public", :action => "feed", :host => show_hostname(show)
   end
 
+  def url_for_page(page, options = {})
+    options.update({ :controller => "public", :action => "page",
+      :host => show_hostname(page.show),
+      :page_slug => page.slug })
+
+    url_for options
+  end
+
   def url_for_episode(episode, options = {})
     options.update({ :controller => "public", :action => "episode",
       :host => show_hostname(episode.show),

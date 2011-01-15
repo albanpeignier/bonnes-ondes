@@ -1,6 +1,7 @@
 class RemoveBasicTemplate < ActiveRecord::Migration
   def self.up
-    Template.find_by_slug("basic").destroy
+    template=Template.find_by_slug('basic')
+    template.destroy unless template.nil?
   end
 
   def self.down

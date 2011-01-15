@@ -1,0 +1,24 @@
+<h1>Editing page</h1>
+
+<% form_for([:admin, @page.show, @page]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :slug %><br />
+    <%= f.text_field :slug %>
+  </p>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit "Modifier" %>
+    ou <%= link_to 'revenir', admin_show_page_path(@page.show, @page) %>
+  </p>
+<% end %>
+
+

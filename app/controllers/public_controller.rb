@@ -31,6 +31,11 @@ class PublicController < ApplicationController
     render_show
   end
 
+  def page
+    @page = find_page
+    render_template @page.show, :page, @page
+  end
+
   def episode
     @episode = find_episode
     render_template @episode.show, :episode, @episode
@@ -149,6 +154,10 @@ class PublicController < ApplicationController
   end
   alias_method :load_show, :current_show
   alias_method :assigns_show, :current_show
+
+  def find_page
+    current_show.pages.find_by_slug(params[:page_slug]) or raise ActiveRecord::RecordNotFound
+  end
 
   def find_episode
     current_show.episodes.find_by_slug(params[:episode_slug]) or raise ActiveRecord::RecordNotFound

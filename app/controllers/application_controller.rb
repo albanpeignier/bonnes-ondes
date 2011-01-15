@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   include ExceptionNotification::Notifiable
 
   helper :all
+  helper_method :admin_show_path
+
 
   before_filter :login_from_cookie, :login_required
 
@@ -19,6 +21,12 @@ class ApplicationController < ActionController::Base
     else
       render :text => content.content_url, :content_type => "audio/x-mpegurl"
     end
+  end
+  
+  protected
+
+  def admin_show_path(show)
+    url_for :controller => "/show", :action => "show", :id => show
   end
 
   private

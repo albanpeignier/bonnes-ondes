@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <title>{{page.show.name}} - Bonnes Ondes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="{{theme.url_for_assets}}/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="page">
+    <div id="all" class="normal">
+    <div id="header">
+      <div class="left border"></div>
+      <div class="right border"></div>
+      <h1><a href="{{page.show.url_for}}">{{page.show.name}}</a> - {{page.title}}</h1>
+    </div>
+
+    <div id="view">
+      <div class="left border"></div>
+      <div class="right border"></div>
+
+      <div id="page">
+        <div class="description">
+          {{page.content | textilize}}
+        </div>
+
+        <div id="links">
+          Retour à <a href="{{page.show.url_for}}">{{page.show.name}}</a>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="left border"></div>
+      <div class="right border"></div>
+
+      <p>
+        {{theme.admin_link_tag}}
+      </p>
+    </div>
+  </div>
+ </body>
+</html>

@@ -6,8 +6,11 @@ gem 'RedCloth'
 gem 'liquid'
 gem 'rmagick'
 gem 'exception_notification'
+gem 'ryanb-acts-as-list'
+gem 'acts-as-list'
 
 group :test do
+  gem 'mysql'
   gem 'rspec-rails', '< 2'
   gem 'rcov'
   gem 'remarkable_rails'
