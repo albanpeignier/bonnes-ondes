@@ -1,11 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
 describe "Partial public/feed_content" do
-
-  fixtures :contents, :episodes
   
   before do
-    @content = contents(:first)
+    @content = Factory(:show).contents.first
   end
 
   def render_partial

@@ -11,12 +11,13 @@ Factory.define :user do |u|
   u.activated_at Time.now
 end
 
-Factory.define :show do |u|
-  u.sequence(:slug) { |n| "slug-#{n}" }
-  u.name "name"
-  u.description "description"
-  u.users { |users| [users.association(:user)] }
-  u.episodes { |episodes| [episodes.association(:episode), episodes.association(:episode)] }
+Factory.define :show do |f|
+  f.sequence(:slug) { |n| "slug-#{n}" }
+  f.name "name"
+  f.description "description"
+  f.users { |users| [users.association(:user)] }
+  f.episodes { |episodes| [episodes.association(:episode), episodes.association(:episode)] }
+  f.association :template
 end
 
 Factory.define :episode do |f|
@@ -27,7 +28,7 @@ Factory.define :episode do |f|
   f.contents { |contents| [contents.association(:content), contents.association(:content)] }
 end
 
-Factory.define :content do |f|
+Factory.define :content, :class => TestContent do |f|
   f.sequence(:slug) { |n| "content-#{n}" }
   f.name "name"
   f.principal true
@@ -55,6 +56,6 @@ end
   
 Factory.define :template do |f|
   f.name "Test"
-  f.slug "test"
+  f.sequence(:slug) { |n| "test-#{n}" }
   f.scm_url "dummy"
 end

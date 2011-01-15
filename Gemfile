@@ -6,7 +6,6 @@ gem 'RedCloth'
 gem 'liquid'
 gem 'rmagick'
 gem 'exception_notification'
-gem 'ryanb-acts-as-list'
 gem 'acts-as-list'
 
 group :test do
@@ -18,3 +17,12 @@ group :test do
   gem 'autotest'
 end
 
+group :cucumber do
+  gem 'webrat'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'pickle'
+  gem 'factory_girl'
+  gem "launchy"
+end

@@ -24,6 +24,6 @@ class TestUploadedFile
   alias local_path path
 
   def method_missing(method_name, *args, &block) #:nodoc:
-    @tempfile.send!(method_name, *args, &block)
+    @tempfile.send(method_name, *args, &block)
   end
 end

@@ -60,6 +60,10 @@ class Show < ActiveRecord::Base
     @default_template ||= (Template.find_by_slug(self.slug) or Show.default_template)
   end
 
+  def self.default_template=(default_template)
+    @@default_template = default_template
+  end
+
   def self.default_template
     @@default_template ||= Template.find_by_slug('cocoa')
   end
