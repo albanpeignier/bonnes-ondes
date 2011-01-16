@@ -43,6 +43,7 @@ GEM
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
     liquid (2.2.2)
+    mysql (2.8.1)
     nokogiri (1.4.4)
     pickle (0.4.4)
       cucumber (>= 0.8)
@@ -101,6 +102,7 @@ DEPENDENCIES
   inherited_resources (= 1.0.6)
   launchy
   liquid
+  mysql
   pickle
   rails (= 2.3.8)
   rcov
