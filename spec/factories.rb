@@ -16,8 +16,11 @@ Factory.define :show do |f|
   f.name "name"
   f.description "description"
   f.users { |users| [users.association(:user)] }
-  f.episodes { |episodes| [episodes.association(:episode), episodes.association(:episode)] }
   f.association :template
+
+  f.after_build do |show|
+    2.times { show.episodes << Factory.build(:episode, :show => show) }
+  end
 end
 
 Factory.define :episode do |f|
@@ -25,7 +28,9 @@ Factory.define :episode do |f|
   f.sequence(:order) { |n| n }
   f.title "title"
   f.description "description"
-  f.contents { |contents| [contents.association(:content), contents.association(:content)] }
+  f.after_build do |episode|
+    3.times { episode.contents << Factory.build(:content, :episode => episode) }
+  end
 end
 
 Factory.define :content, :class => TestContent do |f|
