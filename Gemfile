@@ -4,12 +4,12 @@ gem 'rails', '2.3.8'
 gem 'inherited_resources', '= 1.0.6'
 gem 'RedCloth'
 gem 'liquid'
-gem 'rmagick'
 gem 'exception_notification'
 gem 'acts-as-list'
 
 group :development do
   gem "sqlite3-ruby"
+  gem 'rmagick'
 end
 
 group :test do
