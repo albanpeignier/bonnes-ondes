@@ -29,3 +29,7 @@ group :cucumber do
   gem 'factory_girl'
   gem "launchy"
 end
+
+group :production do
+  gem 'SyslogLogger'
+end
