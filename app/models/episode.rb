@@ -6,7 +6,7 @@ class Episode < ActiveRecord::Base
   named_scope :broadcasted, lambda { {:conditions => ["broadcasted_at < ?", Time.now] } }
   named_scope :not_broadcasted, lambda { {:conditions => ["broadcasted_at > ?", Time.now] } }
 
-  liquid_methods :show, :title, :description, :image, :contents, :broadcasted_at, :tags, :rating_count, :rating_total, :rating_avg
+  liquid_methods :show, :slug, :title, :description, :image, :contents, :broadcasted_at, :tags, :rating_count, :rating_total, :rating_avg
 
   validates_presence_of :order, :message => "Pas de numéro défini"
   validates_uniqueness_of :order, :scope => :show_id, :message => "Un épisode utilise déjà ce numéro"
