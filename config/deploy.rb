@@ -22,7 +22,8 @@ namespace :deploy do
 
   desc "Install gems"
   task :gems, :roles => :app do
-    sudo "rake --rakefile=#{release_path}/Rakefile gems:install RAILS_ENV=production"
+    run "mkdir -p #{shared_path}/bundle"
+    run "cd #{release_path} && bundle install --deployment --path=#{shared_path}/bundle --without=test development cucumber"
   end
 
   desc "Symlinks shared configs and folders on each release"
