@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <title>{{show.name}} - Bonnes Ondes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="{{theme.url_for_assets}}/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" title="Podcast de {{show.name}}" href="{{show.url_for_podcast}}"/>
+  </head>
+
+  <body class="show">
+    <h1>{{show.name}}</h1>
+    
+    <div class="description">
+      {{show.logo.tag}}
+      {{show.description | textilize}}
+    </div>
+  
+    <h2>Tous les épisodes</h2>
+
+    <ul class="episodes">
+      {% for episode in show.episodes %}
+      <li>
+        <a href="{{episode.url_for}}">
+          <img class="podcast" src="{{theme.url_for_assets}}/images/ecouter-small.png"/>
+        </a>
+
+        <a href="{{episode.url_for}}">{{episode.title}}</a><br/>
+        {% if episode.broadcasted_at %}
+        <span class="broadcast_date">diffusé {{episode.broadcasted_at | date: 'le %d/%m/%Y à %Hh%M'}}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    
+    <p>
+      Pour suivre tous nos programmes, il suffit de vous abonner au podcast de {{show.name}} :
+    </p>
+        
+    <div class="podcast">
+      <a href="{{show.url_for_podcast}}">
+        <img src="{{theme.url_for_assets}}/images/podcast.png"/>
+      </a>
+      
+      <p>
+        Adresse du podcast : <input class="podcast" size="{{show.url_for_podcast | size}}" value="{{show.url_for_podcast}}" type="text" readonly="true"/> {{show.clippy_for_podcast}}
+      </p>
+      
+      <p>
+        <a href="{{show.itpc_url_for_podcast}}" title="Ajouter ce podcast dans votre iTunes">iTunes</a> 
+        | <a href="{{show.url_for_podcast}}" title="Voir le feed RSS">RSS</a> 
+        | <a href="http://wiki.tryphon.org/comment_lire_un_podcast" title="Comment lire un podcast ?">Aide</a>
+      </p>
+    </div>
+  </body>
+</html>
