@@ -6,8 +6,9 @@ class PublicController < ApplicationController
 
   append_view_path "#{Rails.root}/templates"
 
-  before_filter :assigns_show, :create_user_google_analytics_account, :except => [:feed, :robots, :welcome]
   before_filter :assigns_now
+  before_filter :assigns_show, :except => [:feed, :robots, :welcome]
+  before_filter :create_user_google_analytics_account, :except => [:feed, :robots]
 
   rescue_from ActiveRecord::RecordNotFound, :with => :show_home_page_when_not_found
   rescue_from ActionView::MissingTemplate, :with => :no_such_template
@@ -130,7 +131,8 @@ class PublicController < ApplicationController
   def create_user_google_analytics_account
     user_tracker_id = (current_show and current_show.host and current_show.host.google_analytics_tracker_id)
 
-    unless user_tracker_id.blank?
+    if user_tracker_id.present?
+      logger.debug "Use additionnal Google Analytics account: #{user_tracker_id}"
       request.google_analytics_account = Rubaidh::GoogleAnalytics.new(user_tracker_id)
     end
   rescue ActiveRecord::RecordNotFound
