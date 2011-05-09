@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+require File.dirname(__FILE__) + '/../config/environment'
+
+class TemplateCLI
+
+  attr_reader :slug
+
+  def initialize(slug)
+    @slug = slug
+  end
+
+  def create
+    template.save!
+    generate
+    git_init
+    push
+  end
+
+  def generate
+    system "./script/generate template #{slug}"
+  end
+
+  def template
+    User.find_by_login(ENV['USER']).templates.find_or_create_by_slug :name => slug, :slug => slug, :scm_url => "git@github.com:tryphon/bonnes-ondes-#{slug}.git"
+  end
+
+  def git_init
+    system "cd templates/#{slug} && git init . && git add . && git commit -m 'first commit' && git remote add origin git@github.com:tryphon/bonnes-ondes-re2011.git" unless File.exists?("templates/#{slug}/.git")
+  end
+
+  def push
+    system "cd templates/#{slug} && git push origin master"
+  end
+
+end
+
+TemplateCLI.new(ARGV.shift).send(*ARGV)
