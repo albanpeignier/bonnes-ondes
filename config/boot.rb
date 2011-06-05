@@ -1,3 +1,6 @@
+# Fix new rubygem version import for rails < 3 
+require 'thread'
+
 # Don't change this file!
 # Configure your app in config/environment.rb and config/environments/*.rb
 
