@@ -28,6 +28,7 @@ group :cucumber do
   gem 'pickle'
   gem 'factory_girl'
   gem "launchy"
+  gem "gherkin"
 end
 
 group :production do
