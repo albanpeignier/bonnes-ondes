@@ -14,8 +14,12 @@ xml.rss :version => "2.0", 'xmlns:itunes' => "http://www.itunes.com/dtds/podcast
   		xml.itunes :image, :href => image_path(@show.logo.public_filename(:normal))
 		end
 
-    contents_for_feed(@show).each do |content|
-       xml << render(:partial => "feed_content", :object => content)
+    items_for_feed(@show).each do |item|
+      if Content === item
+        xml << render(:partial => "feed_content", :object => item)
+      else
+       xml << render(:partial => "feed_post", :object => item)
+      end
     end
 	end
 end

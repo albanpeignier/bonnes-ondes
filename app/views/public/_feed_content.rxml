@@ -26,5 +26,6 @@ xml.item do
   xml.guid url_for_episode(content.episode, :only_path => false)
   xml.link url_for_episode(content.episode, :only_path => false)
 
-  xml.pubDate content.episode.updated_at.strftime("%a, %e %b %Y %T %Z")
+  pub_date = (content.episode.broadcasted_at or content.episode.created_at)
+  xml.pubDate pub_date.strftime("%a, %e %b %Y %T %Z")
 end

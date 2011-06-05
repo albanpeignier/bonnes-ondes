@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def show_hostname(show)
-    hostname = if show.host.nil?
+    hostname = if show.host.nil? or show.host.name.nil?
       "#{show.slug}.#{main_domain}"
     else
       show.host.name

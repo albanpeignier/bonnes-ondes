@@ -1,0 +1,15 @@
+post = feed_post
+
+xml.item do
+  xml.title post.title
+
+  text = textilize_in_text(post.description)
+  xml.description text
+  xml.itunes :summary, text
+
+  xml.guid "#{url_for_show(post.show, :only_path => false)}posts/#{post.slug}"
+  # TODO
+  # xml.link url_for_episode(content.episode, :only_path => false)
+
+  xml.pubDate post.created_at.strftime("%a, %e %b %Y %T %Z")
+end
