@@ -77,7 +77,7 @@ module Rubaidh # :nodoc:
     # correctly for the specified format
     def self.enabled?(format)
       raise Rubaidh::GoogleAnalyticsConfigurationError if analytics_url.blank?
-      not default_account.blank? and environments.include?(RAILS_ENV) and formats.include?(format.to_sym)
+      not default_account.blank? and environments.include?(RAILS_ENV) and (format.nil? or formats.include?(format.to_sym))
     end
 
     def self.accounts(request)
