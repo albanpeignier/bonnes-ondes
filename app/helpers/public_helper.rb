@@ -9,7 +9,7 @@ module PublicHelper
 
   def items_for_feed(show)
     (contents_for_feed(show) + show.posts).sort_by do |item|
-      %w{broadcasted_at created_at}.select do |attribute|
+      %w{broadcasted_at created_at}.find do |attribute|
         item.respond_to?(attribute) and item.send(attribute).present?
       end
     end
