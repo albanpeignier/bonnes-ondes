@@ -4,6 +4,7 @@ class SitemapsController < ApplicationController
 
   def show
     @show = Show.find_by_slug(params[:id])
+    raise ActiveRecord::RecordNotFound unless @show
     render :layout => false
   end
 
