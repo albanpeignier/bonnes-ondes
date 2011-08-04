@@ -4,13 +4,8 @@ module ContentHelper
   def audio_player(content)
     return "" unless content
 
-    content_tag(:div, :class => "content") do
-      content_tag(:p, "#{content.name} (durée #{content.duration} min.)") +
-      content_tag(:audio, :controls => "controls", :preload => "none") do
-        tag(:source, :type => "audio/mpeg", :src => content.content_url(:format => :mp3)) +
-          tag(:source, :type => "audio/ogg; codecs=vorbis", :src => content.content_url(:format => :ogg)) +
-          content_tag(:a, "Écouter", :href => url_for_content(content, :mode => :playlist))
-      end
+    content_tag(:div, :class => "ui360") do
+      content_tag :a, "#{content.name} (durée #{content.duration} min.)", :title => "Ecouter #{content.name}", :href => content.content_url(:format => :mp3)
     end
   end
 
