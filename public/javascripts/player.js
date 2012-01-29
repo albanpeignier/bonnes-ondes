@@ -5095,5 +5095,5 @@ if (threeSixtyPlayer.config.useEQData) {
 if (threeSixtyPlayer.config.usePeakData) {
 	soundManager.flash9Options.usePeakData = true;
 }
-soundManager.debugMode = true;
+// soundManager.debugMode = true;
 soundManager.useHTML5Audio = true;
