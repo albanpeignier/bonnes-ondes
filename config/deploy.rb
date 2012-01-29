@@ -1,14 +1,16 @@
 set :application, "bonnes-ondes"
 set :scm, "git"
-set :repository, "git://www.dbx.tryphon.priv/bonnes-ondes"
 
+set :repository, "git://www.tryphon.priv/bonnes-ondes"
 set :deploy_to, "/var/www/bonnes-ondes"
 
 set :keep_releases, 5
 after "deploy:update", "deploy:cleanup" 
 set :use_sudo, false
 
-server "radio.dbx.tryphon.priv", :app, :web, :db, :primary => true
+set :rake, "bundle exec rake"
+
+server "bonnesondes.dbx1.tryphon.priv", :app, :web, :db, :primary => true
 
 after "deploy:update_code", "deploy:symlink_shared", "deploy:gems"
 
